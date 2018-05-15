@@ -1,10 +1,6 @@
 <html>
 <head>
 <title>无限剑制</title>
-<mate cahrset="utf-8">
-	<style>
-		div {background: url(images/无限剑制.png);width: 100%;height: 100%;margin: 0 auto;font-size: 30px;color: #FD0004;padding-left: 500px}
-	</style>
 </head>
 <body>
 	<div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;无限剑制<br>
@@ -25,6 +21,6 @@ Yet,those hands will never hold anything.<br>
 So as I pray,unlimited blade works！
 此身，已成无限之剑！
 	</div>
-	
+	<img src="./images/无限剑制.png">
 </body>
 </html>																					
