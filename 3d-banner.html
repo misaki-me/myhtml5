@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style id="css">
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*html{overflow-y:hidden;}*/
+/*头部样式*/
+.h-main{width:100%;height:188px;position:relative;}
+#header{margin:0 auto;width:360px;height:188px;}
+#header pre{font-size:180px;display: block;}
+/*内容样式*/
+#wrap{
+	width:1000px;
+	height:600px;
+	margin:0 auto;
+	border:5px #000 double;
+	border-width:21px;
+	overflow:hidden;
+	border-radius:5%;
+	position:relative;
+	}
+	#wrap .cube{
+		width:500px;
+		height:300px;
+		margin:150px auto;
+		position:relative;
+	}
+	#wrap .cube ul{
+		width:500px;
+		height:300px;
+		perspective:800px;
+	}
+	#wrap .cube ul li{
+		transform-style:preserve-3d;
+		transform:translateZ(-150px) rotateX(0deg);
+		position:relative;
+		float:left;
+		
+		height:300px;
+	}
+	#wrap .cube ul li div{
+		height:300px;
+		position:absolute;
+	}
+	#wrap .cube div:nth-child(1){
+		transform:translateZ(150px) rotateX(90deg);
+		background:url("images/top.jpg");
+		background-size:500px 300px;
+		left:0px;
+		top:-300px;
+		transform-origin:bottom;
+	}
+	#wrap .cube div:nth-child(2){
+		transform:translateZ(150px) rotateX(-90deg);
+		background:url("images/bottom.jpg");
+		background-size:500px 300px;
+		left:0px;
+		top:300px;
+		transform-origin:top;
+	}
+	#wrap .cube div:nth-child(3){
+		left:0px;
+		top:0px;
+		transform:translateZ(150px);
+		background:url("images/front.png");
+		background-size:500px 300px;
+	}
+	#wrap .cube div:nth-child(4){
+		left:0;top:0;
+		transform:translateZ(-150px) rotateX(-180deg);
+		background:url("images/behind.jpg");
+		background-size:500px 300px;
+	}
+	#wrap .cube div:nth-child(5){
+		left:0;top:0;
+		transform:translateZ(150px) rotateY(90deg);
+		transform-origin:left;
+	}
+	#wrap .cube div:nth-child(6){
+		left:0;top:0;
+		transform:translateZ(15px) rotateY(-90deg);
+		transform-origin:right;
+	}
+	ol{
+		width:200px;
+		height:20px;
+		position:absolute;
+		right:112px;bottom:0px;
+		list-style:none;
+	}
+	ol li{
+		width:20px;
+		height:20px;
+		border-radius:50%;
+		background:#000;
+		float:left;
+		margin-left:10px;
+		color:#fff;
+		text-align:center;
+		line-height:20px;
+	}
+/*尾部样式*/
+.f-main{width:100%;height:80px;position:relative;}
+#footer{margin:-41px auto;width:658px;height:80px;}
+#footer pre{font-size:130px;display: block;}
+</style>
+</head>
+<body>
+<!--头部区域<-->
+<div class="h-main">
+<div id="header">
+	<pre>
+╲╱
+	</pre>
+</div>
+</div>
+<!--内容区域-->
+<div id="wrap">
+	<div class="cube">
+		<ul></ul>
+	<ol>
+		<li>1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ol>
+	</div>
+</div>
+<!--尾部区域-->
+	<div class="f-main">
+<div id="footer">
+	<pre>
+∪       ∪
+	</pre>
+</div>
+	</div>
+</body>
+<script src="js/jquery-1.12.1.min.js"></script>
+<script>
+function rotate(n){
+		var lw = 500/n;//具体每个li的宽度
+		var html = "";
+		var css = "";
+		var z = 0;
+		for (var i = 0;i<n ;i++ )
+		{
+			if (i>n/2){z--}else{z++}
+			html +="<li><div></div><div></div><div></div><div></div><div></div><div></div></li>";
+			css +="#wrap .cube ul li:nth-child("+(i+1)+"){transition:1s "+(i*0.08)+"s;z-index:"+z+";}#wrap .cube ul li:nth-child("+(i+1)+") div{background-position:"+(-i*lw)+"px 0px;}";
+		}
+		$("#css").append("#wrap .cube ul li{width:"+lw+"px;}#wrap .cube ul li div{width:"+lw+"px;}"+css);
+
+		$("ul").append(html);
+	}
+	rotate(8);
+	$("ol li").click(function(){
+			var index = $(this).index();
+			var i = -index*90 +"deg";
+			$("ul li").css("transform","translateZ(-150px) rotateX("+i+")");
+		});
+</script>
+</html>

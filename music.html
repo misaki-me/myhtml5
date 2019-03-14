@@ -1,0 +1,562 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<link rel="stylesheet" href="css\video\iconfont.css">
+<style id="style">
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+clear{clear:both;}
+/*html{overflow-y:hidden;}*/
+/*头部样式*/
+.h-main{width:100%;height:188px;position:relative;}
+#header{margin:0 auto;width:360px;height:188px;}
+#header pre{font-size:180px;display: block;}
+/*内容样式*/
+#wrap{width:1000px;height:600px;margin:0 auto;border:5px #000 double;border-width:21px;border-radius:5%;position:relative;overflow:hidden;}
+.b-main{
+		width:100%;
+		height:400px;
+		position:absolute;
+		margin-top:-250px;
+		top:50%;
+	}
+.box{
+	position:absolute;
+	top:0;
+	left:50%;
+	margin-left:-200px;
+	width:300px;
+	height:300px;
+	border-radius:50%;
+	border:50px solid #000;
+	background:url(images/lemon.png);
+	background-repeat: no-repeat;
+	background-position:-452px -121px;
+	background-size:1208px 610px;
+	transition:all 1ms linear ;
+	transform:rotate(0deg);
+	}
+p{
+	font-size:35px;
+	width:100%;
+	text-align:center;
+	position: absolute;
+	line-height:100px;
+	bottom:0;
+	opacity:0;
+	transition:1s;
+	}
+/*		.one{animation: myfirst 44s infinite;color:#333;}
+		.two{animation: mysecond 44s infinite;color:#333;}
+		.three{animation: mythird 44s infinite;color:#333;}
+		.four{animation: myfourth 44s infinite;color:#333;}
+		.five{animation: myfifth 44s infinite;color:#333;}
+		.six{animation: mysixth 44s infinite;color:#333;}
+		.seven{animation: myseventh 44s infinite;color:#333;}
+		.eight{animation: myeighth 44s infinite;color:#333;}
+		@keyframes myfirst{
+			0%{opacity: 0}
+			6%{opacity: 0}//开始
+			9%{opacity: 100}//持续时间
+			11%{opacity: 100}//持续时间
+			12%{opacity: 0}//结束
+			100%{opacity: 0}
+		}
+		@keyframes mysecond{
+			0%{opacity: 0}
+			11%{opacity: 0}
+			15%{opacity: 100}
+			18%{opacity: 100}
+			19%{opacity: 0}
+			100%{opacity: 0}
+		}
+		@keyframes mythird{
+			0%{opacity: 0}
+			19%{opacity: 0}
+			28%{opacity: 100}
+			32%{opacity: 100}
+			33%{opacity: 0}
+			100%{opacity: 0}
+		}
+			@keyframes myfourth{
+			0%{opacity: 0}
+			33%{opacity: 0}
+			36%{opacity: 100}
+			39%{opacity: 100}
+			40%{opacity: 0}
+			100%{opacity: 0}
+		}
+			@keyframes myfifth{
+			0%{opacity: 0}
+			40%{opacity: 0}
+			42%{opacity: 100}
+			46%{opacity: 100}
+			47%{opacity: 0}
+			100%{opacity: 0}
+		}
+			@keyframes mysixth{
+			0%{opacity: 0}
+			48%{opacity: 0}
+			54%{opacity: 100}
+			61%{opacity: 100}
+			62%{opacity: 0}
+			100%{opacity: 0}
+		}
+			@keyframes myseventh{
+			0%{opacity: 0}
+			61%{opacity: 0}
+			66%{opacity: 100}
+			73%{opacity: 100}
+			74%{opacity: 0}
+			100%{opacity: 0}
+		}
+			@keyframes myeighth{
+			0%{opacity: 0}
+			74%{opacity: 0}
+			81%{opacity: 100}
+			90%{opacity: 100}
+			91%{opacity: 0}
+			100%{opacity: 0}
+		}*/
+	.song{
+		height:100px;
+		width:100%;
+		position:relative;
+		top:440px;
+	}
+	.iconfont{
+		font-size:40px;
+		color:#D3D3D3;
+		display:inline-block;
+		cursor:pointer;
+		position:absolute;
+		line-height:60px;
+	}
+	#play{
+		left:60px;
+	}
+	#volume{
+		right:130px;
+	}
+	#pre{
+		left:20px;
+	}
+	#next{
+		left:100px;
+	}
+	#controls{
+		background:rgba(0,0,0,.5);
+		position:relative;
+		height:60px;
+		width:100%;
+		bottom:-440px;
+	}
+	#d1{
+		width:55%;
+		height:5px;
+		position:relative;
+		background:#D3D3D3;
+		left:210px;
+		top:50%;
+		margin-top:2.5px;
+	}
+	#d2{
+		height:5px;
+		background:#B82525;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	#d3{
+		width:3px;
+		height:3px;
+		border-radius:50%;
+		background:#B82525;
+		position:absolute;
+		left:0;
+		top:-4px;
+		border:5px solid #fff;
+		cursor:pointer;
+	}
+	#d4{
+		width:100px;
+		height:5px;
+		background:#D3D3D3;
+		position:relative;
+		left:875px;
+		top:27px;
+	}
+	#d5{
+		width:50px;
+		height:5px;
+		background:#B82525;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	#d6{
+		width:3px;
+		height:3px;
+		border-radius:49%;
+		background:#B82525;
+		position:absolute;
+		left:50%;
+		top:-4px;
+		border:5px solid #fff;
+		cursor:pointer;
+	}
+	#time{
+		color:#D3D3D3;
+		line-height:60px;
+		position:relative;
+		top:-3px;
+	}
+	#star{
+		left:160px;
+		position:absolute;
+	}
+	#end{
+		right:187px;
+		position:absolute;
+	}
+/*尾部样式*/
+.f-main{width:100%;height:80px;position:relative;}
+#footer{margin:-41px auto;width:658px;height:80px;}
+#footer pre{font-size:130px;display: block;}
+</style>
+</head>
+<body>
+<!--头部区域-->
+<div class="h-main">
+<div id="header">
+	<pre>
+╲╱
+	</pre>
+</div>
+</div>
+<!--内容区域-->
+<div id="wrap">
+	<div class="b-main">
+		<div class="box"></div>
+		<audio src="audio/Lemon(Slow Ver).wav" id="bgm"></audio>
+	</div>
+	<div class="song">
+		<p id="s2">あの日の悲しみさえ</p>
+		<p id="s5">あの日の苦しみさえ</p>
+		<p id="s8">そのすべてを愛してた あなたとともに</p>
+		<p id="s15">胸に残り離れない</p>
+		<p id="s17">苦いレモンの匂い</p>
+		<p id="s21">雨が降り止むまでは帰れない</p>
+		<p id="s27">切り分けた果実の片方の様に</p>
+		<p id="s33">今でもあなたはわたしの光</p>
+	</div>
+	<div id="controls">
+		<lable>
+			<i id="play" class="iconfont icon-bofang"></i>
+		</lable>
+		<lable>
+			<i id="pre" class="iconfont icon-shangyishou"></i>
+		</lable>
+		<lable>
+			<i id="next" class="iconfont icon-xiayishou"></i>
+		</lable>
+		<div id="d1">
+			<div id="d2"></div>
+			<div id="d3"></div>
+		</div>
+		<div id="time">
+			<span id="star">00:00</span>
+			<span id="end">00:00</span>
+		</div>
+		<lable>
+			<i id="volume" class="iconfont icon-yinliang"></i>
+		</lable>
+		<div id="d4">
+			<div id="d5"></div>
+			<div id="d6"></div>
+		</div>
+	</div>
+</div>
+<!--尾部区域-->
+	<div class="f-main">
+<div id="footer">
+	<pre>
+∪       ∪
+	</pre>
+</div>
+	</div>
+</body>
+<script>
+var bgm=document.getElementById('bgm');
+var play=document.getElementById('play');
+var pre=document.getElementById('pre');
+var next=document.getElementById('next');
+var volume=document.getElementById('volume');
+var star=document.getElementById('star');
+var end=document.getElementById('end');
+var play=document.getElementById('play');
+var pic= document.getElementsByClassName("box")[0];
+var d1 = document.getElementById("d1");
+var d2 = document.getElementById("d2");
+var d3 = document.getElementById("d3");
+var d4 = document.getElementById("d4");
+var d5 = document.getElementById("d5");
+var d6 = document.getElementById("d6");
+var style=document.getElementById('style');
+var lrcArry=document.getElementsByTagName('p');
+var song= document.getElementsByClassName("song")[0];
+var mark=true;
+var timer=null;
+bgm.volume=0.05;
+//上一首
+pre.onclick=function(){
+//	var className=play.getAttribute('class');
+//	className=" "+className+" ";
+//	className=className.replace('icon-bofang','icon-zanting');
+//	play.setAttribute('class',className);
+	play.classList.toggle('icon-bofang');
+	play.classList.toggle('icon-bofang');
+	nowTime();
+	timer=setInterval(nowTime,100);
+	pic.addEventListener('transitionend',move);
+	bgm.src='audio/Lemon(Slow Ver).wav';
+	pic.style.cssText+='background:url(images/lemon.png); background-repeat:no-repeat; background-size:1208px 610px; background-position:-452px -121px;';
+	bgm.play();
+	song.innerHTML='';
+	song.innerHTML='<p id="s2">あの日の悲しみさえ</p><p id="s5">あの日の苦しみさ</p><p id="s8">そのすべてを愛してた あなたとともに</p><p id="s15">胸に残り離れない</p><p id="s17">苦いレモンの匂い</p><p id="s21">雨が降り止むまでは帰れない</p><p id="s27">切り分けた果実の片方の様に</p><p id="s33">今でもあなたはわたしの光</p>';
+};
+//下一首
+next.onclick=function(){
+//	var className=play.getAttribute('class');
+//	className=" "+className+" ";
+//	className=className.replace('icon-bofang','icon-zanting');
+//	play.setAttribute('class',className);
+	play.classList.toggle('icon-zanting');
+	play.classList.toggle('icon-bofang');
+	nowTime();
+	timer=setInterval(nowTime,100);
+	pic.addEventListener('transitionend',move);
+	bgm.src='audio/爱してる 精简版.mp3';
+	pic.style.cssText+='background:url(images/爱してる.jpg); background-repeat:no-repeat; background-size:481px 300px; background-position:0 0;';
+	bgm.play();
+	song.innerHTML='';
+	song.innerHTML='<p id="s0">『愛している 愛している世界が終わるまで』</p><p id="s13">馬鹿げてると 笑いながら口に出してみて</p><p id="s25">愛している そんなことが簡単には 出来なくて</p><p id="s39">上手く愛せるようにと</p><p id="s45">あの空に 祈っている</p>';
+}	
+//歌词联动
+bgm.addEventListener('timeupdate',function(){
+	var curr=parseInt(this.currentTime);
+	if(document.getElementById('s'+curr))
+		{	
+			var lrc=document.getElementById('s'+curr);
+			lrc.style.opacity=1;
+			for(var i=0;i<siblings(lrc).length;i++)
+			siblings(lrc)[i].style.opacity=0;	
+		}
+		if(bgm.currentTime==bgm.duration)
+		{
+//			var className=play.getAttribute('class');
+//			className=" "+className+" ";
+//			className=className.replace('icon-bofang','icon-zanting');
+//			play.setAttribute('class',className);
+			play.classList.toggle('icon-bofang');
+			play.classList.toggle('icon-zanting');
+			nowTime();
+			timer=setInterval(nowTime,100);
+			pic.addEventListener('transitionend',move);
+			bgm.src='audio/爱してる 精简版.mp3';
+			pic.style.cssText+='background:url(images/爱してる.jpg); background-repeat:no-repeat; background-size:481px 300px; background-position:0 0;';
+			bgm.play();
+			song.innerHTML='';
+			song.innerHTML='<p id="s0">『愛している 愛している世界が終わるまで』</p><p id="s13">馬鹿げてると 笑いながら口に出してみて</p><p id="s25">愛している そんなことが簡単には 出来なくて</p><p id="s39">上手く愛せるようにと</p><p id="s45">あの空に 祈っている</p>';
+		}
+})	
+		
+	//播放暂停
+play.onclick=function(){
+	if(mark){
+		pic.addEventListener('transitionend',move);
+//		var className=this.getAttribute('class');
+//		className=" "+className+" ";
+//		className=className.replace('icon-bofang','icon-zanting');
+//		this.setAttribute('class',className);
+		play.classList.toggle('icon-bofang');
+		play.classList.toggle('icon-zanting');
+		bgm.play();
+		mark=false;
+		nowTime();
+		timer=setInterval(nowTime,100);
+		move();
+		}else{
+		pic.removeEventListener('transitionend',move);
+//		var className=this.getAttribute('class');
+//		className=" "+className+" ";
+//		className=className.replace('icon-zanting','icon-bofang');
+//		this.setAttribute('class',className);
+		play.classList.toggle('icon-bofang');
+		play.classList.toggle('icon-zanting');
+		bgm.pause();
+		mark=true;
+		clearInterval(timer);
+		}
+		end.innerHTML=time(bgm.duration);
+}
+//旋转动画
+var i=1;
+function move(){
+	pic.style.cssText+='transform:rotate('+(i++)+'deg);';
+}
+//当前时间
+function nowTime(){
+	star.innerHTML=time(bgm.currentTime);
+	var n=bgm.currentTime/bgm.duration;
+	d3.style.left=n*(d1.offsetWidth-d3.offsetWidth)+'px';
+	d2.style.width=(10+n*(d1.offsetWidth-d3.offsetWidth))+'px';
+	if(bgm.currentTime==bgm.duration)//结束时暂停旋转
+	{
+		pic.removeEventListener('transitionend',move);
+	}
+		}
+function time(cTime){//转化时间格式
+	cTime=parseInt(cTime);
+	var m=zero(Math.floor(cTime%3600/60));
+	var s=zero(Math.floor(cTime%60));
+	return m+":"+s;
+}
+function zero(num){//添加0在时间前
+	if(num<10)
+		{
+			return "0"+num;
+		}else{
+			return " "+num;
+		}
+}
+	//播放进度条
+d3.onmousedown = function(ev){
+			var ev = ev || window.event;
+			var x = ev.clientX - d3.offsetLeft;
+			document.onmousemove = function(ev){
+				var ev = ev || window.event;
+				var _left = ev.clientX - x;
+				if (_left<0)
+				{
+					_left = 0;
+				}else if (_left>d1.offsetWidth - d3.offsetWidth )
+				{
+					_left = d1.offsetWidth - d3.offsetWidth;
+				}
+				d3.style.left = _left+"px";
+				d2.style.width = (_left+10) +"px";
+
+				var n = _left/(d1.offsetWidth - d3.offsetWidth);
+				bgm.currentTime = n*bgm.duration;
+				nowTime();
+			}
+	document.onmouseup=function(){
+		document.onmousemove=null;
+		document.onmouseup=null;
+	}
+}
+	if(parseInt(d5.style.width)>10){
+//			var className=volume.getAttribute('class');
+//			className=" "+className+" ";
+//			className=className.replace('icon-jingyin','icon-yinliang');
+//			volume.setAttribute('class',className);
+			volume.classList.toggle('icon-jingyin');
+			volume.classList.toggle('icon-yinliang');
+		}
+		//音量控制
+		volume.onclick=function(){
+			if(bgm.volume>0)
+			{
+				bgm.volume=0;
+//				var className=this.getAttribute('class');
+//				className=" "+className+" ";
+//				className=className.replace('icon-yinliang','icon-jingyin');
+//				this.setAttribute('class',className);
+				volume.classList.toggle('icon-jingyin');
+				volume.classList.toggle('icon-yinliang');
+				d5.style.width=0;
+				d6.style.left=0;
+			}
+			else{
+				bgm.volume=0.05;
+//				var className=this.getAttribute('class');
+//				className=" "+className+" ";
+//				className=className.replace('icon-jingyin','icon-yinliang');
+//				this.setAttribute('class',className);
+				volume.classList.toggle('icon-jingyin');
+				volume.classList.toggle('icon-yinliang');
+				d5.style.width=50+'px';
+				d6.style.left=50+'px';
+			}
+		}
+		
+		//音量拖拽
+		d6.onmousedown = function(ev){
+					var ev = ev || window.event;
+					var x = ev.clientX - d6.offsetLeft;
+					document.onmousemove = function(ev){
+						var ev = ev || window.event;
+						var _left = ev.clientX - x;
+						if (_left<0)
+						{
+							_left = 0;
+							var className=volume.getAttribute('class');
+							className=" "+className+" ";
+							className=className.replace('icon-yinliang','icon-jingyin');
+							volume.setAttribute('class',className);
+//							volume.classList.toggle('icon-jingyin');
+//							volume.classList.toggle('icon-yinliang');
+						}else if (_left>d4.offsetWidth - d6.offsetWidth )
+						{
+							_left = d4.offsetWidth - d6.offsetWidth;
+						}else{
+							var className=volume.getAttribute('class');
+							className=" "+className+" ";
+							className=className.replace('icon-jingyin','icon-yinliang');
+							volume.setAttribute('class',className);
+//							volume.classList.toggle('icon-jingyin');
+//							volume.classList.toggle('icon-yinliang');
+						}
+						d6.style.left = _left+"px";
+						d5.style.width = (_left+10) +"px";
+						
+						var n = _left/(d1.offsetWidth - d3.offsetWidth);
+						bgm.volume=n;
+					}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+		}
+  function siblings(elem){ //参数elem就是想取谁的兄弟节点，就把那个元素传进去 
+            var nodes=[]; //定义一个数组，用来存elem的兄弟元素 
+            var previ=elem.previousSibling; 
+            while(previ){ //先取o的哥哥们 判断有没有上一个哥哥元素，如果有则往下执行 previ表示previousSibling 
+                if(previ.nodeType===1){ 
+                    nodes.push(previ); 
+                } 
+                previ=previ.previousSibling; //最后把上一个节点赋给previ 
+            } 
+            nodes.reverse(); //把顺序反转一下 这样元素的顺序就是按先后的了 
+            var nexts=elem.nextSibling; //再取elem的弟弟 
+            while(nexts){ //判断有没有下一个弟弟结点 nexts是nextSibling的意思 
+                if(nexts.nodeType===1){ 
+                    nodes.push(nexts); 
+                } 
+                nexts=nexts.nextSibling; 
+            } 
+            return nodes; //最后按从老大到老小的顺序，把这一组元素返回 
+        } 
+
+</script>
+</html>

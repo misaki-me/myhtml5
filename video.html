@@ -1,0 +1,324 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<link rel="stylesheet" href="css\video\iconfont.css">
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*html{overflow-y:hidden;}*/
+/*头部样式*/
+.h-main{width:100%;height:188px;position:relative;}
+#header{margin:0 auto;width:360px;height:188px;}
+#header pre{font-size:180px;display: block;}
+/*内容样式*/
+#wrap{
+	width:1000px;
+	height:600px;
+	margin:0 auto;
+	border:5px #000 double;
+	border-width:21px;
+	overflow:hidden;
+	border-radius:5%;
+	position:relative;
+	}
+	video{
+		margin-left:-36px;
+		margin-top:-40px;
+	}
+	#bottom{
+		background:rgba(0,0,0,.5);
+		position:relative;
+		bottom:92px;
+		height:60px;
+		width:100%;
+		opacity:0;
+		transition:1s;
+	}
+	#bottom div{
+		position:absolute;
+	}
+	#d1{
+		margin-left:25px;
+		width:95%;
+		height:5px;
+		background:#999;
+		position:relative;
+		top:5px;
+	}
+	#d2{
+		height:5px;
+		background:#84DEEF;
+		width:10px;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	#d3{
+		height:10px;
+		width:10px;
+		background:#84DEEF;
+		border-radius:50%;
+		position:absolute;
+		box-shadow: 0 0 5px 3px #999;
+		left:0;
+		top:-2px;
+	}
+	#d4{
+		width:100px;
+		height:5px;
+		top:27px;
+		left:740px;
+		position:absolute;
+		background:#999;
+	}
+	#d5{
+		width:50%;
+		height:5px;
+		background:#84DEEF;
+		position:absolute;
+		left:0;
+		top:0;
+	}
+	#d6{
+		height:10px;
+		width:10px;
+		background:#84DEEF;
+		box-shadow: 0 0 5px 2px #999;
+		border-radius:50%;
+		position:absolute;
+		left:50%;
+		top:-2px;
+	}
+	.iconfont{
+		font-size:30px;
+		color:#D3D3D3;
+		line-height:50px;
+	}
+	i{
+		display:inline-block;
+		position:absolute;
+	} 
+	span{
+		color:#D3D3D3;
+		line-height:60px;
+		display:inline-block;
+	}
+	#time{
+		margin-left:50px;
+	}
+	.icon-quanping{right:0;}
+	#play{
+		cursor:pointer;
+		left:10px;
+	}
+	#volume{
+		cursor:pointer;
+		left:690px;
+	}
+	.icon-quanping{
+		right:10px;
+		cursor:pointer;
+	}
+	#bottom:hover{
+		opacity:1;
+	}
+/*尾部样式*/
+.f-main{width:100%;height:80px;position:relative;z-index:-1;}
+#footer{margin:-41px auto;width:658px;height:80px;}
+#footer pre{font-size:130px;display: block;}
+</style>
+</head>
+<body>
+<!--头部区域<-->
+<div class="h-main">
+<div id="header">
+	<pre>
+╲╱
+	</pre>
+</div>
+</div>
+<!--内容区域-->
+<div id="wrap">
+	<video src="video/喵喵喵.mp4" width="1070" height="680" id="vid"></video>
+	<div id="bottom">
+		<i id="play" class="iconfont icon-bofang"></i>
+		<div id="time">
+			<span id="star">00:00</span>
+			<span>/</span>
+			<span id="end">00:00</span>
+		</div>
+		<div id="d1">
+			<div id="d2"></div>
+			<div id="d3"></div>
+		</div>
+		<i id="volume" class="iconfont icon-yinliang"></i>
+		<div id="d4">
+			<div id="d5"></div>
+			<div id="d6"></div>
+		</div>
+		<i id="full" class="iconfont icon-quanping"></i>
+	</div>
+</div>
+<!--尾部区域-->
+	<div class="f-main">
+<div id="footer">
+	<pre>
+∪       ∪
+	</pre>
+</div>
+	</div>
+</body>
+<script>
+	var vid=document.getElementById('vid');
+	var play=document.getElementById('play');
+	var volume=document.getElementById('volume');
+	var full=document.getElementById('full');
+	var star=document.getElementById('star');
+	var end=document.getElementById('end');
+	var d1 = document.getElementById("d1");
+	var d2 = document.getElementById("d2");
+	var d3 = document.getElementById("d3");
+	var d4 = document.getElementById("d4");
+	var d5 = document.getElementById("d5");
+	var d6 = document.getElementById("d6");
+	var mark=true;
+	var timer=null;
+	play.onclick=function(){
+		if(mark){
+			var className=this.getAttribute('class');
+			className=" "+className+" ";
+			className=className.replace('icon-bofang','icon-zanting');
+			this.setAttribute('class',className);
+			vid.play();
+			mark=false;
+			nowTime();
+			timer=setInterval(nowTime,100);//每秒获取一次现在的时间
+			
+		}else{
+			var className=this.getAttribute('class');
+			className=className.replace('icon-zanting','icon-bofang');
+			this.setAttribute('class',className);
+			mark=true;
+			vid.pause();
+			clearInterval(timer);//暂停时停止获取时间
+		}
+		end.innerHTML=time(vid.duration);//获取总时间
+		}
+	//当前时间
+		function nowTime(){
+			star.innerHTML=time(vid.currentTime);//获取当前时间
+			var n=vid.currentTime/vid.duration;//当前播放的进度和总进度的比例
+			d3.style.left=n*(d1.offsetWidth-d3.offsetWidth)+'px';
+			d2.style.width=(10+n*(d1.offsetWidth-d3.offsetWidth))+'px';
+		}
+		function time(cTime){//转化时间格式
+			cTime=parseInt(cTime);
+			var m=zero(Math.floor(cTime%3600/60));
+			var s=zero(Math.floor(cTime%60));
+			return m+":"+s;
+		}
+		function zero(num){//添加0在时间前
+			if(num<10)
+				{
+					return "0"+num;
+				}else{
+					return " "+num;
+				}
+		}
+		//播放进度条
+		d3.onmousedown = function(ev){
+					var ev = ev || window.event;
+					var x = ev.clientX - d3.offsetLeft;
+					document.onmousemove = function(ev){
+						var ev = ev || window.event;
+						var _left = ev.clientX - x;
+						if (_left<0)
+						{
+							_left = 0;
+						}else if (_left>d1.offsetWidth - d3.offsetWidth )
+						{
+							_left = d1.offsetWidth - d3.offsetWidth;
+						}
+						d3.style.left = _left+"px";
+						d2.style.width = (_left+10) +"px";
+
+						var n = _left/(d1.offsetWidth - d3.offsetWidth);
+						//console.log(n);
+						vid.currentTime = n*vid.duration;
+						nowTime();
+					}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+			full.onclick=function(){
+				vid.webkitRequestFullScreen();
+			}
+		}
+		//音量控制
+		volume.onclick=function(){
+			if(vid.volume>0)
+			{
+				vid.volume=0;
+				var className=this.getAttribute('class');
+				className=" "+className+" ";
+				className=className.replace('icon-yinliang','icon-jingyin');
+				this.setAttribute('class',className);
+				d5.style.width=0;
+				d6.style.left=0;
+			}
+			else{
+				vid.volume=1;
+				var className=this.getAttribute('class');
+				className=" "+className+" ";
+				className=className.replace('icon-jingyin','icon-yinliang');
+				this.setAttribute('class',className);
+				d5.style.width=50+'px';
+				d6.style.left=50+'px';
+			}
+		}
+		vid.volume=0.5;
+		d6.onmousedown = function(ev){
+					var ev = ev || window.event;
+					var x = ev.clientX - d6.offsetLeft;
+					document.onmousemove = function(ev){
+						var ev = ev || window.event;
+						var _left = ev.clientX - x;
+						if (_left<0)
+						{
+							_left = 0;
+							var className=volume.getAttribute('class');
+							className=" "+className+" ";
+							className=className.replace('icon-yinliang','icon-jingyin');
+							volume.setAttribute('class',className);
+						}else if (_left>d4.offsetWidth - d6.offsetWidth )
+						{
+							_left = d4.offsetWidth - d6.offsetWidth;
+							var className=volume.getAttribute('class');
+							className=" "+className+" ";
+							className=className.replace('icon-jingyin','icon-yinliang');
+							volume.setAttribute('class',className);
+						}
+						d6.style.left = _left+"px";
+						d5.style.width = (_left+10) +"px";
+						
+						var n = _left/(d1.offsetWidth - d3.offsetWidth);
+						console.log(vid.volume);
+						vid.volume=10*n;
+					}
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+			}
+		}
+</script>
+</html>
