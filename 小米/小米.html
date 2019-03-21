@@ -1,0 +1,990 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>小米商城 - 小米MIX 3、小米8、红米6 Pro、小米电视官方网站</title>
+<link rel="stylesheet" href="css\font-awesome-4.7.0\css\font-awesome.css">
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+.clearfix{clear:both;}
+.mt20{margin-top:20px;}
+.mr20{margin-right:20px;}
+.wrapbox{background:#F5F5F5;height:100%;}
+/*头部样式*/
+.header{background:#333;width:100%;height:40px;float:inherit;}
+.header .t-main{width:1226px;height:40px;margin:0 auto;position:relative;}
+.header .h_left{width:622px;float:left;}
+.header .h_left ul{height:40px;}
+.header .h_left ul li{float:left;padding:10px;font-size:10px;color:#b0b0b0;height:40px;}
+.header .h_left ul li a{color:#b0b0b0;display:block;}
+.header .h_left ul li a:hover{color:#fff;}
+.header .h_right{float:right;}
+.header .h_right ul li{height:40px; float:left;padding:10px;}
+.header .h_right ul li a img{display:inline-block;line-height:10px;;position: absolute;top:9px;left:15px;}
+.header .h_right ul li a{color:#b0b0b0;font-size:10px;line-height:20px;text-align:center;display:block;}
+.header .h_right ul li a:hover{color:#fff;}
+.header .b-main{width:1226px;height:100px;margin:0 auto;position:relative;}
+.header .banner .list{margin-top:30px;margin-left:18%;}
+.header .banner .list ul li{float:left;padding:10px;color:#000;}
+.header .banner .list ul li a{display:block;color:#000;}
+.header .banner .list ul li a:hover{color:#FF6700;}
+.header .banner .logo{width:55px;height:55px;background:url(images/mi-logo.png) #FF6700 no-repeat 50% 50%;;float:left;margin-top:-14px;}
+.header .banner .search{float:right;}
+.header .banner .search input{width:240px;height:50px;display:inline-block;float:right;border:1px solid #e0e0e0;}
+.header .banner .search input:focus{outline:1px solid #FF6700}
+.header .banner .search .button{width:52px;height:50px;border:1px solid #e0e0e0;display:inline-block;float:right;font-size:18px;text-align:center;line-height:50px;}
+.header .banner .search .button:hover{background:#FF6700;color:#fff;}
+/*内容样式*/
+.wrapbox .conbox{width:1226px;margin:0 auto;height:100%;}
+.wrapbox .conbox .title{margin: 0;font-size: 22px;font-weight: 200;line-height: 58px;color: #333;}
+.wrapbox .conbox .bgimg{width:224px;height:611px;float:left;margin-right:20px;position:relative;}
+.wrapbox .conbox .bgimg a{display:block;}
+.wrapbox .conbox .bgimg a img{display:block;}
+.wrapbox .conbox .rbgimg{width:982px;height: 614px; float:left;}
+.wrapbox .conbox .rbgimg li{float:left;width:234px;height:300px;background:#fff;margin-right:15px;margin-bottom:10px;text-align:center;position:relative;}
+.wrapbox .conbox .rbgimg li.nom{margin-right:0;}
+.wrapbox .conbox .rbgimg a.img{display:block;}
+.wrapbox .conbox .rbgimg ul li h3{font-size:14px;font-weight:400;margin-top:10px;}
+.wrapbox .conbox .rbgimg ul li h3 a{color:#000;}
+.wrapbox .conbox .rbgimg ul li p.info{font-size:12px;margin-top:10px;color:#999;}
+.wrapbox .conbox .rbgimg ul li p.price{margin:0 10px 14px;color:#ff6700;}
+/*悬停事件*/
+.wrapbox .conbox .rbgimg li:hover{box-shadow:0 10px 20px #ccc;top:-5px;transition:all 0.6s ease;}
+.wrapbox .conbox .bgimg:hover{box-shadow:0 10px 20px #ccc;top:-3px;transition:all 0.6s ease;}
+/*轮播图样式*/
+.img-box{width:1224px;position:relative;height:460px;margin:0 auto;}
+.img-box .pic{width:1224px;height:460px;position:relative;}
+.img-box .pic ul li{position:absolute;top:0;left:0;display:none;}
+.img-box .pic ul li img{width:1224px;height:460px;}
+.img-box .btn div{position:absolute;top:50%;margin-top:-20px;width:40px;height:70px;;cursor:pointer;font-size:36px;font-weight:500;text-align:center;line-height:70px;color:#fff;}
+.img-box .btn .left{left:234px;}
+.img-box .btn .right{right:0;}
+.img-box .btn .left:hover{background:rgba(0,0,0,.5);}
+.img-box .btn .right:hover{background:rgba(0,0,0,.5);}
+.img-box .tab{width:168px;height:25px;position:absolute;bottom:0;right:0;bottom:10px;}
+.img-box .tab ul li{float:left;width:15px;height:15px;background:#fff;margin:3px;border-radius:100%;cursor:pointer;}
+.img-box .tab ul li.select{background:#999;}
+.img-box .details{width:234px;height:460px;background:rgba(0,0,0,.5);position:absolute;left:0;top:0;}
+.img-box .details ul{padding:13px 13px 13px 0;}
+.img-box .details ul li{color:#fff;padding:12px 12px 12px 0;font-size:14px;cursor:pointer;height:20px;line-height:20px;width:100%;text-indent:30px;}
+.img-box .details ul li span{display:inline-block;float:right;font-size:18px;font-weight:800;height:20px;line-height:20px;color:#999;margin-right:20px;}
+.img-box .allList .list{width:990px;height:460px;position:absolute;left:234px;background:#fff;top:0;box-shadow:1px 0 1px 1px #ccc;display:none;}
+.img-box .allList .list ul li{height:40px;width:150px;padding:18px 20px;float:left;margin-left:45px;}
+.img-box .allList .list ul li a{height:40px;line-height:40px;display:block;font-size:13px;float:left;margin-left:10px;}
+.img-box .allList .list ul li a:hover{color:#FF6700;}
+.img-box .allList .list ul li i{background-image:url(images/mix3-80.png);width:40px;height:40px;display:inline-block;background-size:40px 40px;float:left;}
+/*商品列表*4*/
+.shop4{width:1224px;margin:14px auto;}
+.shop4 .shop4-1{width:234px;height:170px;float:left;background:red;}
+.shop4 .shop4-2-4 ul li{width:316px;height:170px;margin-left:14px;background:red;float:left}
+.shop4 .shop4-1{background:#5F5750;}
+.shop4 .shop4-1 ul li{;height:85px;width:78px;float:left;}
+.shop4 .shop4-1 ul li a{display:block;color:#ccc;font-size:13px;text-align:center;margin:20px auto;}
+.shop4 .shop4-1 ul li a i{display:block;height:24px;text-align:center;line-height:24px;}
+.shop4 .shop4-1 ul li a:hover{color:#fff;}
+/*尾部样式*/
+/*	.footer{width:100%;height:100%;background:#111;margin-top:20px;}*/
+</style>
+<script src="js/jquery-1.12.1.min.js"></script>
+</head>
+<body>
+<div class="wrapbox">
+<!--头部区域-->
+<div class="header">
+	<div class="t-main">
+	<div class="h_left">
+    	<ul>
+        	<li style="padding-left:0;"><a href="#">小米商城</a></li>
+            <li><a href="#">MIUI</a></li>
+            <li><a href="#">loT</a></li>
+            <li><a href="#">云服务</a></li>
+            <li><a href="#">金融</a></li>
+            <li><a href="#">有品</a></li>
+            <li><a href="#">小爱开放平台</a></li>
+            <li><a href="#">企业服务</a></li>
+            <li><a href="#">下载app</a></li>
+            <li><a href="#">Select Region</a></li>
+        </ul>
+    </div>
+    <div class="h_right">
+    	<ul>
+            <li style="border:none;"><a href="#">登入</a></li>
+            <li><a href="#">注册</a></li>
+            <li><a href="#">消息通知</a></li>
+            <li style="background:#424242;width:120px;height:20px;margin-left:15px;position: relative;">
+				<a href="#">
+					<img src="images/shop-car.png" width=20px; height=20px;>
+					<span style="text-align:center;height:40px;line-height:20px;position: absolute;top:9px;left:40px;">购物车(0)</span>
+				</a>
+			</li>
+        </ul>
+    </div>
+	</div>
+	<div class="clearfix"></div>
+    <div class="banner">
+		<div class="b-main">
+    	<a href=""><div class="logo"></div></a>
+        <div class="list">
+        	<ul>
+            	<li><a href="#">小米手机 </a></li>
+                <li><a href="#">红米</a></li>
+                <li><a href="#">电视</a></li>
+                <li><a href="#">笔记本</a></li>
+                <li><a href="#">空调</a></li>
+                <li><a href="#">新品</a></li>
+                <li><a href="#">路由器</a></li>
+                <li><a href="#">智能硬件</a></li>
+                <li><a href="#">服务</a></li>
+                <li><a href="#">社区</a></li>
+            </ul>
+		</div>
+        <div class="search">
+        	<a href="">
+				<div class="button"><i class="fa fa-search"></i></div>
+				</a>
+			<input type="text">
+        </div>
+			<style>
+				.banner .more{height:230px;width:100%;border-top:1px solid #ccc;border-bottom:1px solid #ccc;position:absolute;z-index:2;background:#fff;display:none;}
+				.banner .allMore .more ul{margin:60px auto;width:1224px}
+				.banner .allMore .more ul li{float:left;height:230px;}
+				.banner .allMore .more ul li a img{border-right:1px solid #ccc;padding:0 25px;}
+				.banner .allMore .more ul li a p{text-align:center;color:#333;font-size:12px;padding:5px;}
+				.banner .allMore .more ul li a span{display:block;text-align:center;color:#FF6700;font-size:12px;}
+			</style>
+		<div class="clearfix"></div>
+		
+		</div>
+		<div class="allMore">
+			<div class="more">
+				<ul>
+					<li>
+						<a href="">
+							<img width="160" height="110px" src="images/more/1.png" alt="">
+							<p>小米MIX 3</p><span>3299元起</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img width="160" height="110px" src="images/more/2.png" alt="">
+							<p>小米8 青春版</p><span>1399元起</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img width="160" height="110px" src="images/more/3.png" alt="">
+							<p>小米8</p><span>2699元起</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img width="160" height="110px" src="images/more/4.png" alt="">
+							<p>小米play</p><span>1099元起</span>
+						</a>
+					</li>
+					<li>
+						<a href="">
+							<img width="160" height="110px" src="images/more/5.png" alt="">
+							<p>小米8 SE</p><span>1699元起</span>
+						</a>
+					</li>
+				</ul>	
+			</div>
+			<div class="more">2</div>
+			<div class="more">3</div>
+			<div class="more">4</div>
+			<div class="more">5</div>
+			<div class="more">6</div>
+			<div class="more">7</div>
+			<div class="more">8</div>
+			<div class="more">9</div>
+			<div class="more">10</div>
+		</div>
+		<script>
+			$('.banner').find('.list').find('ul').find('li').hover(function(){
+				var index=$(this).index();
+				console.log(index);
+				$('.banner').find('.allMore').find('.more').stop().slideDown(500);
+				$(this).parents('.banner').find('.allMore').find('.more').eq(index).show().siblings().hide();
+			},function(){
+				$('.banner').find('.allMore').find('.more').stop().slideUp(500);
+			});
+		</script>
+</div>
+<!--内容区域-->
+	<div class="clearfix"></div>
+<!--轮播图-->
+<div class="img-box">
+	<div class="pic">
+		<ul>
+			<li>
+				<a href="">
+					<img src="images/header/1.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="images/header/2.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="images/header/3.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="images/header/4.jpg" alt="">
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<img src="images/header/5.jpg" alt="">
+				</a>
+			</li>
+		</ul>
+	</div>	
+	<div class="btn">
+		<div class="left">&lt;</div>
+		<div class="right">&gt;</div>
+	</div>
+	<div class="tab">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<div class="details">
+		<ul>
+			<li>手机 电话卡<span>&gt;</span></li>
+			<li>电视 盒子<span>&gt;</span></li>
+			<li>笔记 本平板<span>&gt;</span></li>
+			<li>家电 插线板<span>&gt;</span></li>
+			<li>出行 穿戴<span>&gt;</span></li>
+			<li>智能 路由器<span>&gt;</span></li>
+			<li>电源 配件<span>&gt;</span></li>
+			<li>健康 儿童<span>&gt;</span></li>
+			<li>耳机 音响<span>&gt;</span></li>
+			<li>生活 箱包<span>&gt;</span></li>
+		</ul>
+	</div>
+	<div class="allList">
+		<div class="list">
+			<ul>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+				<li><i></i><a href="">小米MIX 3</a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+		<div class="list">
+			<ul>
+				<li><a href=""><i></i></a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="shop4">
+	<div class="shop4-1">
+		<ul>
+			<li><a href=""><i class="fa fa-mobile-phone fa-3x"></i>选购手机</a></li>
+			<li><a href=""><i class="fa fa-mobile-phone fa-3x"></i>选购手机</a></li>
+			<li><a href=""><i class="fa fa-mobile-phone fa-3x"></i>选购手机</a></li>
+			<li><a href=""><i class="fa fa-mobile-phone fa-3x"></i>选购手机</a></li>
+			<li><a href=""><i class="fa fa-mobile-phone fa-3x"></i>选购手机</a></li>
+			<li><a href=""><i class="fa fa-mobile-phone fa-3x"></i>选购手机</a></li>
+		</ul>
+	</div>	
+	<div class="shop4-2-4">
+		<ul>
+			<li><a href=""><img width="316" height="170" src="images/shop4/1.jpg" alt=""></a></li>
+			<li><a href=""><img width="316" height="170" src="images/shop4/2.jpg" alt=""></a></li>
+			<li><a href=""><img width="316" height="170" src="images/shop4/3.jpg" alt=""></a></li>
+		</ul>
+	</div>
+</div>
+<div class="clearfix"></div>
+<!--小米闪购-->
+<style>
+/*小米闪购*/
+	.shop5{width:1224px;margin:50px auto;}
+	.shop5 .title{width:1224px;height:58px;}
+	.shop5 .title h1{font-size: 22px;font-weight:200;line-height: 58px;color: #333;width:100px;float:left;}
+	.shop5 .btn{float:right;padding-top:17px;height:24px;line-height:24px;}
+	.shop5 .btn a{font-size:30px;display:inline-block;width:36px;height:24px;border:1px solid #ccc;text-align:center;line-height:26px;color:#ccc;}
+	.shop5 .btn a:hover{color:#FA6509;}
+	.shop5 .shop5-1-5{width:990px;height:340px;float:left;overflow:hidden;}
+	.shop5 .shop5-1-5 ul{width:1000%;}
+	.shop5 .shop5-1-5 ul li{float:left;width:233px;height:339px;margin-left:14px;background:#FAFAFA;}
+	.shop5 .shop5-1-5 ul li a img{display:inline-block;padding:50px 37px;}
+	.shop5 .shop5-1-5 ul li a p{font-size:14px;text-align:center;color:#333;}
+	.shop5 .shop5-1-5 ul li a span{font-size:14px;text-align:center;color:#FA6509;display:block;margin-top:20px;}
+</style>
+<div class="shop5">
+	<div class="title">
+		<h1>小米闪购</h1>
+		<div class="btn">
+			<a class="prev" href="javascript:void(0);">&lt;</a>
+			<a class="next" href="javascript:void(0);">&gt;</a>
+		</div>
+	</div>
+	<div class="clearfix"></div>
+	<div class="shop5-0" style="float:left;border-top:1px solid red;margin-left:0;">
+		<a href="">
+			<img style="padding:0;" src="images/shop5/0.png" alt="">
+		</a>
+	</div>
+<!--手机列表-->
+	<div class="shop5-1-5">
+		<ul>
+			<li style="border-top:1px solid orange;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/1.jpg" alt="">
+					<p>小米智能RBQ</p><span>233元</span>
+				</a>
+			</li>
+			<li style="border-top:1px solid #83C44E;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/2.jpg" alt="">
+					<p>小米智能相机</p><span>666元</span>
+				</a>
+			</li>
+			<li style="border-top:1px solid #2196F3;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/3.png" alt="">
+					<p>小米智能投影机</p><span>999元</span>
+				</a>
+			</li>
+			<li style="border-top:1px solid #E53935;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/4.jpg" alt="">
+				<p>小米智能行李箱</p><span>998元</span>
+				</a>
+			</li>
+<!--2-->
+			<li style="border-top:1px solid orange;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/1.jpg" alt="">
+					<p>小米智能RBQ</p><span>233元</span>
+				</a>
+			</li>
+			<li style="border-top:1px solid #83C44E;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/2.jpg" alt="">
+					<p>小米智能相机</p><span>666元</span>
+				</a>
+			</li>
+			<li style="border-top:1px solid #2196F3;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/3.png" alt="">
+					<p>小米智能投影机</p><span>999元</span>
+				</a>
+			</li>
+			<li style="border-top:1px solid #E53935;">
+				<a href="">
+					<img width="160" height="160" src="images/shop5/4.jpg" alt="">
+				<p>小米智能行李箱</p><span>998元</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>
+<!--广告内容-->
+<div class="clearfix"></div>
+	<style>
+		.ad{width:1224px;margin:50px auto;}
+	</style>
+<div class="ad">
+	<img width="1224" height="120" src="images/ad/1.jpg" alt="">
+</div>
+<!--主要内容-->
+	<div class="clearfix"></div>
+<div class="conbox">
+<!--手机-->
+<div class="citembox">
+		<h1 class="title">手机</h1>
+			<div class="bgimg">
+				<a href="#">
+					<img src="images/left.jpg" width="233px" height:"615px" alt="">
+				</a>
+			</div>
+			<div class="rbgimg">
+				<ul>
+					<li>
+						<a class="img" href="#"><img src="images/1.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/2.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/3.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img src="images/4.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/5.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/6.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/7.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img src="images/8.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+<!--广告-->
+<div class="clearfix"></div>
+<div class="ad">
+	<img width="1224" height="120" src="images/ad/2.jpg" alt="">
+</div>
+	
+<style>
+/*家电样式*/
+	.citembox .title-more{height:20px;}
+	.citembox .title-more .title{float:left;}
+	.citembox .title-more .more{float:right;}
+	.citembox .title-more .more ul li{float:left;margin:10px 0 15px 25px;}
+	.citembox .title-more .more ul li a{color:#000;display:block;padding-bottom:15px;}
+	.citembox .title-more .more ul li.selected{border-bottom:2px solid #FF6700;}
+	.citembox .con{position:relative;height:614px;}
+	.citembox .con .rbgimg{position:absolute;display:none;}
+</style>
+<div class="clearfix"></div>		
+		<div class="citembox mt20">
+			<div class="title-more">
+				<h1 class="title">家电</h1>
+				<div class="more">
+					<ul>
+						<li class="selected"><a href="">热门</a></li>
+						<li><a href="">电视影音</a></li>
+						<li><a href="">电脑</a></li>
+						<li><a href="">家居</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			<div class="con">
+				<div class="rbgimg" style="width:1230px">
+				<ul>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/15.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/12.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/10.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/16.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img src="images/11.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/14.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/13.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/9.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/17.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img width="220px" height="220px" src="images/17.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+				</ul>
+			</div>
+				<div class="rbgimg" style="width:1230px">
+					<ul>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/15.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/热门/1.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/热门/2.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/3.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img src="images/热门/4.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/14.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/5.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/6.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/7.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/6.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+				</ul>
+				</div>
+				<div class="rbgimg" style="width:1230px">
+					<ul>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/15.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/热门/4.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/热门/4.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/4.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img src="images/热门/4.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/14.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/6.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/6.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/6.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/6.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+				</ul>
+				</div>
+				<div class="rbgimg" style="width:1230px">
+					<ul>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/15.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/热门/1.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/热门/1.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/1.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img src="images/热门/1.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/14.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/5.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/5.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/5.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img width="220px" height="220px" src="images/热门/5.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+				</ul>
+				</div>
+			</div>
+		</div>
+<div class="clearfix"></div>
+	<script>
+		//家电选项卡
+		$('.citembox').find('.con').find('.rbgimg').eq(0).show();
+		$('.citembox').find('.title-more').find('.more').find('li').hover(function(){
+			var index=$(this).index();
+			$(this).parents('.citembox').find('.con').find('.rbgimg').eq(index).show().siblings().hide();
+			console.log(index);
+			$(this).parents('.citembox').find('.title-more').find('.more').find('li').eq(index).addClass('selected').siblings().removeClass('selected');
+			
+		});
+	</script>
+	<!--广告-->
+
+<div class="ad">
+	<img width="1224" height="120" src="images/ad/3.jpg" alt="">
+</div>
+
+<div class="clearfix"></div>
+<div class="citembox mt20">
+					<h1 class="title">智能</h1>
+			<div class="rbgimg" style="width:1230px">
+				<ul>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/18.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220" height="220" src="images/19.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/20.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/21.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img src="images/22.png" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="234px" height="300px" src="images/23.jpg" alt=""></a>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/24.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img src="images/25.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li>
+						<a class="img" href="#"><img width="220px" height="220px" src="images/26.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+					<li class="nom">
+						<a class="img" href="#"><img width="220px" height="220px" src="images/26.jpg" alt=""></a>
+						<h3><a href="#">小米8 青春版 4GB+64GB</a></h3>
+						<p class="info">潮流镜面渐变色，2400万自拍旗舰</p>
+						<p class="price">1399元</p>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<div class="clearfix"></div>
+	<!--广告-->
+<div class="ad">
+	<img width="1224" height="120" src="images/ad/4.jpg" alt="">
+</div>
+	</div>
+	<div class="clearfix"></div>
+	<!--尾部区域-->
+	<div class="footer">
+	
+	</div>
+</div>	
+</body>
+<script>
+	$(function(){
+	$('.img-box').find('.pic').find('li').eq(0).show();
+	$('.img-box').find('.tab').find('li').eq(0).addClass('select');
+	//圆点切换
+	$('.img-box').find('.tab').find('li').click(function(){
+		var index=$(this).index();
+		$(this).addClass('select').siblings().removeClass('select');
+		$('.img-box').find('.pic').find('li').eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+	});
+	//右按钮切换
+	var index=0;
+	$('.img-box').find('.btn').find('.right').click(function(){
+		index++;
+		if(index==$('.img-box').find('.pic').find('li').length)index=0;
+		$('.img-box').find('.pic').find('li').eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+		$('.img-box').find('.tab').find('li').eq(index).addClass('select').siblings().removeClass('select');
+	});
+	//左按钮切换
+	$('.img-box').find('.btn').find('.left').click(function(){
+		index--;
+		if(index==-1)index=$('.img-box').find('.pic').find('li').length-1;
+		console.log(index);
+		$('.img-box').find('.pic').find('li').eq(index).stop().fadeIn(1000).siblings().stop().fadeOut(1000);
+		$('.img-box').find('.tab').find('li').eq(index).addClass('select').siblings().removeClass('select');
+	});
+	//自动播放
+	var timer=null;
+	function autoPlay(){
+		timer=setInterval(function(){
+			$('.img-box').find('.btn').find('.right').trigger('click');
+		},2000);
+	};
+	$('.img-box').hover(function(){
+		clearInterval(timer);
+	},function(){
+		autoPlay();
+	});
+	autoPlay();
+		});
+	//左侧列表
+	$(function(){
+	var timer=null;
+	$('.img-box').find('.details').find('li').hover(function(){
+		clearInterval(timer);//当悬停在列表上的时候清除掉隐藏详细信息的定时器
+		$(this).css('background','#FF6700')
+		var index=$(this).index();//改变列表颜色
+		$('.img-box').find('.allList').find('.list').eq(index).show().siblings().hide();//显示当前列表的详细信息并隐藏所有列表的详细信息
+	},function(){
+		$(this).css('background','')
+		clearInterval(timer);//当鼠标离开列表的时候清除掉隐藏详细信息的定时器
+		timer=setTimeout(function(){
+			$('.img-box').find('.allList').find('.list').hide();	
+		},200);
+	});
+	$('.allList').mouseleave(function(){//当鼠标离开详细信息的时候执行
+		clearInterval(timer);//当鼠标离开详细信息的时候清除掉隐藏详细信息的定时器
+		$('.img-box').find('.allList').find('.list').hide();//隐藏所有的详细信息
+	}).mouseover(function(){
+		clearInterval(timer);
+	});
+		});
+	//次要轮播图
+	$(function(){
+		var index=0;
+		//左按钮
+		$('.prev').click(function(){
+			if(index<=0){
+				index=0;
+				return;
+				}
+			var tindex=(index==0)?0:index-=3;
+			changeBanner($(this),tindex);
+		});
+		//右按钮
+		$('.next').click(function(){
+			var $ul=$(this).parents('.shop5').find('.shop5-1-5').find('ul');
+			var len=$ul.children().length;
+			
+			var tindex=(index==(len-1))?(len-1):index+=3;
+			if(index==len){
+				index=len-1;
+				return;
+			}
+			changeBanner($(this),tindex);
+			
+		});
+		//动画
+		function changeBanner($obj,index){
+			var $ul=$obj.parents('.shop5').find('.shop5-1-5').find('ul');
+			var len=$ul.children().length;
+			var left=index*-330;
+			$ul.animate({'margin-left':left});
+		}
+	});
+</script>
+</html>
