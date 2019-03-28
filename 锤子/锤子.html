@@ -1,0 +1,114 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="坚果手机,坚果R1手机,坚果3手机,坚果Pro手机,坚果手机官网">
+  <meta name="Description" content="锤子科技是一家制造移动互联网终端设备的公司,公司致力于打造用户体验一流的数码消费类产品（智能手机为主）,主打坚果手机系列有坚果R1手机,坚果3手机等">
+  <title>【锤子科技官网】坚果手机 - 坚果R1手机 - 坚果3手机</title>
+<link rel="stylesheet" type="text/css" href="css/index.css"/>
+ </head>
+ <body>
+<!--整体样式-->
+<div class="wrap">
+<!--头部样式-->
+<div class="header">
+<div class="header_content">
+<a class="logo" href="https://www.smartisan.com/"><img src="images/logo.png" width="18px" height="18px" alt=""></a>
+
+<div class="login">
+<a class="login_picture" href=""><img src="images/login.png" width="36px" height="36px" alt=""></a>
+</div>
+
+<div class="shopping">
+<a class="shooping_picture" href="#">
+<img src="images/login.png" width="36px" height="36px" alt="">
+</a>
+<div class="shop_car">
+<div class="empty"><span>购物车为空</span>
+	<p>您的购物车还未添加商品,现在前往商城选购吧!</p>
+</div>
+</div>
+</div>
+
+<!--导航样式-->
+<div class="nav">
+<ul>
+<li><a href="#" style="color:#fff">在线商城</a></li>
+<li><a href="#">坚果pro 2S</a></li>
+<li><a href="#">坚果R1</a></li>
+<li><a href="#">坚果TNT 工作站</a></li>
+<li><a href="#">Smartisan OS</a></li>
+<li><a href="#">欢喜云</a></li>
+<li><a href="#">应用</a></li>
+<li><a href="#">论坛</a></li>
+<li><a href="#">荣誉与奖项</a></li>
+</ul>
+</div>
+</div>
+
+
+<div class="s_nav">
+	<div class="s-main">
+		<div class="nav_content">
+			<ul>
+				<li><a href="#" style="font-weight:600">首页</a></li>
+				<li><a href="#">手机</a></li>
+				<li><a href="#">"足迹"系列</a></li>
+				<li><a href="#">官方配件</a></li>
+				<li><a href="#">空气精华类</a></li>
+				<li><a href="#">品牌周边</a></li>
+				<li><a href="#">好物推荐</a></li>
+				<li><a href="#">全部</a></li>
+				<li><a href="#">服务</a></li>
+				<li><a href="#">企业团购</a></li>
+			</ul>
+		</div>
+		<div class="search-bar">
+		<form action="" class="search-form">
+		<input type="text">
+		<buton class="seach-buttom" type="submit"></buton>
+		</form>
+		</div>
+	</div>
+</div>
+<!--内容样式-->
+<div class="content">
+<div id="picture">
+<ul>
+<li class="list"><a href="#"><img style="z-index:4;" src="images/1.jpg" width="1220px" height="499px" alt=""></a>
+</li>
+<li class="list"><a href="#"><img style="z-index:3;" src="images/2.jpg" width="1220px" height="499px" alt=""></a>
+</li>
+<li class="list"><a href="#"><img style="z-index:2;" src="images/3.jpg" width="1220px" height="499px" alt=""></a>
+</li>
+<li class="list"><a href="#"><img style="z-index:1;" src="images/4.jpg" width="1220px" height="499px" alt=""></a>
+</li>
+</ul>
+</div>
+<div id="buttom">
+<ul>
+<li><img src="images/点.png" alt=""></li>	
+<li><img src="images/点.png" alt=""></li>	
+<li><img src="images/点.png" alt=""></li>	
+<li><img src="images/点.png" alt=""></li>	
+</ul>
+</div>
+</div>
+</div>
+<script>
+	var _img=document.getElementById('picture').getElementsByTagName('img');
+	var _buttom=document.getElementById('buttom').getElementsByTagName('li');
+	var n=0;
+	for (var i=0;i<_buttom.length;i++){
+		_buttom[i].num=i;
+		_buttom[i].onclick=function(){
+			_img[n].style.display='none';
+			n=this.num;
+			_img[n].style.display='block';
+		};
+	};
+</script>
+</body>
+</html>
