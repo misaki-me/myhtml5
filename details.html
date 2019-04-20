@@ -1,0 +1,404 @@
+<!doctype html>
+<html>
+ <head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<link rel="stylesheet" href="https://at.alicdn.com/t/font_1149427_vw1vf2ykibg.css">
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+clear{clear:both;}
+.w1200{width:1200px;}
+body{font-family:"微软雅黑";}
+@media all and (orientation:landscape){
+/*头部样式*/
+	.header{
+		height:70px;
+		background:#86C5E1;
+		width:100%;
+	}
+	.h-wrap{
+		margin:0 auto;
+	}
+	.header .h-wrap .cl{
+		float:left;
+	}
+	.header .h-wrap .cl .logo{
+		color:#fff;
+		font-family:"幼圆";
+	}
+	.header .h-wrap .cl h3{
+		color:#fff;
+	}
+	.header .h-wrap .cr{
+		float:right;
+		height:30px;
+	}
+	.h-wrap .cr .search{
+		width:300px;
+		height:30px;
+		border-radius:30px;
+		margin-top:20px;
+		outline:none;
+	}
+	.h-wrap .cr .btn{
+		height:25px;
+		width:25px;
+		background:#76B1D2;
+		display:inline-block;
+		text-align:center;
+		line-height:22px;
+		border-radius:50%;
+		color:#fff;
+		margin-left:-36px;
+	}
+	.h-wrap .cr .btn:hover{
+		background:#86C5E1;
+	}
+/*内容样式*/
+		.content{
+			box-shadow:0px 10px 20px #ccc;
+			margin:0 auto;
+			height:100%;
+		}
+		.content .section{
+			padding-top:50px;
+			border-bottom:1px solid #ccc;
+		}
+		.content .section .title{
+			line-height:30px;
+			height:30px;
+			margin-left:30px;
+		}
+		.content .section .title h3{
+			color:#000;
+			display:inline-block;
+			line-height:20px;
+			margin-left:10px;
+		}
+		.content .section .title .icon-weibiaoti5{
+			color:#FED007;
+			font-size:40px;
+			
+		}
+		.list{
+			width:1000px;
+			background:#F5F5F5;
+			margin-left:80px;
+			border-radius:10px;
+			margin-top:20px;
+		}
+		.list li{
+			padding:5px 15px;
+			
+		}
+		.list li a{
+			color:#ACAAAC;
+		}
+/*尾部样式*/
+.s-footer{
+			margin-left:80px;
+			height:30px;
+			margin-top:20px;
+			margin-bottom:20px;
+		}
+		.s-footer div{
+			float:left;
+			border-radius:26px;
+			background:#E7E7E7;
+			line-height:30px;
+			margin-right: 20px;
+			padding:0 10px;
+		}
+		.s-footer div i{
+			font-size:20px;
+			color:#A3A1A3;
+			line-height:30px;
+		}
+		.s-footer div span{
+			color:#A3A1A3;
+			font-weight: 100;
+		}
+		.s-footer .pasword{
+			background:#86C5E1;
+		}
+		.s-footer .pasword span{
+			color:#EAF5EA;
+		}
+		.s-footer .pasword i{
+			color:#EAF5EA;
+		}
+	}
+/*移动端样式*/
+	@media all and (orientation:portrait){
+/*头部样式*/
+		.header .h-wrap .cl .logo{
+			color:#76B1D2;
+			font-size:100px;
+			text-align:center;
+			margin-top:100px;
+		}
+		.header .h-wrap .cl h3{
+			color:#76B1D2;
+			text-align:center;
+			font-size:40px;
+		}
+		.h-wrap .cr{
+			margin:100px auto;
+			width:1000px;
+			position:relative;
+		}
+		.h-wrap .cr .search{
+			text-align:center;
+			width:1000px;
+			height:100px;
+			border-radius:100px;
+			outline:none;
+			
+		}
+		.h-wrap .cr .btn{
+			width:80px;
+			background:#76B1D2;
+			display:inline-block;
+			text-align:center;
+			line-height:80px;
+			border-radius:50%;
+			color:#fff;
+			display: inline-block;
+			position:absolute;
+			top:9px;
+			left:912px;
+		}
+		.h-wrap .cr .btn i{
+			font-size:30px;
+		}
+/*内容样式*/
+		.content{
+			box-shadow:0px 10px 20px #ccc;
+			margin:0 auto;
+			height:100%;
+		}
+		.content .section{
+			padding-top:80px;
+			border-bottom:1px solid #ccc;
+		}
+		.content .section .title{
+			line-height:60px;
+			margin-left:30px;
+		}
+		.content .section .title h3{
+			color:#000;
+			display:inline-block;
+			line-height:20px;
+			margin-left:10px;
+			font-size:50px;
+		}
+		.content .section .title .icon-weibiaoti5{
+			color:#FED007;
+			font-size:80px;
+			
+		}
+		.list{
+			width:1000px;
+			background:#F5F5F5;
+			margin:20px auto;
+			border-radius:10px;
+			margin-top:20px;
+		}
+		.list li{
+			padding:15px 30px;
+			
+		}
+		.list li a{
+			color:#ACAAAC;
+			font-size:40px;
+		}
+/*尾部样式*/
+		.s-footer{
+			margin-left:80px;
+			height:60px;
+			margin:40px auto;
+			width:1000px;
+		}
+		.s-footer div{
+			float:left;
+			border-radius:60px;
+			background:#E7E7E7;
+			line-height:70px;
+			margin-right: 20px;
+			padding:0 40px;
+		}
+		.s-footer div i{
+			font-size:40px;
+			color:#A3A1A3;
+		}
+		.s-footer div span{
+			color:#A3A1A3;
+			font-weight: 100;
+			font-size:40px;
+		}
+		.s-footer .pasword{
+			background:#86C5E1;
+		}
+		.s-footer .pasword span{
+			color:#EAF5EA;
+		}
+		.s-footer .pasword i{
+			color:#EAF5EA;
+		}
+	}
+</style>
+</head>
+<body>
+<!--顶部区域-->
+<div class="header">
+	<div class="h-wrap w1200">
+		<div class="cl">
+			<h1 class="logo">度&nbsp;盘&nbsp;搜</h1>
+			<h3>dupansou.com</h3>
+		</div>	
+		<div class="cr">
+			<input type="text" class="search">
+			<a class="btn" href="#">
+				<i class="iconfont icon-xiazai17"></i>
+			</a>
+		</div>
+	</div>
+</div>
+<!--内容区域-->
+	<style>
+		
+		
+	</style>
+<div class="content w1200">
+	<div class="section">
+		<div class="title">
+			<a href="#">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<h3>文件夹</h3>
+			</a>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<a href="#">一级目录</a>
+				</li>
+				<li>
+					<a href="#">二级目录</a>
+				</li>
+				<li>
+					<a href="#">三级目录</a>
+				</li>
+				<li>
+					<a href="#">四级目录</a>
+				</li>
+			</ul>
+		</div>
+		<div class="s-footer w1200">
+			<div class="pasword">
+				<i class="iconfont icon-mima"></i>
+				<span>2asd</span>
+			</div>
+			<div class="total">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<span>233G</span>
+			</div>
+			<div class="date">
+				<i class="iconfont icon-shijian"></i>
+				<span>2019年4月20日</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="section">
+		<div class="title">
+			<a href="#">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<h3>文件夹</h3>
+			</a>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<a href="#">一级目录</a>
+				</li>
+				<li>
+					<a href="#">二级目录</a>
+				</li>
+				<li>
+					<a href="#">三级目录</a>
+				</li>
+				<li>
+					<a href="#">四级目录</a>
+				</li>
+			</ul>
+		</div>
+		<div class="s-footer w1200">
+			<div class="pasword">
+				<i class="iconfont icon-mima"></i>
+				<span>2asd</span>
+			</div>
+			<div class="total">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<span>233G</span>
+			</div>
+			<div class="date">
+				<i class="iconfont icon-shijian"></i>
+				<span>2019年4月20日</span>
+			</div>
+		</div>
+	</div>
+	
+	<div class="section">
+		<div class="title">
+			<a href="#">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<h3>文件夹</h3>
+			</a>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<a href="#">一级目录</a>
+				</li>
+				<li>
+					<a href="#">二级目录</a>
+				</li>
+				<li>
+					<a href="#">三级目录</a>
+				</li>
+				<li>
+					<a href="#">四级目录</a>
+				</li>
+			</ul>
+		</div>
+		<div class="s-footer w1200">
+			<div class="pasword">
+				<i class="iconfont icon-mima"></i>
+				<span>2asd</span>
+			</div>
+			<div class="total">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<span>233G</span>
+			</div>
+			<div class="date">
+				<i class="iconfont icon-shijian"></i>
+				<span>2019年4月20日</span>
+			</div>
+		</div>
+	</div>
+</div>
+<!--底部区域-->
+	
+</body>
+<script>
+
+</script>
+</html>
