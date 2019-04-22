@@ -7,7 +7,7 @@
 <meta name="Keywords" content="">
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width,
-user-scalable=yes,initial-scale = 1.0,minimum-scale = 1.0,maximum-
+user-scalable=no,initial-scale = 1.0,minimum-scale = 1.0,maximum-
 scale=1.0,target-densitydpi =device-dpi">
 <title>百度度盘搜</title>
 <link rel="stylesheet" href="https://at.alicdn.com/t/font_1149427_s8qccyma4c.css">
@@ -25,6 +25,7 @@ a{text-decoration:none;}
 /*移动端布局*/
 	
 @media all and (orientation:portrait){
+	
 .header{
 	border-bottom:1px solid #ebebeb;
 	height:32px;
@@ -39,7 +40,12 @@ a{text-decoration:none;}
 .content{
 	width:300px;
 	height:300px;
-	margin:100px auto;
+	margin:0 auto;
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-left:-150px;
+	margin-top:-130px;
 	}
 .content .logo{
 	text-align:center;
@@ -264,8 +270,12 @@ a{text-decoration:none;}
 			</a>
 		</div>
 		<div class="searchbox">
-			<input id="search" autofocus  class="input" maxlength="100" placeholder="请输入搜索关键字...." type="text" >
-			<a href="#" class="btn"><i class="iconfont icon-xiazai17"></i></a>
+			<form action="度盘搜/dedetails.html" method="post">
+				<input id="search" autofocus  class="input" maxlength="100" placeholder="请输入搜索关键字...." type="text" >
+				<a href="#" class="btn">
+					<i class="iconfont icon-xiazai17"></i>
+				</a>
+			</form>
 			<div id="list">
 				<ul></ul>
 			</div>
@@ -286,12 +296,15 @@ a{text-decoration:none;}
 			var oLi=oUl.children;
 			function fly( mJson ){
 				oUl.innerHTML = '';
+				var arr=[];
 				for ( var i=0;i<mJson.s.length ;i++ )
 				{
 					var oLi = document.createElement('li');
 					oLi.innerHTML = '<a href="javasript:voide(0)" >'+ mJson.s[i] +'</a>';
 					oUl.appendChild( oLi );
+					
 				};
+				
 			}
 			//键盘事件
 			oSearch.onkeyup = function(){
@@ -308,21 +321,21 @@ a{text-decoration:none;}
 				{
 					oList.style.display = 'none';
 				}
-				
-				
+
 			};
 			
 			//获取下拉列表文本值
 			setInterval(function(){
-			for(var i=0;i<oLi.length;i++){
-				//给对象缓存自有属性
-				oLi[i].index=i;
-				oLi[i].onclick=function(){
-					oSearch.value=oLi[this.index].innerText;
-					lost();
-				}
-			}
+				for(var i=0;i<oLi.length;i++){
+					//给对象缓存自有属性
+					oLi[i].index=i;
+					oLi[i].onclick=function(){
+						oSearch.value=oLi[this.index].innerText;
+						lost();
+					}
+				}	
 				},300);
+			
 			//失去焦点事件
 			function lost(){
 				if(oUl){
