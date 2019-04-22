@@ -313,7 +313,7 @@ a{text-decoration:none;}
 			};
 			
 			//获取下拉列表文本值
-			
+			setInterval(function(){
 			for(var i=0;i<oLi.length;i++){
 				//给对象缓存自有属性
 				oLi[i].index=i;
@@ -322,7 +322,7 @@ a{text-decoration:none;}
 					lost();
 				}
 			}
-			
+				},300);
 			//失去焦点事件
 			function lost(){
 				if(oUl){
