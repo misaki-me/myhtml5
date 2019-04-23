@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+</head>
+	
+<body>
+	<textarea id="text" name="" id="" cols="30" rows="10"></textarea>
+	<button id="submit">
+		<span>提交</span>
+	</button>
+</body>
+	<script>
+		var bthDom=document.getElementById("submit");
+		var textDom=document.getElementById("text");
+		var count=0
+		bthDom.onclick=function(){
+			count=0;
+			for(var i=0;i<=text.value.length-1;i++)
+				{
+				if(text.value[i].charCodeAt()==32||text.value[i].charCodeAt()==188)
+				{
+					count++;		
+				}
+				
+			}
+			alert(count+1);
+		}
+	</script>
+</html>
