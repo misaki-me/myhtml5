@@ -968,8 +968,8 @@ a{text-decoration:none;}
 	});
 	//头部下拉列表
 		$(function(){
+			var timer=null;
 			$('.banner').find('.list').find('ul').find('li').hover(function(){
-				var timer=null;
 				var index=$(this).index();
 				clearInterval(timer);
 				$(this).parents('.banner').find('.allMore').find('.more').eq(index).stop().slideDown(200).siblings().stop().slideUp(200);
@@ -979,7 +979,7 @@ a{text-decoration:none;}
 					$(".banner").find(".allMore").find(".more").stop().slideUp(200);
 				},200)
 			});
-			
+			//离开清除
 			$(".banner").find(".allMore").mouseleave(function(){
 				clearInterval(timer);
 				$(".banner").find(".allMore").find(".more").stop().slidUp;
