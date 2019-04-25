@@ -208,21 +208,6 @@ a{text-decoration:none;}
 			<div class="more">9</div>
 			<div class="more">10</div>
 		</div>
-		<script>
-			$('.banner').find('.list').find('ul').find('li').hover(function(){
-				var timer=null;
-				var index=$(this).index();
-				clearInterval(timer);
-				$('.banner').find('.allMore').find('.more').stop().slideDown(500);
-				$(this).parents('.banner').find('.allMore').find('.more').eq(index).show().siblings().hide();
-			},function(){
-				$('.banner').find('.allMore').find('.more').stop().slideUp(500);
-				clearInterval(timer);
-				timer=setTimeout(function(){
-					$(".banner").find(".allMore").find(".more").stop().slideDown(500);
-				},200)
-			});
-		</script>
 </div>
 <!--内容区域-->
 	<div class="clearfix"></div>
@@ -804,17 +789,7 @@ a{text-decoration:none;}
 			</div>
 		</div>
 <div class="clearfix"></div>
-	<script>
-		//家电选项卡
-		$('.citembox').find('.con').find('.rbgimg').eq(0).show();
-		$('.citembox').find('.title-more').find('.more').find('li').hover(function(){
-			var index=$(this).index();
-			$(this).parents('.citembox').find('.con').find('.rbgimg').eq(index).show().siblings().hide();
-			console.log(index);
-			$(this).parents('.citembox').find('.title-more').find('.more').find('li').eq(index).addClass('selected').siblings().removeClass('selected');
-			
-		});
-	</script>
+	
 	<!--广告-->
 
 <div class="ad">
@@ -991,5 +966,28 @@ a{text-decoration:none;}
 			$ul.animate({'margin-left':left});
 		}
 	});
+	//头部下拉列表
+			$('.banner').find('.list').find('ul').find('li').hover(function(){
+				var timer=null;
+				var index=$(this).index();
+				clearInterval(timer);
+				$('.banner').find('.allMore').find('.more').stop().slideDown(500);
+				$(this).parents('.banner').find('.allMore').find('.more').eq(index).show().siblings().hide();
+			},function(){
+				$('.banner').find('.allMore').find('.more').stop().slideUp(500);
+				clearInterval(timer);
+				timer=setTimeout(function(){
+					$(".banner").find(".allMore").find(".more").stop().slideDown(500);
+				},200)
+			});
+	//家电选项卡
+		$('.citembox').find('.con').find('.rbgimg').eq(0).show();
+		$('.citembox').find('.title-more').find('.more').find('li').hover(function(){
+			var index=$(this).index();
+			$(this).parents('.citembox').find('.con').find('.rbgimg').eq(index).show().siblings().hide();
+			console.log(index);
+			$(this).parents('.citembox').find('.title-more').find('.more').find('li').eq(index).addClass('selected').siblings().removeClass('selected');
+			
+		});
 </script>
 </html>
