@@ -967,6 +967,7 @@ a{text-decoration:none;}
 		}
 	});
 	//头部下拉列表
+		$(function(){
 			$('.banner').find('.list').find('ul').find('li').hover(function(){
 				var timer=null;
 				var index=$(this).index();
@@ -978,6 +979,14 @@ a{text-decoration:none;}
 					$(".banner").find(".allMore").find(".more").stop().slideUp(200);
 				},200)
 			});
+			
+			$(".banner").find(".allMore").mouseleave(function(){
+				clearInterval(timer);
+				$(".banner").find(".allMore").find(".more").stop().slidUp;
+			}).mouseover(function(){
+				clearInterval(timer);
+			});	
+		});
 	//家电选项卡
 		$('.citembox').find('.con').find('.rbgimg').eq(0).show();
 		$('.citembox').find('.title-more').find('.more').find('li').hover(function(){
