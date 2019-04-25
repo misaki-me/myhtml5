@@ -971,13 +971,11 @@ a{text-decoration:none;}
 				var timer=null;
 				var index=$(this).index();
 				clearInterval(timer);
-				$('.banner').find('.allMore').find('.more').stop().slideDown(500);
-				$(this).parents('.banner').find('.allMore').find('.more').eq(index).show().siblings().hide();
+				$(this).parents('.banner').find('.allMore').find('.more').eq(index).stop().slideDown(200).siblings().stop().slideUp(200);
 			},function(){
-				$('.banner').find('.allMore').find('.more').stop().slideUp(500);
 				clearInterval(timer);
 				timer=setTimeout(function(){
-					$(".banner").find(".allMore").find(".more").stop().slideUp(500);
+					$(".banner").find(".allMore").find(".more").stop().slideUp(200);
 				},200)
 			});
 	//家电选项卡
