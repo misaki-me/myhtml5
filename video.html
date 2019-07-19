@@ -30,6 +30,15 @@ a{text-decoration:none;}
 	border-radius:5%;
 	position:relative;
 	}
+.bg{
+	background:#000 url(images/loading.gif)center/300px no-repeat;
+	width: 100%;
+	height: 100%;	
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: -1;
+}
 	video{
 		margin-left:-36px;
 		margin-top:-40px;
@@ -148,6 +157,7 @@ a{text-decoration:none;}
 </div>
 <!--内容区域-->
 <div id="wrap">
+	<div class="bg"></div>
 	<video src="video/喵喵喵.mp4" width="1070" height="680" id="vid"></video>
 	<div id="bottom">
 		<i id="play" class="iconfont icon-bofang"></i>
@@ -192,6 +202,9 @@ a{text-decoration:none;}
 	var d6 = document.getElementById("d6");
 	var mark=true;
 	var timer=null;
+	vid.oncanplay=function(){
+		vid.style.display='block';
+	}
 	play.onclick=function(){
 		if(mark){
 			var className=this.getAttribute('class');
