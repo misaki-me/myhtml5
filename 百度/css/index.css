@@ -1,0 +1,156 @@
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+.wrap{position:relative;}
+	a{text-decoration:none;}
+/*头部样式*/
+.header{
+	border-bottom:1px solid #ebebeb;
+	height:32px;
+}
+.header .cl ul{
+	margin-left:20px;
+}
+.header li{
+	float:left;
+	color:black;
+	line-height:32px;
+	padding:0 12px;
+	font-size:14px;
+}
+.header a{
+	color:#555;
+}
+.header .cl ul li a.noline{
+	text-decoration:none;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.header .cr li{
+	font-weight:700;
+}
+#blue{
+	background:#38f;
+}
+#blue a{
+	color:#fff;
+	text-decoration:none;
+}
+/*	拓展内容(需要js)*/
+#more{
+	position:fixed;
+	background:#F9F9F9;
+	right:0;top:32px;
+	width:80px;
+	height:100%;
+	z-index:2;
+	display:none;
+	text-align:center;
+}
+#more ul li{
+	vertical-align:middle;
+	display:inline-block;
+	margin-left:12px;
+	margin-top:20px;
+}
+#more ul li a{
+	font-size:12px;
+}
+/*内容样式*/
+.content{
+	width:700px;
+	height:300px;
+	margin:100px auto;
+}
+.content .logo{
+	text-align:center;
+	margin-bottom:20px;
+}
+.content .searchbox{
+	position:relative;
+}
+.content .searchbox .input{
+	height:38px;
+	width:598px;
+	border:0;
+	float:left;
+	outline: none;
+	text-indent: 1em;
+	border:1px solid #b8b8b8;
+	font-family:"微软雅黑";
+	font-size:14px;
+}
+.content .searchbox .btn{
+	height:40px;
+	width:100px;
+	background:#38f;
+	color:#fff;
+	display:inline-block;
+	text-align:center;
+	font-size:16px;
+	float:left;
+	text-decoration:none;
+	line-height:38px;
+}
+.content .searchbox .camera{
+	width:18px;
+	height:19px;
+	background-image: url(images/camera.png);
+	position:absolute;
+	cursor:pointer;
+	right:150px;
+	top:12px;
+	background-position:0 0;
+}
+.content .searchbox .camera:hover {
+	background-position:0 19px;
+}
+#list{
+	width:100%;
+	position:absolute;
+	top:40px;
+	left:0;
+
+	border-top:none;
+	display:none;
+}
+#list ul{
+	border:1px solid #999;
+}
+#list ul li{
+	width:100%;
+	height:25px;
+	line-height:25px;
+	font-size:12px;
+	list-style:none;
+	text-indent:10px;
+}
+#list ul li a{
+	display:block;
+	text-decoration:none;
+	color:#333;
+}
+#list ul li a:hover{
+	background:#ddd;
+}
+/*	底部样式*/
+.footer{
+	height:12px;
+	width:100%;
+	z-index:2;
+	position:fixed;
+	right:0;
+	bottom:60px;
+	font-size:14px;
+	text-align: center;
+}
+.footer p{
+	color:#999;
+}
+.footer p a{
+	color:#999;
+}
