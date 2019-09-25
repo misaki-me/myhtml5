@@ -1,0 +1,57 @@
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+clear{clear:both;}
+/*头部样式*/
+	.bg{background:#eff3f5;}
+	.w1180{width:1180px;}
+	.bannerbox{height:350px;margin:50px auto 0;clear:both;z-index:-1;background:red;}
+/*内容样式*/
+	.tjbox{height:600px;margin:20px auto;}
+	.tjbox li.items{width:280px;height:300px;float:left;margin-right:20px;margin-bottom:20px;color:#34495e;position:relative;}
+	.tjbox li.items:nth-child(4n){margin-right:0;}
+/*	li的悬浮层*/
+	.tjbox li.items:before{
+		content:"";
+		opacity:0;
+		position:absolute;
+		z-index:1;
+		top:-16px;
+		right:-16px;
+		left:-14px;
+		bottom:0;
+		background-color:#fff;
+		box-shadow:0 0 1em #ccc;
+		transition:opacity .6s ease;
+	}
+	.tjbox li.items:hover:before{opacity:1;transition:opacity .6s ease;}
+	.tjbox li.items:hover *{color:#000;}
+	.tjbox li.items .cover{overflow:hidden;}
+	.tjbox li.items .cover .img{transition:transform 0.6s ease;}
+	.tjbox li.items:hover .img{transform:scale(1.1);transition:transform 0.6s ease;}
+	.tjbox li.items .cover{position:relative;z-index:2}
+	.tjbox li.items h3.title{
+		padding:5px 0;
+		word-break:break-all;
+		white-space:nowrap;
+		overflow:hidden;
+		text-overflow:ellipsis;/*省略号*/
+	}
+	.tjbox li.items h3{width:90%;white-space:nowrap;overflow:hidden;text-overflow: ellipsis;}
+	.tjbox li.items h3 a{color:#34495e;}
+	.tjbox li.items .info span.m{background:#dfe5e9;font-size:12px;padding:2px 8px;border-radius:5px;color:#999}
+	.tjbox li.items .info span.h{padding:0 10px;}
+	.tjbox li.items p.pic{padding-top:5px;}
+	.tjbox li.items .hpiv{width:20px;height:20px;border-radius:50%;vertical-align:bottom;padding-right:5px;}
+	#header{background:#fff;height:70px;postion:relative;z-index:5;}
+		#header .wrap{margin:0 auto;height:70px;}
+		#header .wrap ul li{float:left;height:70px;line-height:70px;}
+		#header .wrap ul li a{color:#34495E;display:block;padding:0 30px;}
+		#header .wrap li ul{display:block;border:1px solid #fff;background:#fff;z-index:5;}
+		#header .wrap li:hover ul{display:block;}
+		#header .wrap li ul li{float:none;z-index:5;}
+		#header .wrap li ul li a{color:#34495E;padding:10px;text-align:center;line-height:50px;z-index:5;}
+		#header .wrap .logo{float:left;}
+/*尾部样式*/
