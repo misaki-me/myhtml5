@@ -1,0 +1,52 @@
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+.clear{clear:both;}
+/*头部样式*/
+body{
+	background:url(images/wx.jpg) repeat-x;
+}
+.logo img{
+	float:left;
+	height:44px;
+	margin-top:14px;
+}
+.nav{
+	height:75px;
+	width: 968px;
+	margin:0 auto;
+}
+.nav li{
+	float:left;
+	margin:0 7px;
+	padding-top:21px;
+}
+.nav li a{
+	display:block;
+	color:#fff;
+	font-size:14px;
+	line-height:15px;
+	padding-left:15px;
+}
+.nav ul li:nth-child(1) a{
+	background:url(images/to.png) no-repeat;
+}
+.nav ul li:nth-child(1) a span{
+	background:url(images/to.png) no-repeat right center;
+}
+.nav li a:hover{
+	background:url(images/ao.png);
+}
+.nav li a:hover span{
+	background:url(images/ao.png) no-repeat right center;
+}
+.nav li a span{
+	display:block;
+	line-height:33px;
+	padding-right:15px;
+}
+/*内容样式*/
+
+/*尾部样式*/
