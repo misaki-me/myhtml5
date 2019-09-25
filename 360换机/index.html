@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin:0;
+		padding: 0;
+	}
+	html,body{
+		height: 100%;
+	}
+	body{
+		overflow: hidden; 
+	}
+	a img{
+		border: 0;
+	}
+	li{
+		list-style: none;
+	}
+	#bg{
+		height: 100%;
+	}
+	#bg div{
+		height: 100%;
+		background-position: center;
+		background-attachment: fixed;
+	}
+	#bg div:nth-child(1){
+		background-image: url(images/1.jpg);
+	}
+	#bg div:nth-child(2){
+		background-image: url(images/2.jpg);
+	}
+	#bg div:nth-child(3){
+		background-image: url(images/3.jpg);
+	}
+	#bg div:nth-child(4){
+		background-image: url(images/4.jpg);
+	}
+	#header{
+		height: 47px;
+		position: fixed;
+		top: 27px;
+		width: 100%;
+	}
+	.logo{
+		width: 226px;
+		height: 47px;
+		margin-left: 50px;
+		float: left;
+	}
+	.nav{
+		width: 400px;
+		height: 47px;
+		float: right;
+		margin-right: 50px;
+		position: relative;
+	}
+	.nav ul{
+		position: relative;
+		z-index:1;
+		height: 47px;
+	}
+	.nav ul li{
+		float: left;
+		font-size:14px;
+		line-height: 47px;
+		margin-left: 53px;
+	}
+	.nav ul li a{
+		color:rgba(255,255,255,.8);
+		text-shadow: 4px 3px 10px #000;
+		text-decoration: none;
+		font-family: 'Micorosoft yahei';
+	}
+	.nav ul li.on a{
+		color:#fff;
+	}
+	#border{
+		width: 56px;
+		height: 30px;
+		border:1px solid rgba(255,255,255,.7);
+		border-radius: 16px;
+		position: absolute;
+		top: 8px;
+		left: 38px;
+	}
+	#slide{
+		width: 100px;
+		height: 330px;
+		position: fixed;
+		top: 35%;
+		left: 50px;
+		background: url(images/nav.png) no-repeat;
+	}
+	#slide ul li{
+		font-size:12px;
+		color:rgba(255,255,255,.8);
+		font-family: 'Micorosoft yahei';
+		padding-left: 50px;
+		line-height: 21px;
+		margin-top: 6px;
+		margin-bottom: 56px;
+		cursor:pointer;
+	}
+	#slide ul li.on{
+		background: url(images/nav_cho.png) no-repeat;
+	}
+</style>
+<body>
+	<div id="header">
+		<div class="logo">
+			<a href="#">
+				<img src="images/logo.png">
+			</a>
+		</div>
+		<div class="nav">
+			<ul>
+				<li class="on"><a href="#">首页</a></li>
+				<li><a href="#">常见问题</a></li>
+				<li><a href="#">论坛</a></li>
+				<li><a href="#">360首页</a></li>
+			</ul>
+			<div id="border"></div>
+		</div>
+	</div>
+	<div id="bg">
+		<div class="bg1"></div>
+		<div class="bg2"></div>
+		<div class="bg3"></div>
+		<div class="bg4"></div>
+	</div>
+	<div id="slide">
+		<ul>
+			<li class="on">安全换机</li>
+			<li>无网对传</li>
+			<li>隐私粉碎</li>
+			<li>一键转移</li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript">
+		window.onload=function(){
+			$(document).scrollTop(0);
+		}
+		 var li=$('.nav ul li');
+		 var border=$('#border');
+		 var nav=$('.nav');
+		 var slideLi=$('#slide ul li');
+		 var index=0;
+		 $(this).addClass('on').siblings().removeClass('on');
+		 li.mouseenter(function(){
+		 	var width=$(this).width();
+		 	var left=$(this).position().left;
+		 	border.stop(true).animate({
+		 		left:left+38+'px',
+		 		width:width+28+'px'
+		 	},300);
+		 });
+		 nav.mouseleave(function(){
+		 	li.eq(0).addClass('on').siblings().removeClass('on');
+		 	border.animate({
+		 		left:"38px",
+		 		width:"56px"
+		 	},300);
+		 });
+		 slideLi.click(function(){
+		 	index=$(this).index();
+		 	$(this).addClass('on').siblings().removeClass('on');
+		 	var windowH=$(window).height();
+		 	$('dody,html').stop(true).animate({
+		 		scrollTop:index*windowH
+		 	},500);
+		 });
+		 $(document).mousewheel(function(e,d){
+		 	if(d<0)
+		 	{
+		 		index++;
+		 		index%=slideLi.length;
+		 	}
+		 	else
+		 	{
+		 		index--;
+		 		if (index<0)index=slideLi.length-1;
+		 	}
+		 	slideLi.eq(index).addClass('on').siblings().removeClass('on');
+			 	var windowH=$(window).height();
+			 	$('dody,html').stop(true).animate({
+			 		scrollTop:index*windowH
+			 	},500);
+		 });
+		 $(window).resize(function(){
+		 	var windowH=$(window).height();
+		 	$(document).scrollTop(index*windowH);
+		 });
+	</script>
+</body>
+</html>
