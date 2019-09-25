@@ -1,0 +1,9 @@
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a{text-decoration:none;}
+.fl{float:left;}
+.fr{float:right;}
+a img{border:none;}
+.clear{clear:both;}
+.w1200{width:1000px;}
+body{font-family:"微软雅黑";}

@@ -1,0 +1,11 @@
+	$('.s-wrap:last').css('border-bottom','none');
+	//固定导航栏
+	$(window).scroll(function(){
+		if($(document).scrollTop()>$('.header').height()){
+			$('.header').css({'position':'fixed','top':0});
+			$('.content').css('margin-top',$('.header').height());
+		}else{
+			$('.header').css({'position':'static'});
+			$('.content').css('margin-top',0);
+		}
+	})

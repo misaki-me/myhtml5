@@ -8,394 +8,16 @@
 <meta name="Description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 <title>Document</title>
+<link rel="shortcut icon" href="favicon.ico"/>
 <link rel="stylesheet" href="https://at.alicdn.com/t/font_1149427_39v0tka8cyw.css">
+<!-- pc端布局 -->
+<link rel="stylesheet" type="text/css" href="css/details.css" media="screen and (orientation:landscape)">
+<!-- 移动端样式 -->
+<link rel="stylesheet" type="text/css" href="css/m.details.css" media="screen and (orientation:portrait)">
+<link rel="stylesheet" type="text/css" href="css/base.css">
 <style>
-/*全局样式*/
-*{margin:0;padding:0;}
-ul li{list-style:none;}
-a img{border:none;}
-a{text-decoration:none;}
-clear{clear:both;}
-.w1200{width:1000px;}
-body{font-family:"微软雅黑";}
-/*pc端布局*/
-@media all and (orientation:landscape){
-/*头部样式*/
-	.header{
-		height:70px;
-		background:#86C5E1;
-		width:100%;
-	}
-	.h-wrap{
-		margin:0 auto;
-	}
-	.header .h-wrap .cl{
-		float:left;
-	}
-	.header .h-wrap .cl .logo{
-		color:#fff;
-		font-family:"幼圆";
-	}
-	.header .h-wrap .cl h3{
-		color:#fff;
-	}
-	.header .h-wrap .cr{
-		float:right;
-		margin: 10px auto;
-		width: 100%;
-		max-width: 300px;
-		height: 24px;
-		text-align: left;
-		position: relative;
-   		padding: 10px;
-		border-radius: 30px;
-		border: 1px solid #e8e8e8;
-		box-shadow: 0 0 30px rgba(0,0,0,.05);
-		background-color: #fff;
-		transition: all .3s ease;
-	}
-	.h-wrap .cr .search{
-		height: 24px;
-		font-size: 16px;
-		margin-left: 14px;
-		width: calc(100% - 50px);
-		font-family: PingFangSC-Regular, "Microsoft YaHei", sans-serif;
-		font-weight: 100;
-		border: none;
-		outline: none;
-		background-color: transparent;
-		line-height: inherit;
-		padding-bottom:20px;
-		position:absolute;
-		top:10;px
-		left:0;
-	}
-	.h-wrap .cr .btn{
-		width: 34px;
-  	    height: 34px;
- 	    font-size: 16px;
-  	  	line-height: 34px;
-		background:#76B1D2;
-		display:inline-block;
-		text-align:center;
-		border-radius:50%;
-		color:#fff;
-		margin-left:-36px;
-		position:absolute;
-		top:5px;
-		left:315px;
-	}
-	.h-wrap .cr .btn:hover{
-		background:#86C5E1;
-	}
-/*内容样式*/
-		.content{
-			box-shadow:0px 10px 20px #ccc;
-			margin:0 auto;
-			height:70%;
-			position:relative;
-		}
-		.content .section{
-			margin:auto;
-			width:945px
-		}
-		.content .s-wrap{
-			width:100%;
-			display:flex;
-			height:280px;
-			border-bottom:1px solid #ccc;
-		}
-		/*	无效*/
-		.content div.s-wrap:nth-last-type(1){
-			border-bottom:none;
-		}
-
-		.content .section .title{
-			line-height:30px;
-			height:30px;
-			margin-left:30px;
-		}
-		.content .section .title h3{
-			color:#000;
-			display:inline-block;
-			line-height:20px;
-			margin-left:10px;
-		}
-		.content .section .title .icon-weibiaoti5{
-			color:#FED007;
-			font-size:40px;
-			
-		}
-		.list{
-			width:800px;
-			background:#F5F5F5;
-			margin-left:80px;
-			border-radius:10px;
-			margin-top:20px;
-		}
-		.list li{
-			padding:5px 15px;
-			
-		}
-		.list li a{
-			color:#ACAAAC;
-		}
-		.content span.num{
-			font-size:12px;
-			color:#BBBBBB;
-			left:800px;
-			width:120px;
-			margin-top:20px;
-			float:right;
-			position:absolute;
-			
-		}
-/*尾部样式*/
-.s-footer{
-			margin-left:80px;
-			height:30px;
-			margin-top:10px;
-			margin-bottom:10px;
-		}
-		.s-footer div{
-			float:left;
-			border-radius:26px;
-			background:#E7E7E7;
-			line-height:30px;
-			margin-right: 20px;
-			padding:0 10px;
-		}
-		.s-footer div i{
-			font-size:20px;
-			color:#A3A1A3;
-			line-height:30px;
-		}
-		.s-footer div span{
-			color:#A3A1A3;
-			font-weight: 100;
-		}
-		.s-footer .pasword{
-			background:#86C5E1;
-		}
-		.s-footer .pasword span{
-			color:#EAF5EA;
-		}
-		.s-footer .pasword i{
-			color:#EAF5EA;
-		}
-		.footer{
-			margin:30px auto;
-			height:30px;
-			margin-top:0;
-		}
-		.footer ul{
-			margin:0 auto;
-			width:267px;
-			height:33px;
-		}
-		.footer li{
-			float:left;
-			border:1px solid #DDDDDD;
-			padding:5px 10px;
-			transition:0.5s;
-		}
-		.footer li:hover{
-			background:#E7E7E7;
-		}
-		.footer li a{
-			color:#A3A1A3;
-			display:inline-block;
-		}
-	}
-/*移动端样式*/
-@media all and (orientation:portrait){
-/*头部样式*/
-		body{
-			
-		}
-		.header .h-wrap{
-			width:200px;
-			margin:0 auto;	
-		}
-		.header .h-wrap .cl .logo{
-			color:#76B1D2;
-			font-size:40px;
-			text-align:center;
-			margin-top:50px;
-		}
-		.header .h-wrap .cl h3{
-			color:#76B1D2;
-			text-align:center;
-			font-size:20px;
-		}
-		.h-wrap .cr{
-			margin: 10px auto;
-			width: 150%;
-			max-width: 500px;
-			height: 30px;
-			text-align: left;
-			position: relative;
-			padding: 8px;
-			border-radius: 40px;
-			border: 1px solid #e8e8e8;
-			box-shadow: 0 0 30px rgba(0,0,0,.05);
-			background-color: #fff;
-			transition: all .3s ease;
-			margin-left:-60px;
-		}
-		.h-wrap .cr .search{
-			height: 18px;
-			font-size: 18px;
-			margin-left: 14px;
-			width: calc(100% - 50px);
-			font-family: PingFangSC-Regular, "Microsoft YaHei", sans-serif;
-			font-weight: 100;
-			border: none;
-			outline: none;
-			background-color: transparent;
-			line-height: inherit;
-			padding-bottom:20px;
-			position:absolute;
-			top:15px;
-			left:10px;
-		}
-		.h-wrap .cr .btn{
-		width: 40px;
-  	    height:40px;
-  	  	line-height: 40px;
-		background:#76B1D2;
-		display:inline-block;
-		text-align:center;
-		border-radius:50%;
-		color:#fff;
-		margin-left:-36px;
-		position:absolute;
-		top:3px;
-		left:310px;
-		}
-		.h-wrap .cr .btn i{
-			font-size:22px;
-		}
-/*内容样式*/
-		.content{
-			margin:0 auto;
-			height:100%;
-			width:100%;
-		}
-		.content .s-wrap{
-			border-bottom:1px solid #ccc;
-		}
-		.content span.num{
-			font-size:8px;
-			color:#BBBBBB;		
-			margin-top:20px;
-			
-			position:absolute;
-			left:304px;
-			display:inline-block;
-			width:93px;
-		}		
-		.content .section{
-			padding-top:30px;
-			width:300px;
-			margin:0 auto;
-		}
-		.content .section .title{
-			line-height:20px;
-			
-		}
-		.content .section .title h3{
-			color:#000;
-			display:inline-block;
-			line-height:20px;
-			margin-left:10px;
-			font-size:20px;
-		}
-		.content .section .title .icon-weibiaoti5{
-			color:#FED007;
-			font-size:20px;
-			
-		}
-		
-		.list{
-			width:300px;
-			background:#F5F5F5;
-			margin:20px auto;
-			border-radius:10px;
-			margin-top:20px;
-		}
-		.list li{
-			padding:5px 10px;
-			
-		}
-		.list li a{
-			color:#ACAAAC;
-			font-size:15px;
-		}
-/*尾部样式*/
-		.s-footer{
-			margin-left:80px;
-			height:30px;
-			margin:20px auto;
-			width:100%;
-		}
-		.s-footer div{
-			float:left;
-			border-radius:60px;
-			background:#E7E7E7;
-			line-height:20px;
-			margin-right:8px;
-			padding:0 10px;
-		}
-	.s-footer div:nth-last-child(1){
-			margin-right:0;
-		}
-		.s-footer div i{
-			font-size:13px;
-			color:#A3A1A3;
-		}
-		.s-footer div span{
-			color:#A3A1A3;
-			font-weight: 100;
-			font-size:13px;
-		}
-		.s-footer .pasword{
-			background:#86C5E1;
-		}
-		.s-footer .pasword span{
-			color:#EAF5EA;
-		}
-		.s-footer .pasword i{
-			color:#EAF5EA;
-		}
-		.footer{
-			height:50px;
-			width:100%;
-		}
-		.footer ul{
-			
-			height:30px;
-			width:245px;
-			margin:10px auto;
-		}
-		.footer li{
-			float:left;
-			border:1px solid #DDDDDD;
-			padding:5px 10px;
-			font-size:10px;
-			transition:0.5s;
-		}
-		.footer li:hover{
-			background:#E7E7E7;
-		}
-		.footer li a{
-			color:#A3A1A3;
-			display:inline-block;
-		}
-		.footer li a i{
-			font-size:10px;
-		}
-	}
+/*@media all and (orientation:landscape){}*/
+/*@media all and (orientation:portrait){}*/
 </style>
 </head>
 <body>
@@ -407,7 +29,7 @@ body{font-family:"微软雅黑";}
 			<h3>dupansou.com</h3>
 		</div>	
 		<div class="cr" id="cr">
-			<input type="text" class="search" id="search" onFocus="foucs()" onBlur="lost()">
+			<input type="text" class="search" id="search">
 			<a class="btn" href="#">
 				<i class="iconfont icon-xiazai17"></i>
 			</a>
@@ -538,6 +160,126 @@ body{font-family:"微软雅黑";}
 		</div>
 	</div>
 </div>
+<div class="s-wrap">
+	<div class="section">
+		<div class="title">
+			<a href="#">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<h3>文件夹</h3>
+			</a>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<a href="#">一级目录</a>
+				</li>
+				<li>
+					<a href="#">二级目录</a>
+				</li>
+				<li>
+					<a href="#">三级目录</a>
+				</li>
+				<li>
+					<a href="#">四级目录</a>
+				</li>
+			</ul>
+		</div>
+		<div class="s-footer w1200">
+			<div class="pasword">
+				<i class="iconfont icon-mima"></i>
+				<span>2asd</span>
+			</div>
+			<div class="total">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<span>233G</span>
+			</div>
+			<div class="date">
+				<i class="iconfont icon-shijian"></i>
+				<span>2019年4月20日</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="s-wrap">
+	<div class="section">
+		<div class="title">
+			<a href="#">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<h3>文件夹</h3>
+			</a>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<a href="#">一级目录</a>
+				</li>
+				<li>
+					<a href="#">二级目录</a>
+				</li>
+				<li>
+					<a href="#">三级目录</a>
+				</li>
+				<li>
+					<a href="#">四级目录</a>
+				</li>
+			</ul>
+		</div>
+		<div class="s-footer w1200">
+			<div class="pasword">
+				<i class="iconfont icon-mima"></i>
+				<span>2asd</span>
+			</div>
+			<div class="total">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<span>233G</span>
+			</div>
+			<div class="date">
+				<i class="iconfont icon-shijian"></i>
+				<span>2019年4月20日</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="s-wrap">
+	<div class="section">
+		<div class="title">
+			<a href="#">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<h3>文件夹</h3>
+			</a>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<a href="#">一级目录</a>
+				</li>
+				<li>
+					<a href="#">二级目录</a>
+				</li>
+				<li>
+					<a href="#">三级目录</a>
+				</li>
+				<li>
+					<a href="#">四级目录</a>
+				</li>
+			</ul>
+		</div>
+		<div class="s-footer w1200">
+			<div class="pasword">
+				<i class="iconfont icon-mima"></i>
+				<span>2asd</span>
+			</div>
+			<div class="total">
+				<i class="iconfont icon-weibiaoti5"></i>
+				<span>233G</span>
+			</div>
+			<div class="date">
+				<i class="iconfont icon-shijian"></i>
+				<span>2019年4月20日</span>
+			</div>
+		</div>
+	</div>
+</div>
 	<!--底部区域-->
 <div class="footer w1200">
 	<ul>
@@ -552,20 +294,7 @@ body{font-family:"微软雅黑";}
 	</ul>	
 </div>
 </div>
-
 </body>
-<script>
-	var swrap=document.getElementsByClassName("s-wrap");
-	swrap[swrap.length-1].style.borderBottom="none";
-//	alert(section[section.length-1]);
-	function id(id){
-		return document.getElementById(id);
-	}
-	function foucs(){
-		id("cr").style.border="1px solid #86C5E1";
-	}
-	function lost(){
-		id("cr").style.border="1px solid #e8e8e8";
-	}
-</script>
+<script src="js/jquery-1.12.2.min.js"></script>
+<script src="js/details.js"></script>
 </html>
