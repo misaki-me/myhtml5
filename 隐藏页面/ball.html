@@ -1,0 +1,163 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<link rel="shortcut icon" href="favicon.ico"/>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*html{overflow-y:hidden;}*/
+/*头部样式*/
+.h-main{
+	width:100%;
+	height:188px;
+	position:relative;
+}
+#header{
+	margin:0 auto;
+	width:360px;
+	height:188px;
+}
+#header pre{
+	font-size:180px;
+	display: block;
+}
+/*内容样式*/
+#wrap{
+	width:1000px;
+	height:600px;
+	margin:0 auto;
+	border:5px #000 double;
+	border-width:21px;
+	overflow:hidden;
+	border-radius:5%;
+	position:relative;
+	}
+#wrap .box{
+	width:120px;
+	height:120px;
+	background:red;
+	position:absolute;
+	top:0;
+	left:0;
+	border-radius:50%;
+}
+/*尾部样式*/
+.f-main{
+	width:100%;
+	height:80px;
+	position:relative;
+}
+#footer{
+	margin:-41px auto;
+	width:658px;
+	height:80px;
+}
+#footer pre{
+	font-size:130px;
+	display: block;
+}
+</style>
+</head>
+<body>
+<!--头部区域<-->
+<div class="h-main">
+<div id="header">
+	<pre>
+╲╱
+	</pre>
+</div>
+</div>
+<!--内容区域-->
+<div id="wrap">
+
+</div>
+<!--尾部区域-->
+	<div class="f-main">
+<div id="footer">
+	<pre>
+∪      ∪
+	</pre>
+</div>
+	</div>
+</body>
+<script>
+window.onload = function(){
+			var arr = [];
+			var wrap=document.getElementById('wrap');
+			for(var i=0;i<10;i++){
+				var boxDom = document.createElement("div");
+				boxDom.className = "box";
+				boxDom.x = 0;
+				boxDom.y = 0;
+				boxDom.xstep = i+2;
+				boxDom.ystep = i+2;
+				boxDom.bgcolor = "red";
+				wrap.appendChild(boxDom);
+				arr.push(boxDom);
+				boxDom.onclick = function(){
+					//clearInterval(timer);
+					var items = arr.pop();
+					wrap.removeChild(items);
+				};
+			}
+			function randomColor(){
+				var r=Math.floor(Math.random()*250);
+				var g=Math.floor(Math.random()*250);
+				var b=Math.floor(Math.random()*250);
+				var a=Math.random();
+				var color='rgba('+r+','+g+','+b+','+a+')';
+				return color;
+			}
+			console.log(wrap.style.border);
+			function draw(){
+				for(var i=0;i<arr.length;i++){
+					var boxDom = arr[i];
+					console.log(boxDom.length)
+					var w =wrap.offsetWidth - boxDom.offsetWidth-42;
+					var h = wrap.offsetHeight - boxDom.offsetHeight-42;
+					boxDom.x+=boxDom.xstep;
+					boxDom.y+=boxDom.ystep;
+					if(boxDom.x>=w){
+						boxDom.xstep = -boxDom.xstep;	
+						boxDom.x = w;
+						boxDom.bgcolor =randomColor();
+					}
+					if(boxDom.y>=h){
+						boxDom.ystep = -boxDom.ystep;	
+						boxDom.y = h;
+						boxDom.bgcolor = randomColor();
+					}
+
+					if(boxDom.x<=0){
+						boxDom.x = 0;
+						boxDom.xstep = -boxDom.xstep;	
+						boxDom.bgcolor =randomColor();
+					}
+
+					if(boxDom.y<=0){
+						boxDom.y = 0;
+						boxDom.ystep = -boxDom.ystep;	
+						boxDom.bgcolor = randomColor();
+					}
+					console.log(randomColor());
+					boxDom.style.top = boxDom.y +"px";
+					boxDom.style.left = boxDom.x +"px";
+					boxDom.style.background = boxDom.bgcolor;
+				}
+
+			};
+			
+
+			var timer = setInterval(draw,30);
+		};
+</script>
+</html>

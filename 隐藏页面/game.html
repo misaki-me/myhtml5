@@ -1,0 +1,402 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<link rel="shortcut icon" href="favicon.ico"/>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+clear{clear:both;}
+/*html{overflow-y:hidden;}*/
+/*头部样式*/
+.h-main{
+	width:100%;
+	height:188px;
+	position:relative;
+}
+#header{
+	margin:0 auto;
+	width:360px;
+	height:188px;
+}
+#header pre{
+	font-size:180px;
+	display: block;
+}
+/*内容样式*/
+#box{
+	width:1000px;
+	height:600px;
+	margin:0 auto;
+	border:5px #000 double;
+	border-width:21px;
+	overflow:hidden;
+	border-radius:5%;
+	font-family:"microsoft yahei";
+	text-align:center;
+	position:relative
+}
+
+/*尾部样式*/
+.f-main{
+	width:100%;
+	height:80px;
+	position:relative;
+}
+#footer{
+	margin:-41px auto;
+	width:658px;
+	height:80px;
+}
+#footer pre{
+	font-size:130px;
+	display: block;
+}
+</style>
+</head>
+<body>
+<!--头部区域-->
+<div class="h-main">
+<div id="header">
+	<pre>
+╲╱
+	</pre>
+</div>
+</div>
+<!--内容区域-->
+<div id="box">
+
+</div>
+<!--尾部区域-->
+	<div class="f-main">
+<div id="footer">
+	<pre>
+∪      ∪
+	</pre>
+</div>
+	</div>
+</body>
+<script>
+/*单体模式*/
+window.onload=function(){//页面加载完成后执行事件内容
+	Game.exe();
+};
+var Game={//json
+//启动程序
+exe:function(){
+	var _div=document.getElementById('box');//给块级标签添加id
+	this.init();
+},
+//分数
+score:0,
+//结束标识符
+ifEnd:true,
+//初始化
+init:function(){
+	var _div=document.getElementById('box');
+	_div.innerHTML='';
+	Game.score=0;//还原分数
+	Game.ifEnd=false;
+	var _h1=document.createElement('h1');//创建一个标题标签
+	_h1.innerHTML='手冲比赛v1.0';//游戏的名字
+	_div.appendChild(_h1);//添加标题标签到文档中
+	_h1.style.cssText='color:#000;font-size:40px;font-weight:600;margin-top:100px;';//给标题标签添加样式
+	for(var i=0;i<4;i++)//循环添加p标签
+	{
+		var _p=document.createElement('p');//创建一个p标签
+		_p.index=i;//设置一个序列号
+		_p.style.cssText='font-size:25px;color:#000;width:150px;height:40px;margin:50px auto;text-align:center;line-height:40px;background:#fff;cursor:pointer;';//给段落标签添加样式
+		_p.onmouseenter=function(){//用鼠标移入事件来替代hover的效果
+			this.style.background='#f60';
+			this.style.color='#fff';
+		};
+		_p.onmouseleave=function(){//用鼠标移出事件来替代hover的效果
+			this.style.background='#fff';
+			this.style.color='#000';
+		};
+		_p.onclick=function(e){//添加一个点击事件
+			e=e||window.event;//做事件对象的兼容
+			Game.start(this.index,_div,e);//当点击的时候执行开始游戏的功能,并把序列号和盒子还有事件对象传给开始游戏的功能函数
+		};
+		var html='';//定义一个空的样式用来装p标签的文本
+		switch(i)//给p标签添加文本
+			{
+				case 0:
+					html='简单模式';
+					break;
+				case 1:
+					html='中等模式';
+					break;
+				case 2:
+					html='困难模式';
+					break;
+				case 3:
+					html='五五开模式';
+					_p.style.color='#f00';//给这个段落添加独立的样式
+					_p.style.fontWeight='bold';
+					_p.onmouseenter=function(){//给这个段落添加独立事件
+					this.style.background='#f60';
+					};
+					_p.onmouseleave=function(){//给这个段落添加独立事件
+					this.style.background='#fff';
+					};
+					break;
+			}
+		_p.innerHTML=html;//把文本的内容添加给p标签
+		_div.appendChild(_p);//添加段落标签到文档中
+	};
+},
+//游戏开始
+start:function(index,_div,e){//传入序列号和盒子还有事件对象
+	_div.innerHTML='';//清空盒子中的内容
+	var _score=document.createElement('span');//创建一个用来记分的标签
+	_score.innerHTML=this.score;//让标签的内容等于分数的值
+	_score.style.cssText='position:absolute;left:20px;font-size:24px;top=10px;color:#000;';//记分标签的样式
+	_div.appendChild(_score);//添加记分标签到盒子中
+	this.plane(_div,e,index);//调用飞机函数
+	this.enemy(_div,_score,index);//调用敌人函数
+},
+//飞机函数
+plane:function(_div,e,index){//传入盒子和事件对象
+	var x=e.pageX;//飞机的水平坐标
+	var	y=e.pageY;//飞机的垂直坐标
+	var _plane=new Image();//创建一个图片标签
+	_plane.src='images/手冲素材.png';//图片路径
+	_plane.width=60;//图片宽度
+	_plane.height=60;//图片高度
+	_plane.id='plane';//给飞机起一个id
+	var ty=_div.offsetTop+21+_plane.height/2;//暂存固定值用的变量
+	var lx=_div.offsetLeft+21+_plane.width/2;//暂存固定值用的变量
+	window.onresize=function(){//当窗口大小发生改变的时候重新调整水平位置的固定值
+		lx=_div.offsetLeft+21+_plane.width/2;//重新计算后的水平位置
+	};
+	var top=y-ty;//鼠标现在垂直的位置=盒子到页面顶部的距离-盒子边框的宽度-飞机的高度除二
+	var left=x-lx;//鼠标现在水平的位置=盒子到页面左部的距离-盒子边框的宽度-飞机的宽度除二
+	_plane.style.cssText='display:block;position:absolute;top:'+top+'px;left:'+left+'px;';//图片样式 
+	_div.appendChild(_plane);//添加图片标签到文档中
+	var leftMin=-_plane.width/2;//最小水平位置=负的图片宽度除二
+	var leftMax=_div.clientWidth-_plane.width/2;//最大水平位置=盒子的宽度减去图片的宽度除二
+	var topMin=0;//最小垂直位置
+	var topMax=_div.clientHeight-_plane.height;//最大垂直位置=盒子的高度减去图片高度
+	document.onmousemove=function(e){//鼠标移动事件
+		e=e||window.event;
+		var top=e.pageY-ty;//鼠标现在垂直的位置=盒子到页面顶部的距离-盒子边框的宽度-飞机的高度除二
+		var left=e.pageX-lx;//鼠标现在水平的位置=盒子到页面左部的距离-盒子边框的宽度-飞机的宽度除二
+		top=Math.min(top,topMax);//if(top>topMax)top=topMax;
+		top=Math.max(top,topMin);//if(top<topMin)top=topMin;
+		left=Math.min(left,leftMax);//if(left>leftMax)left=leftMax;
+		left=Math.max(left,leftMin);//if(left<leftMin)left=leftMin;
+		_plane.style.left=left+'px';//让图片丢水平位置随着鼠标而变动
+		_plane.style.top=top+'px';//让图片丢垂直位置随着鼠标而变动
+	};
+	this.bullet(_plane,_div,index);//调用子弹函数,并把飞机和盒子传出
+},
+//子弹函数
+bullet:function(_plane,_div,index){
+	var speed;
+	switch(index)
+		{
+			case 0://简单模式子弹速度
+				speed=200;
+				break;
+			case 1://普通模式子弹速度
+				speed=300;
+				break;
+			case 2://困难子弹速度
+				speed=400;
+				break;
+			case 3://五五开模式子弹速度
+				speed=10;
+				break;	
+		}
+	this.bullettimer=setInterval(function(){//设置一个定时器来发射子弹
+		var _bullet=new Image();//创建图片标签
+		_bullet.src='images/bullet.png';//子弹路径
+		_bullet.width=6;//子弹宽度
+		_bullet.height=22;//子弹高度
+		_bullet.className='bullet';//给子弹图片添加一个类名
+		var top=_plane.offsetTop-_bullet.height+3;//子弹垂直位置=飞机的顶部位置加飞架宽度的一半加三
+		var left=_plane.offsetLeft+_plane.width/2-_bullet.width/2;//子弹水平位置=飞机的左部位置加飞机的宽度的一半减去子弹宽度的一半
+		_bullet.style.cssText='position:absolute;top:'+top+'px;left:'+left+'px;';//子弹样式
+		_div.appendChild(_bullet);//添加子弹图片到文档中
+		_bullet.timer=setInterval(function(){//设置另一个定时器用来发射子弹
+			if(!_bullet.parentNode)clearInterval(_bullet.timer);//当子弹的图片被删除的时候清除子弹的定时器(节省性能)
+			_bullet.style.top=_bullet.offsetTop-3+'px';//子弹的顶部位置等于定位父级的顶部位置间隔为三
+			if(_bullet.offsetTop<-_bullet.height)//如果子弹的高度小于负的自己高度的时候
+				{
+					clearInterval(_bullet.timer);//清除发射子弹的定时器
+					_bullet.parentNode.removeChild(_bullet);//清除子弹的节点
+				}
+		},13);//发射子弹的间隔
+	},speed);//子弹速度
+},
+//敌军函数
+enemy:function(_div,_score,index){
+	var y,x;//定义两个变量用来控制敌军的下落和生成速度
+	switch(index)
+		{
+			case 0://简单模式
+				y=1;//敌军下落速度
+				x=300//敌军生成速度
+				break;
+			case 1://普通模式
+				y=3;//敌军下落速度
+				x=200//敌军生成速度
+				break;
+			case 2://困难模式
+				y=5;//敌军下落速度
+				x=150//敌军生成速度
+				break;
+			case 3://五五开模式
+				y=5;//敌军下落速度
+				x=100//敌军生成速度
+				break;	
+		}
+	this.enemyTimer=setInterval(function(){//设置一个定时器生成敌军
+		var _enemy=new Image();//创建一个图片标签
+		_enemy.src='images/enemy.png';//图片标签地址
+		_enemy.width=30;//图片宽度
+		_enemy.height=30;//图片高度
+		var leftMin=0;//最小宽度
+		var leftMax=_div.clientWidth-_enemy.width;//最大宽度
+		var left=Math.random()*(leftMax-leftMin)+leftMin;//0+min-max+min=
+		_enemy.style.cssText='position:absolute;top:'+(-_enemy.height)+'px;left:'+left+'px;';//敌军图片样式
+		_div.appendChild(_enemy);
+		//敌军运动框架
+		var a=Math.random()*y+1;//取1~3之间的随机数,用来动态调整敌军的下降速度
+		_enemy.timer=setInterval(function(){
+			_enemy.style.top=_enemy.offsetTop+a+'px';//下落高度=盒子高度加随机函数
+			if(_enemy.offsetTop>=_div.clientHeight)//如果敌军的高度大于等于盒子可视区域的高度
+				{
+					clearInterval(_enemy.timer);//清除敌军下落的定时器
+					_enemy.parentNode.removeChild(_enemy);//清除敌军的节点
+				}
+		},13);
+		
+		//敌军和子弹的碰撞检测
+		var allbullet=Game.getClass('bullet');//获取所有的子弹
+		_enemy.boomEnemy=setInterval(function(){
+			for(var i=0;i<allbullet.length;i++)//检测每一子弹
+			{
+				if(Game.boom(_enemy,allbullet[i]))//将每一个子弹和敌军传给碰撞检测功能
+				{
+					Game.score ++;//记分
+					_score.innerHTML=Game.score;
+					_enemy.src='images/boom.png';
+					clearInterval(_enemy.boomEnemy);//清除敌军的定时器
+					clearInterval(_enemy.boomPlane);//防止爆炸后的敌军与飞机发生碰撞
+					allbullet[i].parentNode.removeChild(allbullet[i]);//删除子弹的节点
+					_enemy.src='images/boom.png';//把敌军的图片改成爆炸
+					setTimeout(function(){//清除每一个爆炸图片
+						if(_enemy.parentNode)_enemy.parentNode.removeChild(_enemy);//避免两次删除出现错误
+					},300);//500毫秒后图片消失
+				}
+			}
+		},50);//碰撞后显示爆炸动画的时间
+		
+		//敌军和飞机的碰撞检测
+		var _plane=document.getElementById('plane');
+		_enemy.boomPlane=setInterval(function(){
+			if(Game.ifEnd)
+				{
+					clearInterval(_enemy.boomPlane);
+				}
+			if(Game.boom(_enemy,_plane))
+				{
+					Game.ifEnd=true;
+					clearInterval(_enemy.boomPlane);//清除检测飞机爆炸的定时器
+					clearInterval(Game.bullettimer);//飞机爆炸后清除子弹
+					clearInterval(Game.enemyTimer);//飞机爆炸后清除敌军
+					_enemy.src='images/boom.png';//把敌军改成爆炸
+					_plane.src='images/boom2.png';//把飞机改成爆炸
+					setTimeout(function(){
+						Game.over(_div);
+					},300);//结算画面出现的时间
+				}
+		},50);
+		
+	},x);//敌军的生成速度
+},
+//碰撞检测
+boom : function( obj1 , obj2 ){
+
+	var T1 = obj1.offsetTop;//物体1的顶部位置
+	var B1 = T1 + obj1.clientHeight;//物体1的底部位置
+	var L1 = obj1.offsetLeft;//物体1的左部位置
+	var R1 = L1 + obj1.clientWidth;//物体1的右部位置
+
+	var T2 = obj2.offsetTop;//物体2的顶部位置
+	var B2 = T2 + obj2.clientHeight;//物体2的底部位置
+	var L2 = obj2.offsetLeft;//物体2的左部位置
+	var R2 = L2 + obj2.clientWidth;//物体2的右部位置
+
+	if ( R2 < L1 || L2 > R1 || B2 < T1 || T2 > B1 )//这四种情况为没撞到
+	{
+		return false; // 没撞上
+	}
+	else
+	{
+		return true; // 撞上了
+	}
+},
+//游戏结束	
+over:function(_div){
+	console.log(1);
+	_div.innerHTML='';//清空页面
+	var _Div=document.createElement('div');
+	_Div.style.cssText='width:200px;height:200px;margin:150px auto;background:#fff;';
+	var _t=document.createElement('h3');
+	_t.innerHTML='Game Over';
+	_t.style.cssText='padding-top:50px;';
+	var _p=document.createElement('p');
+	_p.innerHTML='您的得分是:'+'<span style="color:#f00;font-weight:bold;">'+this.score+'</span>';
+	_p.style.cssText='fon-size:16px;color:#000;';
+	var _restart=document.createElement('div');//重启按钮的标签
+	_restart.style.cssText='width:100px;height:40px;font-size:14px;text-align:center;line-height:40px;color:#000;background:#999;margin:20px auto;cursor:pointer;';//重新开始的样式
+	_restart.innerHTML='重新开始';
+	_restart.onclick=function(){
+		Game.init();
+		start._div.style.cssText='';//有问题(无法清空样式)
+	};
+	_Div.appendChild(_t);
+	_Div.appendChild(_p);
+	_div.appendChild(_Div);
+	_Div.appendChild(_restart);
+},
+//得到类名的方法(兼容ie678)
+getClass : function( cName , parent ){
+	parent = parent || document;
+	if ( document.getElementsByClassName )
+	{
+		return parent.getElementsByClassName(cName);
+	}
+	else
+	{
+		var all = parent.getElementsByTagName('*');
+		var arr = [];
+		for ( var i=0;i<all.length;i++ )
+		{
+			var arrClass = all.className.split(' ');
+			for ( var j=0;j<arrClass.length;j++ )
+			{
+				if ( arrClass[j] == cName )
+				{
+					arr.push( all[i] );
+					break;
+				}
+			}
+		}
+		return arr;
+	}
+},
+};
+</script>
+</html>

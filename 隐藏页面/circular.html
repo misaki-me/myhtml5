@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<link rel="shortcut icon" href="favicon.ico"/>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*html{overflow-y:hidden;}*/
+/*头部样式*/
+.h-main{
+	width:100%;
+	height:188px;
+	position:relative;
+}
+#header{
+	margin:0 auto;
+	width:360px;
+	height:188px;
+}
+#header pre{
+	font-size:180px;
+	display: block;
+}
+/*内容样式*/
+#wrap{
+	width:1000px;
+	height:600px;
+	margin:0 auto;
+	border:5px #000 double;
+	border-width:21px;
+	overflow:hidden;
+	border-radius:5%;
+	position:relative;
+}
+
+/*尾部样式*/
+.f-main{
+	width:100%;
+	height:80px;
+	position:relative;
+}
+#footer{
+	margin:-41px auto;
+	width:658px;
+	height:80px;
+}
+#footer pre{
+	font-size:130px;
+	display: block;
+}
+</style>
+</head>
+<body>
+<!--头部区域<-->
+<div class="h-main">
+<div id="header">
+	<pre>
+╲╱
+	</pre>
+</div>
+</div>
+<!--内容区域-->
+<div id="wrap">
+	
+</div>
+<!--尾部区域-->
+	<div class="f-main">
+<div id="footer">
+	<pre>
+∪      ∪
+	</pre>
+</div>
+	</div>
+</body>
+<script>
+	(function(){
+		var _wrap=document.getElementById('wrap');
+		var ball=new Image();
+		ball.width=150;
+		ball.height=150;
+		ball.src='images/enemy.png';
+		_wrap.appendChild(ball);
+		
+		var top=0;
+		var left=0;
+		var xstep=20;
+		var ystep=20;
+		var width=_wrap.offsetWidth-42;
+		var height=_wrap.offsetHeight-42;
+		function run(){
+			var speed=Math.floor(Math.random()*100+10);
+			top=top+ystep;
+			left=left+xstep;
+			console.log(top);
+			if(left<0){
+				left=0;
+				xstep=speed;
+			}
+			if(left>width-ball.width){
+				left=width-ball.width;
+				xstep=-speed;
+			}
+			if(top<0){
+				top=0;
+				ystep=speed;
+			}
+			if(top>height-ball.height){
+				top=height-ball.height;
+				ystep=-speed;
+			}
+			ball.style.cssText='display:block;position:absolute;top:'+top+'px;left:'+left+'px;';
+		};
+		run();
+		setInterval(function(){
+			run();
+		},1000/30);
+	})();
+
+</script>
+</html>
