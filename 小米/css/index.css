@@ -1,0 +1,539 @@
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+.clearfix{clear:both;}
+.mt20{margin-top:20px;}
+.mr20{margin-right:20px;}
+.wrapbox{
+	background:#F5F5F5;
+	height:100%;
+	position:relative;
+}
+/*头部样式*/
+.header{
+	background:#333;
+	width:100%;
+	height:40px;
+	float:inherit;
+}
+.header .t-main{
+	width:1226px;
+	height:40px;
+	margin:0 auto;
+	position:relative;
+}
+.header .h_left{
+	width:622px;
+	float:left;
+}
+.header .h_left ul{
+	height:40px;
+}
+.header .h_left ul li{
+	float:left;
+	padding:10px;
+	font-size:10px;
+	color:#b0b0b0;
+	height:40px;
+}
+.header .h_left ul li a{
+	color:#b0b0b0;
+	display:block;
+}
+.header .h_left ul li a:hover{
+	color:#fff;
+}
+.header .h_right{
+	float:right;
+}
+.header .h_right ul li{
+	height:40px;
+	 float:left;
+	 padding:10px;
+	}
+.header .h_right ul li a img{
+	display:inline-block;
+	line-height:10px;
+	position: absolute;
+	top:9px;
+	left:15px;
+}
+.header .h_right ul li a{
+	color:#b0b0b0;
+	font-size:10px;
+	line-height:20px;
+	text-align:center;
+	display:block;
+}
+.header .h_right ul li a:hover{
+	color:#fff;
+}
+.header .b-main{
+	width:1226px;
+	height:100px;
+	margin:0 auto;
+	position:relative;
+}
+.header .banner .list{
+	margin-top:30px;
+	margin-left:18%;
+}
+.header .banner .list ul li{
+	float:left;
+	padding:10px;
+	color:#000;
+}
+.header .banner .list ul li a{
+	display:block;
+	color:#000;
+}
+.header .banner .list ul li a:hover{
+	color:#FF6700;
+}
+.header .banner .logo{
+	width:55px;
+	height:55px;
+	background:url(../images/mi-logo.png) #FF6700 no-repeat 50% 50%;
+	float:left;margin-top:-14px;
+}
+.header .banner .search{
+	float:right;
+}
+.header .banner .search input{
+	width:240px;
+	height:50px;
+	display:inline-block;
+	float:right;
+	border:1px solid #e0e0e0;
+	text-indent:2em;
+}
+.header .banner .search input:focus{
+	outline:1px solid #FF6700;
+}
+.header .banner .search .button{
+	width:52px;
+	height:50px;
+	border:1px solid #e0e0e0;
+	display:inline-block;
+	float:right;
+	font-size:18px;
+	text-align:center;
+	line-height:50px;
+}
+.header .banner .search .button:hover{
+	background:#FF6700;
+	color:#fff;
+}
+/*内容样式*/
+.wrapbox .conbox{
+	width:1226px;
+	margin:0 auto;
+	height:100%;
+	position:relative;
+}
+.wrapbox .conbox .title{
+	margin: 0;
+	font-size: 22px;
+	font-weight: 200;
+	line-height: 58px;
+	color: #333;
+}
+.wrapbox .conbox .bgimg{
+	width:224px;
+	height:611px;
+	float:left;
+	margin-right:20px;
+	position:relative;
+}
+.wrapbox .conbox .bgimg a{
+	display:block;
+}
+.wrapbox .conbox .bgimg a img{
+	display:block;
+}
+.wrapbox .conbox .rbgimg{
+	width:982px;
+	height: 614px; 
+	float:left;
+}
+.wrapbox .conbox .rbgimg li{
+	float:left;
+	width:234px;
+	height:300px;
+	background:#fff;
+	margin-right:15px;
+	margin-bottom:10px;
+	text-align:center;
+	position:relative;
+}
+.wrapbox .conbox .rbgimg li.nom{
+	margin-right:0;
+}
+.wrapbox .conbox .rbgimg a.img{
+	display:block;
+}
+.wrapbox .conbox .rbgimg ul li h3{
+	font-size:14px;
+	font-weight:400;
+	margin-top:10px;
+}
+.wrapbox .conbox .rbgimg ul li h3 a{
+	color:#000;
+}
+.wrapbox .conbox .rbgimg ul li p.info{
+	font-size:12px;
+	margin-top:10px;
+	color:#999;
+}
+.wrapbox .conbox .rbgimg ul li p.price{
+	margin:0 10px 14px;
+	color:#ff6700;
+}
+/*悬停事件*/
+.wrapbox .conbox .rbgimg li:hover{
+	box-shadow:0 10px 20px #ccc;
+	top:-5px;
+	transition:all 0.6s ease;
+}
+.wrapbox .conbox .bgimg:hover{
+	box-shadow:0 10px 20px #ccc;
+	top:-3px;
+	transition:all 0.6s ease;
+}
+/*轮播图样式*/
+.img-box{
+	width:1224px;
+	position:relative;
+	height:460px;
+	margin:0 auto;
+}
+.img-box .pic{
+	width:1224px;
+	height:460px;
+	position:relative;
+}
+.img-box .pic ul li{
+	position:absolute;
+	top:0;
+	left:0;
+	display:none;
+}
+.img-box .pic ul li img{
+	width:1224px;
+	height:460px;
+}
+.img-box .btn div{
+	position:absolute;
+	top:50%;
+	margin-top:-20px;
+	width:40px;
+	height:70px;
+	cursor:pointer;
+	font-size:36px;
+	font-weight:500;
+	text-align:center;
+	line-height:70px;
+	color:#A2B8BD;
+}
+.img-box .btn .left{
+	left:234px;
+}
+.img-box .btn .right{
+	right:0;
+}
+.img-box .btn div:hover{
+	background:rgba(0,0,0,.5);
+	color:#fff;
+}
+.img-box .tab{
+	width:168px;
+	height:25px;
+	position:absolute;
+	bottom:0;
+	right:0;
+	bottom:10px;
+}
+.img-box .tab ul li{
+	float:left;
+	width:15px;
+	height:15px;
+	background:#fff;
+	margin:3px;
+	border-radius:100%;
+	cursor:pointer;
+}
+.img-box .tab ul li.select{
+	background:#999;
+}
+.img-box .details{
+	width:234px;
+	height:460px;
+	background:rgba(0,0,0,.5);
+	position:absolute;left:0;top:0;
+}
+.img-box .details ul{
+	padding:13px 13px 13px 0;
+}
+.img-box .details ul li{
+	color:#fff;
+	padding:12px 12px 12px 0;
+	font-size:14px;
+	cursor:pointer;
+	height:20px;
+	line-height:20px;
+	width:100%;
+	text-indent:30px;
+}
+.img-box .details ul li span{
+	display:inline-block;
+	float:right;
+	font-size:18px;
+	font-weight:800;
+	height:20px;
+	line-height:20px;
+	color:#999;
+	margin-right:20px;
+}
+.img-box .allList .list{
+	width:990px;
+	height:460px;
+	position:absolute;
+	left:234px;
+	background:#fff;
+	top:0;
+	box-shadow:1px 0 1px 1px #ccc;
+	display:none;
+}
+.img-box .allList .list ul li{
+	height:40px;
+	width:150px;
+	padding:18px 20px;
+	float:left;margin-left:45px;
+}
+.img-box .allList .list ul li a{
+	height:40px;
+	line-height:40px;
+	display:block;
+	font-size:13px;
+	float:left;
+	margin-left:10px;
+}
+.img-box .allList .list ul li a:hover{
+	color:#FF6700;
+}
+.img-box .allList .list ul li i{
+	background-image:url(../images/mix3-80.png);
+	width:40px;
+	height:40px;
+	display:inline-block;
+	background-size:40px 40px;
+	float:left;
+}
+/*商品列表*4*/
+.shop4{
+	width:1224px;
+	margin:14px auto;
+}
+.shop4 .shop4-1{
+	width:234px;
+	height:170px;
+	float:left;
+	background:red;
+}
+.shop4 .shop4-2-4 ul li{
+	width:316px;
+	height:170px;
+	margin-left:14px;
+	background:red;
+	float:left
+}
+.shop4 .shop4-1{
+	background:#5F5750;
+}
+.shop4 .shop4-1 ul li{
+	height:85px;
+	width:78px;
+	float:left;
+}
+.shop4 .shop4-1 ul li a{
+	display:block;
+	color:#ccc;
+	font-size:13px;
+	text-align:center;
+	margin:20px auto;
+}
+.shop4 .shop4-1 ul li a i{
+	display:block;
+	height:24px;
+	text-align:center;
+	line-height:24px;
+}
+.shop4 .shop4-1 ul li a:hover{
+	color:#fff;
+}
+	
+.banner .more{
+	height:230px;
+	width:100%;
+	border-top:1px solid #ccc;
+	border-bottom:1px solid #ccc;
+	position:absolute;
+	z-index:2;
+	background:#fff;
+	display:none;
+}
+.banner .allMore .more ul{
+	margin:60px auto;
+	width:1224px
+}
+.banner .allMore .more ul li{
+	float:left;
+	height:230px;
+}
+.banner .allMore .more ul li a img{
+	border-right:1px solid #ccc;
+	padding:0 25px;
+}
+.banner .allMore .more ul li a p{
+	text-align:center;
+	color:#333;
+	font-size:12px;
+	padding:5px;
+}
+.banner .allMore .more ul li a span{
+	display:block;
+	text-align:center;
+	color:#FF6700;
+	font-size:12px;
+}
+/*家电样式*/
+.citembox .title-more{
+	height:20px;
+}
+.citembox .title-more .title{
+	float:left;
+}
+.citembox .title-more .more{
+	float:right;
+}
+.citembox .title-more .more ul li{
+	float:left;
+	margin:10px 0 15px 25px;
+}
+.citembox .title-more .more ul li a{
+	color:#000;
+	display:block;
+	padding-bottom:15px;
+}
+.citembox .title-more .more ul li.selected{
+	border-bottom:2px solid #FF6700;
+}
+.citembox .con{
+	position:relative;
+	height:614px;
+}
+.citembox .con .rbgimg{
+	position:absolute;
+	display:none;
+}
+/*小米闪购*/
+.shop5{
+	width:1224px;
+	margin:50px auto;
+}
+.shop5 .title{
+	width:1224px;
+	height:58px;
+}
+.shop5 .title h1{
+	font-size: 22px;
+	font-weight:200;
+	line-height: 58px;
+	color: #333;
+	width:100px;
+	float:left;
+}
+.shop5 .btn{
+	float:right;
+	padding-top:17px;
+	height:24px;
+	line-height:24px;
+	width:86px;
+}
+.shop5 .btn div{
+	float:left;
+	width:36px;
+	border:1px solid #ccc;
+	text-align:center;
+	line-height:24px;
+	margin-left:5px;
+}
+.shop5 .bth .prev,.next{}
+.shop5 .btn a{
+	font-size:30px;
+	color:#ccc;
+}
+.shop5 .btn a:hover{
+	color:#FA6509;
+}
+.shop5 .shop5-1-5{
+	width:990px;
+	height:340px;
+	float:left;
+	overflow:hidden;
+}
+.shop5 .shop5-1-5 ul{
+	width:1000%;
+}
+.shop5 .shop5-1-5 ul li{
+	float:left;
+	width:233px;
+	height:339px;
+	margin-left:14px;
+	background:#FAFAFA;
+}
+.shop5 .shop5-1-5 ul li a img{
+	display:inline-block;
+	padding:50px 37px;
+}
+.shop5 .shop5-1-5 ul li a p{
+	font-size:14px;
+	text-align:center;
+	color:#333;
+}
+.shop5 .shop5-1-5 ul li a span{
+	font-size:14px;
+	text-align:center;
+	color:#FA6509;
+	display:block;
+	margin-top:20px;
+}
+#top{
+	width:82px;
+	height:90px;
+	position:fixed;
+	bottom:20px;
+	right:20px;
+	text-align:center;
+	line-height:90px;
+	cursor:pointer;
+	border:1px solid #f5f5f5;
+}
+#top:hover i{
+	color:#FF6700;
+}
+#top .iconfont{
+	color:#999;
+	font-size:48px;
+}
+.ad{
+	overflow:hidden;
+	height:120px;
+}
+/*尾部样式*/
+.footer{
+	background:#111;
+	margin-top:100px;
+}
