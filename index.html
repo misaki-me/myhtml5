@@ -5,70 +5,14 @@
 	<base target="_blank">
 	<title>魔法sao男サイト</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
-	<style type="text/css" id="css">
-		#progress{
-			position: fixed;
-			background: #000;
-			left: 0;
-			top: 0;
-			width: 100%;
-			height: 100%;
-			z-index: 999;
-		}
-		#progress p{
-			width: 500px;
-			height: 40px;
-			background: #ccc;
-			color: #300;
-			font-size: 14px;
-			line-height: 40px;
-			text-align: center;
-			overflow: hidden;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%,-50%);
-			font-weight: bold;
-			font-family: 'Microsoft yahei';
-		}
-		body{
-			overflow: hidden;
-		}
-	</style>
 </head>
 <link rel="stylesheet" type="text/css" href="css/index.css">
 <body>
+	<!-- 进度条 -->
 	<div id="progress">
 		<p>0%</p>
 	</div>
-	<script type="text/javascript">
-		var p=document.querySelector('#progress p');
-		var css=document.getElementById('css');
-		function move(num){
-			clearInterval(p.timer);
-			p.timer=setInterval(function(){
-				if (parseInt(p.innerHTML)<num) 
-				{
-					var s=parseInt(p.innerHTML)+1;
-					var w=500*s/100;
-					p.innerHTML=s+'%';
-					p.style.width=w+'px';
-				}
-				else
-				{
-					clearInterval(p.timer);
-					if (num==100) {
-						p.parentNode.parentNode.removeChild(p.parentNode);
-						css.parentNode.removeChild(css);
-						var script=document.querySelector('.move');
-						var length=script.length;
-						for (var i = length-1; i >= 0; i--) {
-							script[i].parentNode.removeChild(script[i]);
-						}
-					}
-				}
-			},10);
-		};
+	<script type="text/javascript" src="js/progress.js">
 	</script>
 	<div id="wrap">
 		<ul id="main"></ul>
@@ -87,15 +31,15 @@
 			<div class="s-dec"></div>
 		</div>
 	</div>
-<script type="text/javascript" class="move">
-	move(50);
-</script>
+<!-- <script type="text/javascript" class="move">
+	
+</script> -->
 <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/data.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
-<script type="text/javascript" class="move">
+<!-- <script type="text/javascript" class="move">
 	move(100);
-</script>
+</script> -->
 </body>
 </html>
