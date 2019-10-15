@@ -3,12 +3,21 @@ $(function(){
 		var nowX,lastX,minusX=0,nowY,lastY,minusY=0;
 		var roY=0,roX=0,roZ=-2000;
 		var timer1,timer2;
-		init();
+		var img=new Image();
+		var wrap=$('#wrap')
+		img.src='images/bg.png';
+		$(img).on('load',function(){
+			wrap.css({
+				"background":'#023b3b url('+img.src+') center no-repeat',
+				"background-size": "cover"
+			});
+			init();
+		})
 		//初始化
 		function init(){
 			//随机排版
 			for (var i = 0; i < data.length; i++) {
-				var li=$('<li><p class="title">'+data[i].title+'</p><p class="author">'+data[i].author+'</p><p class="date">'+data[i].date+'</p></li>');
+				var li=$('<li><p class="title">'+data[i].title+'</p><p class="author">'+data[i].details+'</p><p class="date">'+data[i].date+'</p></li>');
 				var X=(Math.random()-0.5)*5000;
 				var Y=(Math.random()-0.5)*5000;
 				var Z=(Math.random()-0.5)*5000;
