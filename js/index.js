@@ -6,13 +6,14 @@ $(function(){
 		var img=new Image();
 		var wrap=$('#wrap')
 		img.src='images/bg.png';
-		$(img).on('load',function(){
+		$(img).on('load',function(e){
+			e.stopPropagation();
 			wrap.css({
 				"background":'#023b3b url('+img.src+') center no-repeat',
 				"background-size": "cover"
 			});
-			init();
-		})
+		});
+		init();
 		//初始化
 		function init(){
 			//随机排版
@@ -35,7 +36,8 @@ $(function(){
 			},300);
 			//选择排版方式
 			$('#styleBtn li').each(function(i){
-				$(this).click(function(e){
+				$(this).on('click',function(e){
+					console.log(1);
 					e=e || window.event;
 					var index=$(this).index();
 					switch(index)
