@@ -13,7 +13,7 @@ window.data=[
 		{title:'京东',date:"2019.09.15",src:'移动京东/index.html',images:'',details:'移动京东'},
 		{title:'动画',date:"2019.09.15",src:'宣传案例/index.html',images:'',details:'动画'},
 		{title:'360',date:"2019.09.15",src:'360换机/index.html',images:'',details:'360换机'},
-		{title:'元素',date:"2019.09.15",src:'元素周期表/index.html',images:'',details:'元素周期表'},
+		{title:'元素',date:"2019.09.15",src:'元素周期表/table.html',images:'',details:'元素周期表'},
 		{title:'百度',date:"2019.09.15",src:'百度经验导航/时光轴导航.html',images:'',details:'时光轴导航'},
 		{title:'照片',date:"2019.09.15",src:'照片墙/照片墙.html',images:'',details:'照片墙'},
 		{title:'结算',date:"2019.09.15",src:'淘宝商品结算/shoppingcarbate.html',images:'',details:'淘宝商品结算'},
