@@ -28,7 +28,7 @@ $(function(){
 				$('#main').append(li);
 			}
 			setTimeout(function(){
-				Grid();
+				Table();
 				$('#styleBtn').css({
 					'transform':'scale(1)',
 					"opacity":1
@@ -37,7 +37,6 @@ $(function(){
 			//选择排版方式
 			$('#styleBtn li').each(function(i){
 				$(this).on('click',function(e){
-					console.log(1);
 					e=e || window.event;
 					var index=$(this).index();
 					switch(index)
