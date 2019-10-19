@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" onselect="return false">
 <head>
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 	<base target="_blank">
 	<title>魔法サイト</title>
 	<link rel="shortcut icon" href="favicon.ico"/>
 </head>
-<link rel="stylesheet" type="text/css" href="css/index.css">
+<!-- 移动端布局 -->
+<link rel="stylesheet" type="text/css" media="screen and (orientation:portrait)" href="css/m.index.css">
+<!-- pc端布局 -->
+<link rel="stylesheet" type="text/css" media="screen and (orientation:landscape)" href="css/index.css">
 <body>
 	<!-- 进度条 -->
 	<div id="progress">
@@ -30,7 +33,7 @@
 			<div class="s-title"></div>
 			<div class="s-img"></div>
 			<div class="s-src">
-				<a href="javascript:;">查看详情</a>
+				<a href="#">查看详情</a>
 			</div>
 			<div class="s-dec"></div>
 		</div>
@@ -38,7 +41,15 @@
 <script type="text/javascript" src="js/jquery-2.2.0.min.js"></script>
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/data.js"></script>
-<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript">
+	if (screen.width>screen.height) {
+		//pc端
+		document.write('<script type="text/javascript" src="js/index.js"><\/script>');
+	}else{
+		//移动端
+		document.write('<script type="text/javascript" src="js/m.index.js"><\/script>');
+	}
+</script>
 <script type="text/javascript" class="move">
 	move(100);
 </script>
