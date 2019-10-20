@@ -5,7 +5,6 @@ $(function(){
 		var timer1,timer2;
 		var img=new Image();
 		var wrap=$('#wrap');
-		// var Wrap=document.queryselector('#wrap');
 		img.src='images/bg.png';
 		$(img).on('load',function(e){
 			e.stopPropagation();
@@ -65,7 +64,6 @@ $(function(){
 			lastX=Number(touch.pageX);
 			lastY=Number(touch.pageY);
 			clearInterval(timer1);
-			console.log(lastX+'===='+lastY)
 			this.addEventListener('touchmove',move);
 			function move(e){
 				var touch=e.touches[0];
@@ -73,8 +71,8 @@ $(function(){
 				nowY=Number(touch.pageY);
 				minusX=nowX-lastX//两点的差值
 				minusY=nowY-lastY
-				roY+=minusX*0.2;
-				roX-=minusY*0.2;
+				roY+=minusX*0.5;
+				roX-=minusY*0.5;
 				$('#main').get(0).style.transform='translateZ('+roZ+'px) rotateX('+roX+'deg) rotateY('+roY+'deg)';
 				lastX=nowX;//前一点的x坐标
 				lastY=nowY;
@@ -82,7 +80,6 @@ $(function(){
 			return false;
 		});
 		document.addEventListener('touchend',function(e){
-			// console.log(2);
 			var touch=e.touches[0];
 			this.removeEventListener('touchmove',move);
 			timer1=setInterval(function(){
@@ -91,8 +88,8 @@ $(function(){
 				if (Math.abs(minusX)<0.5) {
 					clearInterval(timer1)
 				}
-				roY+=minusX*0.2;
-				roX-=minusY*0.2;
+				roY+=minusX*0.5;
+				roX-=minusY*0.5;
 				$('#main').get(0).style.cstransforms='translateZ('+roZ+'px) rotateX('+roX+'deg) rotateY('+roY+'deg)';
 			},13);
 		});
