@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+ <head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;color:#333;}
+clear{clear:both;}
+/*头部样式*/
+
+/*内容样式*/
+	.wrap{width:100px;height:100px;margin:300px auto;}
+	.box{position:relative;}
+	.box a{display:block;position:relative;z-index:2;background:red;border-radius:50%;width:100px;height:100px;text-align:center;line-height:100px;color:#fff}
+	.gy{position:absolute;width:100%;height:100%;background:#111;top:0;left:0;z-index:1;border-radius:50%;animation:move 1s ease-in-out infinite;}
+	.move3{animation:move3 2s ease-in-out;}
+	@keyframes move{
+		0%{transform:scale(1);opacity:1;}
+		100%{transform:scale(1.2);opacity:0;}
+	}
+	@keyframes move3{
+		0%{transform:scale(1);}
+		100%{transform:scale(6);opacity:0}
+	}
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<div class="wrap">
+	<div class="box">
+		<a href="javascript:void(0);" id="clickme">点我</a>
+		<span class="gy"></span>
+	</div>	
+</div>
+</body>
+<script>
+window.onload=function(){
+	var arr=[];
+	document.getElementById("clickme").onclick=function(){
+		if(arr.length>20)return;
+		var pdom=this.parentElement;
+		var spanDom=document.createElement("span");
+		spanDom.className="gy move3";
+		spanDom.style.background = "linear-gradient("+randomColor()+","+randomColor()+")";
+		this.style.background ="linear-gradient("+randomColor()+","+randomColor()+")";
+		pdom.appendChild(spanDom);
+		arr.push(spanDom);
+		setTimeout(function(){
+			var index=arr.indexOf(spanDom);
+			pdom.removeChild(arr.splice(index,1)[0]);
+		},2000);
+	};
+};
+	function randomColor(){
+				var r = Math.floor(Math.random()*256);
+				var g = Math.floor(Math.random()*256);
+				var b = Math.floor(Math.random()*256);
+				return "rgb("+r+","+g+","+b+")";//IE7不支出rgb
+			};
+</script>
+</html>
