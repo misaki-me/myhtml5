@@ -1,0 +1,210 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<meta name="viewport" content="width=device-width,
+user-scalable=yes,initial-scale = 1.0,minimum-scale = 1.0,maximum-
+scale=1.0,target-densitydpi =device-dpi">
+<script>
+	document.getElementsByTagName("html")[0].style.fontSize=document.documentElement.clientWidth/3+"px";
+</script>
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;color:#fff;}
+body,ul{
+	margin:0px;padding:0px;font-size:0.15rem;font-family:"微软雅黑";
+	}
+#article{
+	width:100%;height:100%;position:absolute;left:0px;top:0px;
+	}
+/*头部样式*/
+	#header{
+		width:100%;height:0.45rem;background:#333;text-align:center;line-height:0.45rem;color:#fff;position:relative;z-index:2;
+	}
+	.btn{
+		position:absolute;width:0.5rem;height:0.25rem;box-shadow:0 0 5px #000;
+		top:0.15rem;border-radius:5px;line-height:0.25rem;
+	}
+	.btn:nth-child(1){
+		left:15px;display:none;
+	}
+	.btn:nth-child(2){
+		right:15px;
+	}
+	#section{
+		width:100%;position:absolute;left:0px;top:0.45rem;background:#000;overflow:hidden;bottom:0.55rem;
+	}
+	#section ul{
+		position:relative;
+	}
+	#section li{
+		width:1rem;height:1rem;background-size:113% 102%;position:absolute;
+			border:1px solid #000;box-sizing:border-box;background-repeat:no-repeat;left:0;top:0;transition:left .5s,top .5s;
+	}
+	#footer{
+		width:100%;height:0.55rem;background:#222;position:absolute;left:0px;bottom:0px;z-index:2;
+	}
+	#footer a{
+		display:block;width:1.5rem;height:100%;float:left;line-height:0.55rem;text-align:center;
+	}
+	#footer a:nth-child(1){
+		background:#111;border-right:1px solid #444;box-sizing:border-box;
+	}
+	
+/*内容样式*/
+
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<!--头部区域-->
+
+<!--内容区域-->
+<div id="article">
+	<div id="header">
+		<a href="javascript:;" class="btn">删除</a>
+		<a href="javascript:;" class="btn">选择</a>
+	</div>
+	<div id="section">
+		<ul></ul>
+	</div>
+	<div id="footer">
+		<a href="javascript:;">相机相册</a>
+		<a href="javascript:;">所有相册</a>
+	</div>
+</div>
+<!--尾部区域-->
+
+</body>
+<script>
+var ul=document.getElementsByTagName('ul')[0];
+var li=document.getElementsByTagName('li');
+var btn=document.getElementsByClassName('btn');
+var section=document.getElementById('section');
+var html='';
+var mark=true;
+var remove=[];
+var Y=0;
+var starY=0;
+var scroll=0;
+	document.addEventListener('touchmove',function(e){
+		e.preventDefault();
+	})
+	document.addEventListener('touchstart',function(e){
+		y=e.changedTouches[0].pageY;
+		starY=scroll;
+	})
+	section.addEventListener('touchmove',function(e){
+		var yT=e.changedTouches[0].pageY-y;
+		scroll=starY+yT;
+		this.style.top=scroll+'px';
+		for(var i=0;i<li.length;i++)
+			{
+				var n=Math.floor(i/3-1)+'rem';
+			}
+		if(scroll>10)
+			{
+				scroll=0.45;
+				this.style.top=scroll+'rem';
+			}
+		else if(section.offsetHeight>n+'rem')
+			{
+				scroll=-1.15;
+				this.style.top=scroll+'rem';
+				console.log(1);
+			}
+	})
+	for(var i=1;i<=17;i++)
+		{
+			html+='<li style="background-image:url(images/'+i+'.jpg)"></li>';
+		}
+	ul.innerHTML=html;
+	position();
+	btn[1].addEventListener('touchend',fnClick,false);
+	btn[0].addEventListener('touchend',reMove,false);
+	function fnClick(){
+		if(mark)
+			{
+				btn[1].innerHTML='取消';
+				remove.length=0;//清空数组
+				for(var i=0;i<li.length;i++)
+					{
+						li[i].index=i;//存储当前点击的序列号
+						li[i].off=true;
+						li[i].addEventListener('touchend',fnSec,false);
+					}
+			}else{
+				btn[1].innerHTML='选择';
+				btn[0].style.display='none';
+				for(i=0;i<li.length;i++)
+					{
+						li[i].style.opacity='1';//恢复图片的透明度
+						li[i].removeEventListener('touchend',fnSec,false);//清除当前选择的图片
+					}
+			}
+		mark=!mark;
+	}
+	function fnSec(){
+		if(this.off)
+			{
+				remove.push(this.index);//将当前的图片序列号存到数组中
+				this.style.opacity='0.2';
+				btn[0].style.display='block';
+				this.off=false;		
+			}else{
+				for(var i=0;i<remove.length;i++)
+					{
+						if(remove[i]==this.index)//需要要移除的序列号和当前图片的序列号相等的时候
+						{remove.splice(i,1);}//清除一个当前序列号的节点
+					}
+				this.style.opacity="1";
+				this.off=true;
+			}
+		
+	}
+	//删除功能
+	function reMove(){
+		remove=remove.sort(function(a,b){return a-b;});//将数组的序列号升序排列
+		while(remove.length)//长度为零的时候为false
+			{
+				ul.removeChild(li[remove.pop()]);//重复移除数组的最后一个节点,知道没有节点位置
+			}
+		mark=false;
+		this.style.display='none';
+		fnClick();
+		position();
+	}
+	//定位图片(动画)
+	function position(){
+		for(var i=0;i<li.length;i++)
+			{
+				li[i].style.left=i%3+'rem';
+				li[i].style.top=Math.floor(i/3)+'rem';
+			}
+	}
+	/*
+					left = i%3  top = i/3
+				1	 0	   0         0.333
+				2    1rem  0		0.666
+				3    2rem  0		1
+				4    0     1rem		1.333
+				5    1rem  1rem		1.666
+				6    2ren  1rem		2
+				7    0     2rem
+				8    1rem  2rem
+				9    2ren  2rem
+				10   0rem  3rem
+				11   1ren  3rem
+				12   2ren  3rem
+			*/
+</script>
+</html>
