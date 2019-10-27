@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>please enter your title</title>
+		<meta charset="utf-8">
+		<meta name="Author" content="潭州学院-阿飞老师">
+		<style type='text/css'>
+			*{ margin:0; padding:0;}
+			#div1{
+				width:1201px;
+				height:160px;
+				background:url(images/1.png);
+				margin:0 auto;
+			}
+			#div2{
+				width:1201px;
+				height:737px;
+				background:url(images/2.png);
+				margin:0 auto;
+			}
+			#div2.fixed{
+				margin-top:50px;
+			}
+			#nav{
+				width:100%;
+				min-width:1201px;
+				border-bottom:1px solid #f69;
+				height:50px;
+				line-height:50px;
+				background:#fff;
+			}
+			#nav.fixed{
+				position:fixed;
+				top:0;
+			}
+			#nav ul{
+				width:1201px;
+				margin:0 auto;
+				height:50px;
+			}
+			#nav ul li{
+				list-style:none;
+				float:left;
+				font-family:'Microsoft yahei';
+				font-size:16px;
+			}
+			#nav ul li a{
+				color:#000;
+				text-decoration:none;
+				padding:0 20px;
+			}
+			#nav ul li a:hover{
+				color:#f69;
+			}
+			#nav ul li.l2 a{
+				color:#f69;
+				font-weight:bold;
+			}
+		</style>
+	</head>
+	<body style="height:3000px;">
+		
+		<div id='div1'></div>
+		<div id="nav">
+			<ul>
+				<li><a href="">首页</a></li>
+				<li><a href="">最新</a></li>
+				<li><a href="">上衣</a></li>
+				<li><a href="">裙子</a></li>
+				<li><a href="">裤子</a></li>
+				<li><a href="">鞋子</a></li>
+				<li><a href="">包包</a></li>
+				<li><a href="">配饰</a></li>
+				<li><a href="">更多</a></li>
+				<li class='l2'><a href="">Hi范儿</a></li>
+				<li class='l2'><a href="">明星同款</a></li>
+				<li class='l2'><a href="">韩国馆</a></li>
+				<li class='l2'><a href="">团购</a></li>
+				<li class='l2'><a href="">福利社</a></li>
+			</ul>
+		</div>
+		<div id="div2"></div>
+
+		<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+		<script type="text/javascript">
+			$(function(){
+
+				(function(){
+					var $window = $(window);
+					var $nav = $('#nav');
+					var $div2 = $('#div2');
+
+					var navTop = $nav.offset().top;
+					$window.scroll(function(){
+						
+						var scrollTop = $(document).scrollTop();
+
+						if ( scrollTop >= navTop )
+						{
+							$nav.addClass('fixed');
+							$div2.addClass('fixed');
+						}else
+						{
+							$nav.removeClass('fixed');
+							$div2.removeClass('fixed');
+						};
+
+					});
+				})();
+				
+				
+			});
+		</script>
+	</body>
+</html>
