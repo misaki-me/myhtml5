@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		li{
+			list-style: none;
+		}
+		img{
+			border:0;
+		}
+		#wrap{
+			width: 400px;
+			height: 500px;
+			border:1px solid #ccc;
+			margin:100px;
+		}
+		.pic{
+			width: 400px;
+			height: 400px;
+			position: relative;
+		}
+		.pic-cover{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.cover{
+			width: 200px;
+			height: 200px;
+			background-image: url(images/cover.png);
+			position: absolute;
+			top: 0;
+			left: 0;
+			display: none;
+			cursor:move;
+		}
+		#wrap .tab{
+			width: 400px;
+			height: 54px;
+			margin-top: 20px;
+		}
+		#wrap .tab li{
+			width: 50px;
+			height: 50px;
+			float: left;
+			margin:0 13px;
+			cursor:pointer;
+			border:2px solid #fff;
+			transition:border .3s;
+			position: relative;
+		}
+		#wrap .tab li.on{
+			border:2px solid #f60;
+		}
+		#wrap .tab li img{
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.show{
+			width: 400px;
+			height: 400px;
+			position: absolute;
+			top: 0;
+			right: -410px;
+			display: none;
+			background: url(images/1.jpg) no-repeat;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="pic">
+			<div class="pic-cover">
+				<img src="images/1.jpg">
+				<div class="cover"></div>
+				<div class="show"></div>
+			</div>
+		</div>
+		<div class="tab">
+			<ul>
+				<li class="on"><img src="images/1.jpg"></li>
+				<li><img src="images/2.jpg"></li>
+				<li><img src="images/3.jpg"></li>
+				<li><img src="images/4.jpg"></li>
+				<li><img src="images/5.jpg"></li>
+			</ul>
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var li=$('.tab ul li');
+			var img=$('.pic img');
+			var tabImg=$('.tab ul li img');
+			var arr=[];
+			var COVER=$('.cover');
+			var cover=$('.pic-cover');
+			var show=$(".show");
+			var index=0;
+			init();
+			li.hover(function(){
+				index=$(this).index();
+				$(this).addClass('on').siblings().removeClass('on');
+				var src=$(this).find('img').attr('src');
+				show.css('background','url('+src+') no-repeat');
+				img.attr({
+					src:src,
+					width:arr[index].width*400,
+					height:arr[index].height*400
+				});
+				cover.css({
+					top:(400-arr[index].height*400)/2,
+					left:(400-arr[index].width*400)/2
+				});
+				// COVER.css({
+				// 	width:400*cover.width()/arr[index].w+'px',
+				// 	height:400*cover.width()/arr[index].w+'px'
+				// });
+			});
+			cover.mousemove(function(e){
+				COVER.show();
+				show.show();
+				var coverX=cover.offset().left;
+				var coverY=cover.offset().top;
+				var x=e.pageX,y=e.pageY;
+				var minusX=x-coverX-COVER.width()/2;
+				var minusY=y-coverY-COVER.height()/2;
+				minusX=Math.max(minusX,0);
+				minusX=Math.min(minusX,cover.width()-COVER.width());
+				minusY=Math.max(minusY,0);
+				minusY=Math.min(minusY,cover.height()-COVER.height());
+				COVER.css({
+					left:minusX+'px',
+					top:minusY+'px'
+				});
+				if (arr[index].w<show.width()||arr[index].h<show.width) 
+				{
+				show.css('backgroundSize','200%');
+				show.css('backgroundPosition',(-4*(minusX/cover.width())*arr[index].w) +'px '+ (-4*(minusY/cover.height())*arr[index].h) +'px');
+				}
+				else
+				{
+				show.css('backgroundPosition',(-(minusX/cover.width())*arr[index].w) +'px '+ (-(minusY/cover.height())*arr[index].h) +'px');
+				}
+			}).mouseleave(function(){
+				COVER.hide();
+				show.hide();
+			});
+			function init(){
+				tabImg.each(function(i){
+						var width=$(this).width();
+						var height=$(this).height();
+						if (width>height) 
+						{
+							$(this).attr({
+								width:50,
+								height:50/width*height
+							});
+							$(this).css({
+								top:(50-50/width*height)/2+'px'
+							});
+							arr[i]={width:1,height:height/width,w:width,h:height};
+						}
+						else
+						{
+							$(this).attr({
+								width:50/height*width,
+								height:50
+							});
+							$(this).css({
+								left:(50-50/height*width)/2+'px'
+							});
+							arr[i]={width:width/height,height:1,w:width,h:height}
+						};
+						img.attr({
+							width:arr[0].width*400,
+							height:arr[0].height*400
+						});
+						cover.css({
+							top:(400-arr[0].height*400)/2,
+							left:(400-arr[0].width*400)/2
+						});
+				});
+			}
+		});
+	</script>
+</body>
+</html>
