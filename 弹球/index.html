@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*头部样式*/
+
+/*内容样式*/
+	body{background:#000;}
+	.box{margin:100px auto;width:960px}
+	canvas{background:#fff;}
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<!--头部区域-->
+
+<!--内容区域-->
+<div class="box">
+	<canvas id="canvas" width="960" height="400"></canvas>	
+</div>
+<!--尾部区域-->
+
+</body>
+<script>
+(function(){
+	var canvas=document.getElementById('canvas');//获取画布对象
+	var width=canvas.width;//获取画布的宽
+	var height=canvas.height;//获取画布的高
+	var context=canvas.getContext('2d');
+	var x=0;//圆心的x轴坐标
+	var y=0;//圆心的y轴坐标
+	var radius=30;//圆的半径
+	var xstep=20;//水平移动的步长
+ 	var	ystep=20;//垂直移动的步长\
+	function draw(){
+		var speed=Math.floor(Math.random()*100);//随机速度
+		x=x+xstep;
+		y=y+ystep;
+		if(x<radius){//左边的碰撞反弹
+			x=radius;//防止穿模
+			xstep=speed;//随机步长
+		}
+		if(x>width-radius){//右边碰撞反弹
+			x=width-radius;//最大的y坐标给它
+			xstep=-speed;//反向随机步长
+		}
+		if(y<radius){//下边的碰撞反弹
+			y=radius;
+			ystep=speed;
+		}
+		if(y>height-radius){//上边的碰撞反弹
+			y=height-radius;
+			ystep=-speed;
+		}
+		context.beginPath();
+		context.clearRect(0,0,width,height);
+		//球出现的水平位置,垂直位置,球的半径,从0度开始到360度逆时针的画一个圆
+		context.arc(x,y,radius,getCirclePI(0),getCirclePI(360),true);//true逆时针 false顺时针
+		context.fill();
+		context.closePath();
+	};
+	draw();
+	setInterval(function(){
+		draw();
+	},1000/30);
+})();
+	function getCirclePI(degree){
+		return (degree/180)*Math.PI;
+	};
+</script>
+</html>
