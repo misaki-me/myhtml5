@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*头部样式*/
+
+/*内容样式*/
+	canvas{margin:100px auto;display:block;}
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<!--头部区域-->
+
+<!--内容区域-->
+<canvas id="can" width="500" height="500"></canvas>
+<!--尾部区域-->
+
+</body>
+<script>
+var cxt=document.getElementById('can').getContext('2d');
+	
+function drwaClock(){
+	cxt.clearRect(0,0,500,500);
+	//获取本地时间
+	var now=new Date();
+	var sec=now.getSeconds();//秒数
+	var min=now.getMinutes();//分数
+	var hour=now.getHours();//小时
+	//将分数转化为小时
+	hour=hour+min/60;
+	hour=hour>12?hour-12:hour;
+	//绘制表盘
+	cxt.lineWidth=10;
+	cxt.strokeStyle='#000';
+	cxt.beginPath();
+	cxt.arc(250,250,200,0,360,false);
+	cxt.closePath();
+	cxt.stroke();
+	//绘制时刻度
+	for(var i=0;i<12;i++)
+		{
+			clock(7,30*i,-170,-190);
+		}
+	//绘制分刻度
+	for(var i=0;i<60;i++)
+		{
+			clock(5,6*i,-180,-190);
+		}
+	//绘制时针
+	clock(7,hour*30,-140,10);
+	//绘制分针
+	clock(5,min*6,-160,15);
+	//绘制秒针
+	clock(3,sec*6,-170,20);
+	//中心圆点
+	cxt.save();
+	cxt.beginPath();
+	cxt.translate(250,250);
+	cxt.arc(0,0,5,0,360);
+	cxt.closePath();
+	cxt.fillStyle='red';
+	cxt.fill();
+	cxt.stroke();
+	cxt.restore();
+	}
+function clock(width,position,begin,end){
+		cxt.save();
+		cxt.translate(250,250);
+		cxt.lineWidth=width;
+		cxt.strokeStyle='000';
+		cxt.rotate(position*Math.PI/180);
+		cxt.beginPath();
+		cxt.moveTo(0,begin);
+		cxt.lineTo(0,end);
+		cxt.closePath();
+		cxt.stroke();
+		cxt.restore();
+}
+setInterval(drwaClock,1000);
+</script>
+</html>
