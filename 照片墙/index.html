@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		body,html{
+			height: 80%;
+		}
+		body{
+			overflow: hidden;
+		}
+		li{
+			list-style: none;
+		}
+		#wrap{
+			width: 90%;
+			height: 90%;
+			top: 5%;
+			left: 5%;
+			position: absolute;
+		}
+		#wrap ul li{
+			width: 125px;
+			height: 125px;
+			box-shadow: 0 0 1px #000;
+			position: absolute;
+			transition:1s left,1s top;
+		}
+		#wrap ul li img{
+			transform:scale(.92);
+			transition:transform 1s;
+		}
+		#btn{
+			display:none;
+		}
+		#btn input{
+			position:fixed;
+			top:50%;
+		}
+		#left{
+			left:0;
+		}
+		#right{
+			right:0;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<ul>
+			<li><img src="images/1.jpg" alt=""></li>
+			<li><img src="images/2.jpg" alt=""></li>
+			<li><img src="images/3.jpg" alt=""></li>
+			<li><img src="images/4.jpg" alt=""></li>
+			<li><img src="images/5.jpg" alt=""></li>
+			<li><img src="images/6.jpg" alt=""></li>
+			<li><img src="images/7.jpg" alt=""></li>
+			<li><img src="images/8.jpg" alt=""></li>
+			<li><img src="images/9.jpg" alt=""></li>
+			<li><img src="images/10.jpg" alt=""></li>
+			<li><img src="images/11.jpg" alt=""></li>
+			<li><img src="images/12.jpg" alt=""></li>
+			<li><img src="images/13.jpg" alt=""></li>
+			<li><img src="images/14.jpg" alt=""></li>
+			<li><img src="images/15.jpg" alt=""></li>
+			<li><img src="images/16.jpg" alt=""></li>
+			<li><img src="images/17.jpg" alt=""></li>
+			<li><img src="images/18.jpg" alt=""></li>
+			<li><img src="images/19.jpg" alt=""></li>
+			<li><img src="images/20.jpg" alt=""></li>
+			<li><img src="images/21.jpg" alt=""></li>
+			<li><img src="images/22.jpg" alt=""></li>
+			<li><img src="images/23.jpg" alt=""></li>
+			<li><img src="images/24.jpg" alt=""></li>
+		</ul>
+		<div id="btn">
+			<input type="button" value="左按钮" id="left">
+			<input type="button" value="右按钮" id="right">
+		</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var li=$('#wrap ul li');
+			var wrap=$('#wrap');
+			var img=$('#wrap ul li img');
+			var index=0;
+			var btn=$('#btn');
+			var onOff=true;
+			var btnTime = 0;
+			var liTime=0;
+			liPosition();
+			liRot();
+			$(window).resize(liPosition);
+
+			li.click(function(){
+				if (new Date()-liTime>2000)
+				{
+					liTime=new Date();
+					if (onOff) 
+					{
+						index=$(this).index();
+						img.css({
+							transform:'scale(1)'
+						});
+						setTimeout(function(){
+							liClickP();
+							img.fadeOut(1000);
+							li.css('backgroundImage','url(images/big/'+(index+1)+'.jpg)');
+						},1000);
+						$(window).off('resize').resize(liClickP);
+						$('#btn').show();
+						onOff=!onOff;
+					}
+					else
+					{
+						img.fadeIn(1000,function(){
+							li.css('backgroundImage','');
+							$(this).css('transform','scale(0.9)');
+						})
+						liPosition();
+						liRot();
+						$('#btn').hide();
+						onOff=!onOff;
+						$(window).off('resize').resize(liClickP);
+					}
+				}
+			});
+			//分散位置
+			function liPosition(){
+					var wrapW = wrap.width();
+					var wrapH = wrap.height();
+					var m = ( wrapW - 6*125 )/5;
+					var n = ( wrapH - 4*125 )/3;
+					li.each(function(i){
+						var iX = i % 6;
+						var iY = parseInt( i / 6 );
+						$(this).css({
+							left : m*iX + iX*125 + 'px',
+							top : n*iY + iY*125 + 'px',
+							backgroundPosition : -iX*125 +'px '+ (-iY*125) +'px'
+						});
+					});
+				}
+			//旋转角度
+			function liRot(){
+				li.each(function(){
+					var r=(Math.random()-0.5)*60;
+					$(this).css({
+						transform:'rotate('+r+'deg)'
+					})
+				})
+			}
+			//合成位置
+			function liClickP(){
+						var wrapW = wrap.width();
+						var wrapH = wrap.height();
+						var l = (wrapW - 750)/2;
+						var t = (wrapH - 500)/2;
+						li.each(function(i){
+							var iX = i % 6;
+							var iY = parseInt( i / 6 );
+							$(this).css({
+								left : l + iX*125 + 'px',
+								top : t + iY*125 + 'px',
+								transition : '1s transform , 1s left , 1s top',
+								transform : 'rotate(0deg)'
+							});
+						});
+			}
+			//按钮切换
+			btn.click(function(){
+					if ( new Date() - btnTime > 800 )
+					{
+						btnTime = new Date();
+						var i = $(this).index();
+						if ( i )
+						{
+							index ++;
+							index %= li.length;
+						}
+						else
+						{
+							index--;
+							if(index==0)index=li.length-1;
+						}
+						liBackground();
+					}
+			});
+			//随机变化
+			function liBackground(){
+					var arr = [];
+					for ( var i=0;i<24;i++ )
+					{
+						arr[i] = i;
+					}
+					var timer = setInterval(function(){
+						var r = Math.floor( Math.random()*arr.length );
+						li.eq(arr[r]).css('backgroundImage' , 'url(images/big/'+(index+1)+'.jpg)');
+						arr.splice( r , 1 );
+						//arr.length==0
+						if ( !arr.length )
+						{
+							clearInterval( timer );
+						}
+					},30);
+			}
+		});
+
+	</script>
+</body>
+</html>
