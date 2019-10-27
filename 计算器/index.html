@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+.clear{clear:both;}
+/*头部样式*/
+
+/*内容样式*/
+	.box{width:300px;height:420px;background:#F0F0F0;margin:200px auto;border:1px solid #111;}
+	.input{width:276px;height:30px;margin:10px;}
+	.button,.tool{width:50px;height:50px;margin:10px;font-size:20px;}
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<!--头部区域-->
+
+<!--内容区域-->
+<div class="box">
+	<form action="get">
+		<input class="input" type="text">
+		<input style="width:50px;height:30px;float:right;margin-right:17px;" class="button" type="button" value="c">
+		<div class="clear"></div>
+		<input class="button" type="button" value="1">
+		<input class="button" type="button" value="2">
+		<input class="button" type="button" value="3">
+		<input class="tool button" type="button" value="+">
+		<input class="button" type="button" value="4">
+		<input class="button" type="button" value="5">
+		<input class="button" type="button" value="6">
+		<input class="tool button" type="button" value="-">
+		<input class="button" type="button" value="7">
+		<input class="button" type="button" value="8">
+		<input class="button" type="button" value="9">
+		<input class="tool button" type="button" value="*">
+		<input class="button" type="button" value="0">
+		<input class="button" type="button" value=".">
+		<input class="tool button" type="button" value="=">
+		<input class="tool button" type="button" value="-">
+	</form>
+</div>
+<!--尾部区域-->
+
+</body>
+<script>
+	var _input=document.getElementsByClassName('input')[0];
+	var _button=document.getElementsByClassName('button');
+	var l_number="";//左面的数字
+	var _show=""//存放结果
+	var r_number="";//右面的数字
+	var _tool=[];//存放运算符
+	var _endval="";//存放结果
+	(function(){
+	for(var i=0;i<_button.length;i++){
+		_button[i].index=i;
+		_button[i].onclick=function(){
+		_input.value+=_button[this.index].value;
+			if(!isNaN(_input.value)){
+			   _number=_input.value;
+			}else{
+				if(_button[this.index].className!="tool&&button"){
+					r_number+=_button[this.index].value;
+				   }
+				else{
+					tool[1]=_button[this.index].value;
+					}	
+				  }		
+		};
+		}
+	})()
+	//运算
+	_button[16].onclick=function(){
+		alert(1);
+		switch(tool[0])	{
+			case "+":
+			endval.value=l_number.value+r_number.value;
+			_input.value=endval.value;
+				alert(1);
+				}
+	}
+</script>
+</html>
