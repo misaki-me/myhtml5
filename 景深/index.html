@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	.wrap{
+		margin:100px auto;
+		background:url(images/fuck_off.jpg) no-repeat;
+		background-size:100% 100%;
+		position:relative;
+		perspective:1000px;
+		width:600px;
+		height:540px;
+	}
+	.door-l,.door-r{
+		width:50%;
+		height:100%;
+		background:#000;
+		position:absolute;
+		transition:all 1s;
+	}
+	.door-l{
+		left:0;
+		transform-origin:left;
+	}
+	.door-r{
+		right:0;
+		transform-origin:right;
+	}
+	.wrap:hover .door-l{
+		transform:rotateY(-130deg);
+	}
+	.wrap:hover .door-r{
+		transform: rotateY(130deg);
+	}
+</style>
+<body>
+	<div class="wrap">
+		<div class="door-l"></div>
+		<div class="door-r"></div>
+	</div>
+</body>
+</html>
