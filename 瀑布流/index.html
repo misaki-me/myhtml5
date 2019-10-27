@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			padding:0;
+			margin:0;
+		}
+		.itembox{
+			width: 1050px;
+			margin:0 auto;
+			position:relative;
+		}
+		.item{
+			border:1px solid #ccc;
+			padding:4px;
+			position:absolute;
+		}
+	</style>
+</head>
+<body>
+	<div class="itembox">
+		<div class="item">
+			<img width="192" src="images/瀑布流 (1).jpg">
+		</div>
+		<div class="item">
+			<img width="192" src="images/瀑布流 (2).jpg">
+		</div>
+		<div class="item">
+			<img width="192" src="images/瀑布流 (3).jpg">
+		</div> 
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (4).jpg">
+		</div> 
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (5).jpg">
+		</div>
+		<div class="item">
+			<img width="192" src="images/瀑布流 (6).jpg">
+		</div> 
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (7).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (8).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (9).png">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (10).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (11).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (12).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (13).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (14).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (7).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (8).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (9).png">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (10).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (11).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (12).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (13).jpg">
+		</div>
+		<div class="item"> 
+			<img width="192" src="images/瀑布流 (14).jpg">
+		</div>
+	</div>
+	<script type="text/javascript">
+		window.onload=function(){
+			// 1.获取到.itembox宽度
+			var itembox=document.getElementsByClassName('itembox')[0];
+			var items=document.getElementsByClassName('item');
+			var itemboxW=itembox.offsetWidth;
+			// 2.获取到.item宽度
+			var itemW=items[0].offsetWidth;
+			// 3.求出列数
+			var column=parseInt(itemboxW/itemW);
+			// 4.求出间距
+			var distence=(itemboxW-itemW*column)/(column-1);
+			// 5.实现瀑布流布局的方法
+			//定义一个存储每列高度的容器
+			var arr=[];
+			waterFull();
+			// 6.滚动页面时加载数据
+			window.onscroll=function(){
+				//文档超出的高度加上窗口的高度>图片的最小高度的时候触发
+				if(window.pageYOffset+window.innerHeight>getMin(arr).minV){
+					var json=[
+						{"src":"images/瀑布流 (1).jpg"},
+						{"src":"images/瀑布流 (2).jpg"},
+						{"src":"images/瀑布流 (3).jpg"},
+						{"src":"images/瀑布流 (4).jpg"},
+						{"src":"images/瀑布流 (5).jpg"},
+						{"src":"images/瀑布流 (6).jpg"},
+						{"src":"images/瀑布流 (7).jpg"},
+						{"src":"images/瀑布流 (8).jpg"},
+						{"src":"images/瀑布流 (9).png"}
+					];
+					for(var i=0;i<json.length;i++){
+						var div=document.createElement('div');
+						div.className='item';
+						var img=document.createElement('img');
+						img.src=json[i].src;
+						img.width=192;
+						div.appendChild(img);
+						itembox.appendChild(div);
+					}
+					waterFull();
+				}
+			}
+			//实现瀑布流布局的方法
+			function waterFull(){
+				for(var i=0;i<items.length;i++){
+					if(i<column){
+						items[i].style.left=(itemW+distence)*i+'px';
+                    	arr[i] = items[i].offsetHeight;
+					}else{
+						var minV=getMin(arr).minV;
+						var minI=getMin(arr).minI;
+						items[i].style.left=(itemW+distence)*minI+'px';
+						items[i].style.top=minV+distence+'px';
+						arr[minI]=minV+distence+items[i].offsetHeight;
+					}
+
+				}
+			}
+			//获取数组的最小值以及索引
+			function getMin(arr){
+				var obj={};
+				obj.minV=arr[0];
+				obj.minI=0;
+				for(var i=1;i<arr.length;i++){
+					if(obj.minV>arr[i]){
+						obj.minV=arr[i];
+						obj.minI=i;
+					}
+				}
+				return obj;
+			}
+		}
+	</script>
+</body>
+</html>
