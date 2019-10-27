@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body,html{
+			height: 100%;
+		}
+		body{
+			overflow: hidden;
+		}
+		#wrap{
+			width: 100%;
+			height: 100%;
+		}
+		.part{
+			height: 100%;
+			width: 100%;
+			position: relative;
+		}
+		.logo{
+			width: 215px;
+			height: 60px;
+			background: url(images/logo.png) top left/100% 100%;
+			position: absolute;
+			top: 20px;
+			left: 20px;
+		}
+		#wrap .img{
+			position: absolute;
+			transition:1.2s;
+		}
+		#wrap .img img{
+			transition:1.2s;
+		}
+		#slide{
+			width: 20px;
+			height: 160px;
+			position: fixed;
+			top: 50%;
+			margin-top: -50px;
+			left: 30px;
+		}
+		#slide li{
+			width: 16px;
+			height: 16px;
+			border:2px solid #fff;
+			margin:2px 0;
+			border-radius:100%;
+			list-style: none;
+			cursor:pointer;
+		}
+		#slide li.on{
+			background: #fff;
+		}
+		.part img{
+			display: block;
+		}
+		#wrap .part:nth-child(1) .img{
+			top: 50%;
+			margin-top: -300px;
+			left: 50%;
+			margin-left: -315px;
+			opacity: 0;
+		}
+		#wrap .part:nth-child(2) .img{
+			top:50%;
+			margin-top: 0;
+			left: 50%;
+			margin-left: -315px;
+			opacity: 0;
+		}
+		#wrap .part:nth-child(3) .img{
+			top: 50%;
+			margin-top: -110px;
+			left: -30px;
+			opacity: 0;
+		}
+		#wrap .part:nth-child(4) .img{
+			top: 50%;
+			margin-top: -91px;
+			left: -30px;
+			opacity: 0;
+		}
+		#wrap .part:nth-child(5) .img{
+			height: 200px;
+			width: 100%;
+			bottom: -200px;
+			background: rgba(0,0,0,.5);
+			opacity: 0;
+		}
+		#wrap .part:nth-child(5) .img img{
+			margin-top: 25px;
+			margin-left: 60px;
+		}
+		#wrap .part:nth-child(6) .img{
+			top: 50%;
+			margin-top: -106px;
+			left: -30px;
+			opacity: 0;
+		}
+		#wrap .part:nth-child(7) .img{
+			top: 50%;
+			margin-top: -106px;
+			left: -30px;
+			opacity: 0;
+		}
+		#wrap .part:nth-child(7) .img img:nth-child(2){
+			position: absolute;
+			top: 100%;
+			left: 180%;
+			opacity: 0;
+		}
+		#wrap .part:nth-child(1) .img.on{
+			top:50%;
+			margin-top:-120px;
+			 left:50%;
+			  margin-left:-315px;
+			   opacity:1;
+		}
+		#wrap .part:nth-child(2) .img.on{
+			top:50%;
+			margin-top:-225px;
+			left:50%; 
+			margin-left:-315px; 
+			opacity:1;
+		}
+		#wrap .part:nth-child(3) .img.on{
+			top:50%;
+			margin-top:-110px; 
+			left:100px; 
+			opacity:1;
+		}
+		#wrap .part:nth-child(4) .img.on{
+			top: 50%;
+			margin-top: -91px;
+			left: 70px;
+			opacity: 1;
+		}
+		#wrap .part:nth-child(5) .img.on{
+			height: 200px;
+			width: 100%;
+			bottom: 0px;
+			background: rgba(0,0,0,.5);
+			opacity: 1;
+		}
+		#wrap .part:nth-child(6) .img.on{
+			top: 50%;
+			margin-top: -106px;
+			left: 70px;
+			opacity: 1;
+		}
+		#wrap .part:nth-child(7) .img.on{
+			top: 50%;
+			margin-top: -106px;
+			left: 70px;
+			opacity: 1;
+		}
+		#wrap .part:nth-child(7) .img img.on:nth-child(2){
+			position: absolute;
+			top: 0;
+			left: 180%;
+			opacity: 1;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div class="part">
+			<div class="img">
+				<img src="images/1-2.png" width="630" height="250">
+			</div>
+		</div>
+		<div class="part">
+			<div class="img">
+				<img src="images/2-2.png" width="630" height="450">
+			</div>
+		</div>
+		<div class="part">
+			<div class="img">
+				<img src="images/3-2.png" width="570" height="220">
+			</div>
+		</div>
+		<div class="part">
+			<div class="img">
+				<img src="images/4-2.png" width="202" height="182">
+			</div>
+		</div>
+		<div class="part">
+			<div class="img">
+				<img src="images/5-2.png" width="366" height="152">
+				<span></span>
+			</div>
+		</div>
+		<div class="part">
+			<div class="img">
+				<img src="images/6-2.png" width="‭379‬" height="‭153">
+			</div>
+		</div>
+		<div class="part">
+			<div class="img">
+				<img src="images/7-2.png" width="570" height="220">
+				<img src="images/7-3.png">
+			</div>
+		</div>
+	</div>
+	<div id="slide">
+		<ul>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.11.3.min.js"></script>
+	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+	<script type="text/javascript">
+		(function(){
+			setTimeout(function(){
+				$(document).scrollTop(0);
+			},50);
+			var part=$('.part');
+			var li=$('#slide ul li');
+			var img=$('.part img');
+			li.eq(0).addClass('on');
+			part.append('<div class="logo"></div>');
+			part.each(function(i){
+				var str = i!=1?'url(images/'+(i+1)+'.jpg) no-repeat center / cover':'#D97F5C';
+				$(this).css('background' , str);
+			});
+			move();
+			var index=0;
+			var w=$(window).height();
+			var nowTime=new Date();
+			$(window).resize(function(){
+				w=$(window).height();
+			})
+			li.click(function(){
+				index=$(this).index();
+				move();
+			});
+			$(document).mousewheel(function(){
+				if (new Date()-nowTime>500) {
+					nowTime=new Date();
+					var d=arguments[1];
+					index=d<0?(index>=li.length-1?0:index+1):(index<=0?li.length-1:index-1);
+					move();
+				};
+			});
+			function move(){
+				li.eq(index).addClass('on').siblings().removeClass('on');
+				$('body,html').animate({
+					scrollTop:index*w
+				},500,function(){
+					part.eq(index).find('.img').addClass('on');
+					part.eq(index).siblings().find('.img').removeClass('on');
+					console.log(index);
+					if (index==6) {
+						part.eq(index).find('.img').find('img').last().addClass('on');
+					}else{
+						part.eq(6).find('.img').find('img').last().removeClass('on');
+					}
+				});
+			}
+		})();
+	</script>
+</body>
+</html>
