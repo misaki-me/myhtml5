@@ -1,0 +1,185 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*头部样式*/
+
+/*内容样式*/
+body, div, form, label, input, h1 {
+			margin:0;
+			padding:0;
+		}
+		body {
+			font:14px "Microsoft yahei";
+			background:#ddd;
+		}
+		#box {
+			width:500px;
+			background:#fff;
+			margin:30px auto 0;
+			padding:20px;
+		}
+		h1 {
+			font-size:24px;
+			font-weight:normal;
+			color:#666;
+			text-align:center;
+			line-height:50px;
+			margin-bottom:30px;
+		}
+		#form div {
+			height:30px;
+			margin:10px 0;
+		}
+		#form div span {
+			display:inline-block;
+			width:90px;
+			height:20px;
+			font-size:18px;
+			color:#333;
+			line-height:30px;
+			text-align:center;
+		}
+		#form div input {
+			width:270px;
+			height:28px;
+			padding:0 10px;
+			border:1px solid #ccc;
+			border-radius:5px;
+			outline:none;
+			font-size:15px;
+			color:#666;
+			letter-spacing:2px;
+		}
+		#form i {
+			margin-left:10px;
+			font-size:12px;
+			color:red;
+			display:none;
+		}
+		#btn {
+			display:block;
+			width:150px;
+			height:35px;
+			text-align:center;
+			line-height:35px;
+			font-size:20px;
+			color:#fff;
+			background:#3ac;
+			border:none;
+			border-radius:5px;
+			outline:none;
+			cursor:pointer;
+			margin:20px auto 10px;
+		}
+		#btn:hover {
+			background:#f66;
+		}
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<!--头部区域-->
+
+<!--内容区域-->
+<div id="box">
+	<h1>帐号注册</h1>
+	<form action="http://fehome.cc" method="get" id="form">
+		<div>
+			<label>
+				<span>帐 号：</span>
+				<input type="text" id="name" placeholder="6-12位字母、数字、下划线" />
+				<span></span>
+			</label>
+		</div>
+		<div>
+			<label>
+				<span>密 码：</span>
+				<input type="password" id="passw" placeholder="6-12位字母、数字、下划线" />
+				<span></span>
+			</label>
+		</div>
+		<div>
+			<label>
+				<span>密码确认：</span>
+				<input type="password" id="passwt" placeholder="再输入一次密码" />
+				<span></span>
+			</label>
+		</div>
+		<div>
+			<label>
+				<span>邮 箱：</span>
+				<input type="text" id="email" placeholder="请输入邮箱地址" />
+				<span></span>
+			</label>
+		</div>
+		<div>
+			<label>
+				<span>手 机：</span>
+				<input type="text" id="phone" placeholder="请输入手机号码" />
+				<span></span>
+			</label>
+		</div>
+		<div>
+			<label>
+				<span>Q Q：</span>
+				<input type="text" id="qq" placeholder="请输入QQ号码" />
+				<span></span>
+			</label>
+		</div>
+		<input type="submit" value="注册" id="btn"/>
+	</form>
+</div>
+<!--尾部区域-->
+
+</body>
+<script>
+	var reg={
+		user:/^\d{6,12}$/,
+		password:/^\w{6,12}$/,
+		email:/^\w+@[0-9a-zA-Z]{2,}(\.[a-zA-Z]{2,}){1,2}$/,
+		phone:/^1[34578]\d{9}$/,
+		qq:/^[1-9]\d{5,9}$/
+	};
+	//文本框验证封装成一个函数
+	//第一个参数是元素的id
+	//第二个参数 正则表达式对象RegExp
+	//第三个参数是提示的文本
+	function addCheck(elementId, reg, tip) {
+        var element = document.getElementById(elementId);
+        element.onblur = function () {
+          var span = this.nextElementSibling;
+          span.style.display='inline';
+          span.style.fontSize='13px';
+          // 验证
+          if (!reg.test(this.value)) {
+            span.innerText = tip;
+            span.style.color = 'red';
+            element.style.border='1px solid red'
+          } else {
+            span.innerText = '';
+            span.style.color = '';
+            element.style.border='';
+          }
+        }
+      }
+	addCheck('name',reg.user,'请输入正确的格式');
+	addCheck('passw',reg.password,'请输入正确的格式');
+	addCheck('passwt',reg.password,'请输入正确的格式');
+	addCheck('email',reg.email,'请输入正确的格式');
+	addCheck('phone',reg.phone,'请输入正确的格式');
+	addCheck('qq',reg.qq,'请输入正确的格式');
+</script>
+</html>
