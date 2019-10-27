@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		img{
+			display: block;
+			margin-top: 20px;
+		}
+	</style>
+</head>
+<body>
+	<img data-original="images/1.jpg" width="500" height="320" alt="">
+	<img data-original="images/2.jpg" width="500" height="320" alt="">
+	<img data-original="images/3.jpg" width="500" height="320" alt="">
+	<img data-original="images/4.jpg" width="500" height="320" alt="">
+	<img data-original="images/5.jpg" width="500" height="320" alt="">
+	<img data-original="images/6.jpg" width="500" height="320" alt="">
+	<img data-original="images/7.jpg" width="500" height="320" alt="">
+	<img data-original="images/8.jpg" width="500" height="320" alt="">
+	<img data-original="images/9.jpg" width="500" height="320" alt="">
+	<img data-original="images/10.jpg" width="500" height="320" alt="">
+	<img data-original="images/11.jpg" width="500" height="320" alt="">
+	<img data-original="images/12.jpg" width="500" height="320" alt="">
+	<img data-original="images/13.jpg" width="500" height="320" alt="">
+	<img data-original="images/14.jpg" width="500" height="320" alt="">
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.lazyload.min.js"></script>
+	<script type="text/javascript">
+		/*
+				使用懒加载注意事项：
+					需要进行延迟加载的图片：
+						src地址写在 自定义属性data-original里面，
+						图片要规定width属性 和 height属性
+					lazyload函数：
+						参数  effect : 图片展示出来时的效果， fadeIn 淡入  slideDown  show
+						参数  placeholder ： 未加载时，用来代替的图片路径
+						其他参数可以自己了解
+		*/
+		$('img').lazyload({
+			effect:'slideDown',
+			placeholder:'images/loading.jpg'
+		})
+	</script>
+</body>
+</html>
