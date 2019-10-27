@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<style type="text/css" id="css">
+		body{
+			background: #000;
+		}
+		#list{
+			width: 800px;
+			height: 360px;
+			box-shadow: 0 0 10px #fff;
+			margin:150px auto 0;
+			perspective: 1500px;
+		}
+		#list li{
+			width: 40px;
+			height: 360px;
+			position: relative;
+			opacity: 1;
+			transform-style: preserve-3d;
+			transform-origin: center center -180px;
+			float: left;
+		}
+		#list li a,#list li span{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+		}
+		#list li span{
+			width: 360px;
+			position: absolute;
+			height: 100%;
+		}
+		#list li a:nth-child(1){
+			left: 0;
+			top: 0;
+			background-image: url(images/1.png);
+		}
+		#list li a:nth-child(2){
+			left: 0;
+			top: -100%;
+			background-image: url(images/2.png);
+			transform-origin: bottom;
+			transform: rotateX(90deg);
+		}
+		#list li a:nth-child(3){
+			left: 0;
+			top: 0;
+			background-image: url(images/3.jpg);
+			transform: translateZ(-360px) rotateX(180deg);
+		}
+		#list li a:nth-child(4){
+			left: 0px;
+			top: 100%;
+			background-image: url(images/4.jpg);
+			transform-origin: top;
+			transform: rotateX(-90deg);
+		}
+		#list:hover li{
+			transform: rotateX(360deg);
+		}
+		#btns{
+			width:200px;
+			margin:80px auto;
+		}
+		#btns li{
+			width:40px;
+			height:40px;
+			background:#fff;
+			color:red;
+			float:left;
+			text-align:center;
+			line-height:40px;
+			font-style:italic;
+			border-radius:50%;
+			margin:0 5px;
+			font-weight:bold;
+			cursor:pointer;
+		}
+		#btns li.active{
+			background:red;
+			color:#fff;
+		}
+	</style>
+</head>
+<body>
+	<ul id="list">
+		<li>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+			<a href="javascript:;"></a>
+		</li>
+	</ul>
+	<ol id="btns">
+		<li class="active">1</li>
+		<li>2</li>
+		<li>3</li>
+		<li>4</li>
+	</ol>
+	<script type="text/javascript">
+		window.onload=function(){
+			var ul=document.querySelector('#list');
+			var css=document.querySelector('#css');
+			var btn=document.querySelectorAll('#btns li');
+			var li=ul.children;
+			var w=ul.clientWidth/document.querySelector('#list li').clientWidth*2;
+			var now=0;
+			var s='';
+			var style='';
+			var lilength=ul.clientWidth/w;
+			var index=0;
+			for (var i = 0; i < lilength; i++) {
+				i>lilength/2?index--:index++;
+				s+='<li><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a><a href="javascript:;"></a></li>';
+				style += "#list li:nth-child("+(i+1)+") a{background-position:-"+(w*i)+"px 0}";
+				style += "#list li:nth-child("+(i+1)+"){z-index:"+index+"}";
+			}
+			ul.innerHTML=s;
+			css.innerHTML+=style;
+			for (var i = 0; i < btn.length; i++) {
+				btn[i].index=i;
+				btn[i].onclick=function(){
+					btn[now].className='';
+					for (var i = 0; i < li.length; i++) {
+						li[i].style.transition="0.8s "+i*50+"ms";
+						li[i].style.transform='rotateX(-'+(this.index)*90+'deg)';
+					}
+					now=this.index;
+					btn[now].className='active';
+				}
+			}
+		}
+	</script>
+</body>
+</html>
