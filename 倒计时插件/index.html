@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+	*{ margin:0; padding:0;}
+	div{
+		overflow: hidden;
+		width: 264px;
+		margin: 300px auto;
+	}
+	p{
+		height:51px;
+		float:left;
+		line-height:51px;
+	}
+	p span{
+		display:block;
+		float:left;
+		width:36px;
+		height:51px;
+		background-image:url(images/1.png);
+		background-position:0px -1px;
+	}	
+</style>
+</head>
+<body>
+	<div>
+		<p id="hh"><span></span><span></span><b>时</b></p>
+		<p id="mm"><span></span><span></span><b>分</b></p>
+		<p id="ss"><span></span><span></span><b>秒</b></p>
+	</div>
+	<script type="text/javascript">
+		var oHH = document.getElementById('hh');
+			var oMM = document.getElementById('mm');
+			var oSS = document.getElementById('ss');
+			
+			var hSpan = oHH.getElementsByTagName('span');
+			var mSpan = oMM.getElementsByTagName('span');
+			var sSpan = oSS.getElementsByTagName('span');
+
+			countDown({
+				date : '2022/11/01 0:0:0',
+				success : function(h , m , s){
+					for (var i=0;i<2;i++ )
+					{
+						hSpan[i].style.backgroundPosition = '0px '+((-52*6)*h[i]-1)+'px';
+						mSpan[i].style.backgroundPosition = '0px '+((-52*6)*m[i]-1)+'px';
+						sSpan[i].style.backgroundPosition = '0px '+((-52*6)*s[i]-1)+'px';
+					}
+				},
+				callback : function(){
+					alert("NM$L");
+				}
+			});
+			//@动画函数(待完成)
+			/*function move(obj){
+				var x=parseInt(obj.style.backgroundPositionY);
+				var i=1;
+				var timer=setInterval(function(){
+					obj.style.backgroundPositionY=x+-52*i+'px';
+					i++;
+					if (i==6) {
+						clearInterval(timer);
+					}
+				},50);
+			}*/
+			/*@运用示例
+			countDown({
+				date : '2016-04-01 0:0:0',
+				success : function(a,b,c){
+					console.log('离愚人节还剩'+a+'小时'+b+'分钟'+c+'秒！');
+				},
+				callback : function(){
+					alert('愚人节快乐！');
+				}
+			});*/
+
+			/*
+			@说明 
+			必传属性  
+				date-字符串
+					格式 '2016-01-01 10:00:00' 或者 '2016/01/01' 或者 '2016-01-01'
+					月 日 时 分 秒 都可缺省，年份不可缺省
+			可选属性
+				success-函数
+					可以接受三形参
+					形参1 代表小时
+					形参2 代表分钟
+					形参3 代表秒
+				callback-函数
+					倒计时结束时的回调函数
+			*/
+			function countDown(json){
+				var dateStr = json.date;
+				var dateArr = dateStr.split(' ');
+				var regD = /[\/\.-]/g;
+				var regT = /:/g;
+				var aa = dateArr[0].split( regD );//年月日
+				var bb = dateArr[1]?dateArr[1].split( regT ):[];//时分秒
+				var a,b,c,d,e,f;//年月日时分秒
+				a=aa[0];b=aa[1]-1||0;c=aa[2]||1;d=bb[0]||0;e=bb[1]||0;f=bb[2]||0;
+				var targetDate = new Date(a,b,c,d,e,f);
+
+				var nowDate = new Date();
+				var DateMinus = targetDate - nowDate;
+				if ( DateMinus < 0 )
+				{
+					alert( '时间戳不能在当前时间之前' );
+					return;
+				}
+				run();
+				var timer = setInterval(run,1000);
+				function run(){
+					var nowDate = new Date();
+					var DateMinus = targetDate - nowDate;
+					var hh = parseInt( DateMinus/1000/60/60 );
+					var mm = parseInt( DateMinus/1000/60 % 60 );
+					var ss = parseInt( DateMinus/1000 % 60 );
+					hh = two(hh);
+					mm = two(mm);
+					ss = two(ss);
+					json.success&&json.success(hh,mm,ss);
+					if ( hh == 0 && mm == 0 && ss == 0 )
+					{
+						clearInterval(timer);
+						json.callback&&json.callback();
+					}
+				}
+				function two( num ){
+					return num<10?('0'+num):num+'';
+				}
+			}
+	</script>
+</body>
+</html>
