@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<style type="text/css">
+	*{
+		margin:0;
+		padding:0;
+	}
+	body{
+		background: url(images/bg.jpg) no-repeat;
+		background-size: cover;
+	}
+	#wrap{
+		width:1089px;
+		height:429px;
+		margin:160px auto;
+		overflow:hidden;
+	}
+	#wrap ul{
+		width:120%;
+	}
+	#wrap ul li{
+		list-style:none;
+		width:100px;
+		height:100%;
+		float:left;
+		cursor:pointer;
+	}
+	#wrap ul li .txt{
+		width:100px;
+		height:429px;
+		background:rgba(0,0,0,.5);
+		overflow:hidden;
+	}
+	#wrap ul li .txt p{
+		margin:180px 42px;
+		background:rgba(0,0,0,.5);
+		color:#fff;
+		font-family: 'Microsoft yahei';
+		font-size:14px;
+	}
+</style>
+<body>
+	<div id="wrap">
+		<ul>
+			<li style="background: url(images/爱丽丝.jpg); background-size: 789px 429px;">
+				<div class="txt">
+					<p>爱丽丝</p>
+				</div>
+			</li>
+			<li style="background: url(images/芙兰朵露.jpg); background-size: 789px 429px;">
+				<div class="txt">
+					<p>芙兰朵露</p>
+				</div>
+			</li>
+			<li style="background: url(images/八云蓝.jpg); background-size: 789px 429px;">
+				<div class="txt">
+					<p>八云蓝</p>
+				</div>
+			</li>
+			<li style="background: url(images/幽幽子.jpg); background-size: 789px 429px; width:789px;">
+				<div class="txt">
+					<p>幽幽子</p>
+				</div>
+			</li>
+		</ul>
+	</div>
+	<script src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+		$('#wrap>ul>li').hover(function(){
+			$(this).stop().animate({
+				width:'789px'
+			},500).siblings().stop().animate({
+				width:'100px'
+			},500);
+		});
+	</script>
+</body>
+</html>
