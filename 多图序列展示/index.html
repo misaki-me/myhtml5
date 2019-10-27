@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#wrap{
+			width: 100%;
+			height: 540px;
+			min-width: 1000px;
+			margin:20px auto;
+			position: relative;
+		}
+		#pic{
+			width: 870px;
+			height: 540px;
+			margin:0 auto;
+			position: relative;
+		}
+		#pic li{
+			-webkit-background-size: contain;
+			background-size: contain;
+			width: 870px;
+			height: 540px;
+			list-style: none;
+			position: absolute;
+			display: none;
+		}
+		#left,#right{
+			width: 32px;
+			height: 63px;
+			cursor:pointer;
+			top: 50%;
+			margin-top:-31px;
+			position: absolute;
+		}
+		#left{
+			left: -32px;
+			background: url(images/arrow.jpg) top left;
+		}
+		#right{
+			right:-32px;
+			background: url(images/arrow.jpg) top right;
+		}
+		#tab{
+			width:100%;
+			height:100px;
+			border:1px solid #ddd;
+			position:relative;
+			margin-top:20px;
+		}
+		#tab #show{
+			padding:0 30px;
+			height:100px;
+			position:relative;
+			z-index:2;
+		}
+		#tab #show div{
+			width:100%;
+			height:100px;
+			overflow:hidden;
+		}
+		#tab ul{
+			width:10000%;
+			margin-left:0;
+			position:relative;
+		}
+		#tab ul li{
+			width:120px;
+			height:75px;
+			margin:11px 15px;
+			background-size:cover;
+			float:left;
+			list-style:none;
+		}
+		#prev,#next{
+			width:30px;
+			height:100px;
+			border:1px solid #ddd;
+			font-size:30px;
+			font-weight:bold;
+			line-height:100px;
+			text-align:center;
+			cursor:pointer;
+			color:#999;
+			position:absolute;
+			top:0;
+			background:#fff;
+			z-index:3;
+		}
+		#prev{left:0;}
+		#next{right:0;}
+		#prev:hover , #next:hover{
+			background:#43A4EF;
+			color:#fff;
+		}
+		#tab li#mark{
+			width:130px;
+			height:89px;
+			background:url(images/mark.png);
+			position:absolute;
+			left:0;
+			top:0;
+			z-index:-1;
+		}
+	</style>
+</head>
+<body>
+	<div id="wrap">
+		<div id="pic">
+			<ul></ul>
+			<div id="btn">
+				<div id="left"></div>
+				<div id="right"></div>
+			</div>
+		</div>
+	</div>
+	<div id="tab">
+		<div id="prev" onselectstart='return false'>&lt;</div>
+		<div id="show">
+			<div>
+				<ul></ul>
+			</div>
+		</div>
+		<div id="next" onselectstart='return false'>&gtl;</div>
+	</div>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript">
+		(function(){
+			var picul=$('#pic ul');
+			var tabul=$('#tab  ul');
+			var picli=null;
+			var tabli=null;
+			var index=0;
+			var mark=null;
+			var next=$('#next');
+			var prev=$('#prev');
+			var left=$('#left');
+			var right=$('#right');
+			init();
+			next.click(function(){
+				var nowLeft=parseInt(tabul.css('marginLeft'));
+				var max=tabli.length*(tabli.width()+30)-($('#tab').width()-30*2);
+				nowLeft-=$('#tab').width()-30*2;
+				nowLeft=Math.max(-max,nowLeft);
+				tabul.stop().animate({
+					marginLeft:nowLeft+'px'
+				})
+			});
+			prev.click(function(){
+				var nowLeft=parseInt(tabul.css('marginLeft'));
+				var min=0;
+				nowLeft+=$('#tab').width()-30*2;
+				nowLeft=Math.min(min,nowLeft);
+				tabul.stop().animate({
+					marginLeft:nowLeft+'px'
+				})
+			});
+			tabli.click(function(){
+				picli.eq(index).fadeOut(200);
+				index=$(this).index();
+				move();
+			});
+			left.click(function(){
+				picli.eq(index).fadeOut(200);
+				index==0?index=tabli.length-1:index--;
+				move();
+			});
+			right.click(function(){
+				picli.eq(index).fadeOut(200);
+				index++;
+				index%=tabli.length;
+				move();
+			});
+			function move(){
+				mark.css({
+					left:tabli.eq(index).position().left-5+'px',
+					top:tabli.eq(index).position().top-9+'px'
+				});
+				picli.eq(index).fadeIn(200);
+				var left=-(tabli.eq(index).position().left + 20 - ($('#tab').width() - 30*2)/2);
+				var max=tabli.length*(tabli.width()+30)-($('#tab').width()-30*2);
+				var min=0;
+				left=Math.max(-max,left);
+				left=Math.min(min,left);
+				tabul.stop().animate({
+					marginLeft:left+'px'
+				});
+			};
+			function init(){
+				for (var i = 0; i < 22; i++) {
+					var li=$('<li></li>');
+					var Li=$('<li></li>');
+					picul.append(li);
+					tabul.append(Li);
+					li.css('backgroundImage','url(images/'+(i+1)+'.jpg)');
+					Li.css('backgroundImage','url(images/'+(i+1)+'.jpg)');
+				};
+				tabli=$('#tab ul li');
+				picli=$('#pic ul li');
+				tabul.append('<li id="mark"></li>');
+				mark=$('#mark');
+				picli[0].style.display='block';
+				mark.css({
+					left:tabli.eq(index).position().left-5+'px',
+					top:tabli.eq(index).position().top-9+'px',
+				});
+				}
+		})();
+	</script>
+</body>
+</html>
