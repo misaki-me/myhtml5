@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{
+	text-decoration:none;
+	color:#000;
+}
+.clearfix{
+	clear:both;
+}
+/*头部样式*/
+.t-header{
+	height:35px;
+	background:#F5F5F5;
+	width:100%;
+}
+.logo-serch{
+	margin:30px auto;
+	width:1000px;
+	position:relative;
+	height:35px;
+}
+.logo{
+	background:transparent url(images/logo.png) no-repeat -111px 0px;
+	height:45px;
+	width:181px;
+	left:0;
+	position:absolute;
+}
+.serch{
+	width:515px;
+	height:35px;
+	right:0;
+	position:absolute;
+}
+.serch #text{
+	border:3px solid #FF4200;
+	width:399px;
+	height:35px;
+	float:left;
+	outline:none;
+	text-indent:1em;
+}
+.serch #button{
+	width:110px;
+	height:41px;
+	background:#FF4200;
+	display:inline;
+	border:3px solid #FF4200;
+	color:#fff;
+	font-size:20px;
+	float:left;
+}
+/*内容样式*/
+.wrap{
+	margin-top:-50px;
+}
+#content{
+	width:1000px;
+	margin:0 auto;
+}
+.i-header{
+	margin-top:100px;
+}
+.c-title{
+	position:relative;
+	margin-top:20px;
+}
+.c-header{
+	border-bottom:2px solid #E6E6E6;
+}
+.c-header h3{
+	color:#FF4200;
+	border-bottom:2px solid #FF4200;
+	width:100px;
+	padding:10px;
+}
+.info-left{
+	left:0;
+	position:absolute;
+}
+.info-right{
+	right:0;
+	position:absolute;
+}
+.c-title span{
+	padding:50px;
+}
+.c-title .info-left span{
+	padding-left:100px;
+}
+.item{
+	margin-top:10px;
+	border:1px solid #ccc;
+	width:100%;
+	height:200px;
+	background:#FCFCFC;
+}
+.c-item{
+	padding:20px;
+}
+.item .c-item .img{
+	background:url(images/滑稽小电视.png) no-repeat -5px;
+	width:80px;
+	height:80px;
+	background-size:100px 80px;
+	display:inline-block;
+}
+.item-right{
+	float:right;
+	padding:30px;
+}
+.item-right div{
+	float:left;
+	padding:35px;
+}
+.item-right div:nth-last-child(1){
+	padding-right:0;
+}
+.item-left{
+	margin-top:50px;
+	float:left;
+}
+.minus{
+	width:15px;
+}
+.plus{
+	width:15px;
+}	
+/*尾部样式*/
+#footer{
+	width:1000px;
+	height:50px;
+	position:fixed;
+	bottom:0;
+	background:#DADADA;
+	margin:auto;
+	left:0;
+	right:0;
+}
+.right{
+	position:absolute;
+	right:0;
+	font-size:20px;
+	height:100%;
+	width:300px;
+	line-height:60px;
+}
+.right div{
+	float:right;
+	line-height:50px;
+}
+.right .buy a{
+	width:119px;
+	background:#f40;
+	color:#fff;
+	display:block;
+	text-align:center;
+	line-height:50px;
+}
+</style>
+</head>
+<body>
+<!--头部区域-->
+<div id="header">
+	<div class="t-header"></div>
+	<div class="logo-serch">
+		<div class="logo"></div>
+		<div class="serch">
+			<input id="text" type="text">
+			<input id="button" type="button" value="搜&nbsp索">
+		</div>
+	</div>	
+	
+</div>
+<!--内容区域-->
+<div class="clearfix"></div>
+<div id="content">
+	<div class="c-header">
+		<h3>全部商品</h3>
+	</div>
+	<div class="c-title">
+		<div class="info-left">
+			<input class="allselect" type="checkbox"><span style="padding:0;">全选</span>
+			<span>商品信息</span>
+		</div>
+		<div class="info-right">
+			<span>单价</span>
+			<span>数量</span>
+			<span>金额</span>
+			<span>操作</span>
+		</div>
+	</div>
+<div class="itemwrap">
+<div class="wrap">
+	<div class="i-header">
+		<input type="checkbox"><span style="font-size:13px;">店铺:NM$L官方旗舰店</span>
+	</div>
+	<div class="item">
+		<div class="c-item">
+			<div class="item-left">
+				<input class="itemcheck" style="float:left;" type="checkbox">
+				<div style="float:left;" class="img"></div>
+				<div style="float:left;width:200px;font-size:12px;margin-left:20px;">🌶️💉💧🐮🍺，开会💀🐴脸，↑班💀🐴脸。你是不是⏳️👃️啊？</div>
+			</div>
+			<div class="item-right">
+				<div class="price">￥233</div>
+				<div class="count">
+					<input type="button" class="minus" value="-">
+					<input class="number" style="width:39px;text-align:center;" type="text" value="1">
+					<input type="button" class="plus" value="+">
+				</div>
+				<div style="color:#FF4200" class="total">￥233</div>
+				<div class="option"><a href="javascript:void(0)">移入收藏夹</a><br><a class="delete" href="javascript:void(0)">删除</a></div>
+			</div>
+		</div>
+	</div>
+	</div>
+<div class="wrap">
+	<div class="i-header">
+		<input type="checkbox"><span style="font-size:13px;">店铺:NM$L官方旗舰店</span>
+	</div>
+	<div class="item">
+		<div class="c-item">
+			<div class="item-left">
+				<input class="itemcheck" style="float:left;" type="checkbox">
+				<div style="float:left;" class="img"></div>
+				<div style="float:left;width:200px;font-size:12px;margin-left:20px;">🌶️💉💧🐮🍺，开会💀🐴脸，↑班💀🐴脸。你是不是⏳️👃️啊？</div>
+			</div>
+			<div class="item-right">
+				<div class="price">￥233</div>
+				<div class="count">
+					<input type="button" class="minus" value="-">
+					<input class="number" style="width:39px;text-align:center;" type="text" value="1">
+					<input type="button" class="plus" value="+">
+				</div>
+				<div style="color:#FF4200" class="total">￥233</div>
+				<div class="option"><a href="javascript:void(0)">移入收藏夹</a><br><a class="delete" href="javascript:void(0)">删除</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="wrap">
+	<div class="i-header">
+		<input type="checkbox"><span style="font-size:13px;">店铺:NM$L官方旗舰店</span>
+	</div>
+	<div class="item">
+		<div class="c-item">
+			<div class="item-left">
+				<input class="itemcheck" style="float:left;" type="checkbox">
+				<div style="float:left;" class="img"></div>
+				<div style="float:left;width:200px;font-size:12px;margin-left:20px;">🌶️💉💧🐮🍺，开会💀🐴脸，↑班💀🐴脸。你是不是⏳️👃️啊？</div>
+			</div>
+			<div class="item-right">
+				<div class="price">￥233</div>
+				<div class="count">
+					<input type="button" value="-" class="minus">
+					<input class="number" style="width:39px;text-align:center;" type="text" value="1">
+					<input type="button" class="plus" value="+">
+				</div>
+				<div style="color:#FF4200" class="total">￥233</div>
+				<div class="option"><a href="javascript:void(0)">移入收藏夹</a><br><a class="delete" href="javascript:void(0)">删除</a></div>
+			</div>
+		</div>
+	</div>
+</div>
+</div>
+</div>
+<!--尾部区域-->
+<div id="footer">
+	<div class="right">
+		<div class="buy">
+			<a href="javascript:void(0)">结&nbsp;算</a>
+		</div>
+		<div style="padding:0 10px;">
+			<span class="Total" style="font-size:25px;color:#FF4200;">0</span>
+		</div>
+		<div>
+			<span>合计:￥</span>
+		</div>
+	</div>
+</div>
+</body>
+<script src="js/jquery-1.12.1.min.js"></script>
+<script>
+	//加
+	$(".minus").on("click",function(){
+		var $input=$(this).next();
+		var val=$input.val()*1;
+		if(val<=1)return;
+		--val;
+		$input.val(val);
+		getTotal();
+	});
+	//减
+	$(".plus").on("click",function(){
+		var $input=$(this).prev();
+		var val=$input.val()*1;
+		++val;
+		$input.val(val);
+		getTotal();
+	});
+	//删除
+	$(".delete").on("click",function(){
+		var $parents=$(this).parents(".wrap");
+		$parents.fadeOut("slow",function(){
+			$(this).remove();
+			getTotal();
+		});
+	});
+	//计算总价
+	function conuntPrice(){
+		var total=0;
+		$(".wrap").each(function(){
+			var mark=$(this).find(".itemcheck").prop("checked");
+			if(mark){
+				var val=$(this).find(".number").val();
+				var price=$(this).find(".total").text().substring(1)*1;
+				var cp=val*price*1;
+				total+=cp;
+				
+			}
+		});
+		return total;
+		
+	};
+	function getTotal(){
+		$(".Total").text(+conuntPrice());
+	}
+//选择事件
+	$(".allselect").on("click",function(){
+		var mark=$('.allselect').prop('checked');
+		if (mark) {
+			$(".itemwrap :checkbox").prop("checked",true);
+		}else{
+			$(".itemwrap :checkbox").prop("checked",false);
+		}
+		getTotal();
+	});
+	
+	$(".wrap .i-header input").on("click",function(){
+		var mark=$(this).prop('checked');
+		if(mark){
+			$(this).parents(".wrap").find(".itemcheck").prop("checked",true);
+			getTotal();
+		}else{
+			$(this).parents(".wrap").find(".itemcheck").prop("checked",false);
+			getTotal();
+		}
+	});
+	//获取除全选以外的所有复选框
+	$(".itemwrap").find(':checkbox').click(function(){
+		//获取除全选以外的所有复选框的个数
+		var length1=$(".itemwrap").find(':checkbox').length;
+		//获取除全选以外的所有选中的复选框个数
+		var length2=$(".itemwrap").find(':checked').length;
+		//二者比较,如果相同,让最上面的复选框选中,否则不选中
+		if (length1==length2) {
+				$('.allselect').prop('checked',true)
+			}else{
+				$('.allselect').prop('checked',false)
+			}
+	});
+</script>
+</html>
