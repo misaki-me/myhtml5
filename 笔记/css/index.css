@@ -1,0 +1,161 @@
+/*全局样式*/
+*{
+	margin:0;padding:0;
+}
+ul li{
+	list-style:none;
+}
+a img{
+	border:none;
+}
+a{
+	text-decoration:none;
+}
+.clear{
+	clear:both;
+}
+/*html{overflow-y:hidden;}*/
+body{
+	font-size:20px;
+	font-family:"微软雅黑";
+	background: #E6E6E6;
+}
+/*头部样式*/
+#header{
+	height: 64px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	border-bottom: 1px solid #C6C6C6;
+	z-index: 2;
+	background: #fff;
+}
+/*导航栏样式*/
+.nav{
+	width:201px;
+	height:100%;
+	background:#fff;
+	position: relative;
+	left: 0;
+	top: 64px;
+	overflow: hidden;
+	z-index: 999;
+}
+.iconfont{
+	font-size:25px;
+}
+.icon-css{
+	/*position: absolute;
+	top: 3px;
+	left: 50px;*/
+	display: inline-block;
+	padding-top:3px;
+	height: 25px;
+}
+.nav ul{
+	height: 100%;
+	overflow-x: hidden;
+	overflow-y: auto;
+	position: fixed;
+	left: -222px;
+}
+.nav ul li{
+	list-style:none;
+	width:200px;
+	border-top:1px solid #C6C6C6;
+	border-right:1px solid #C6C6C6;
+	transition:all 1s ease;
+	position:relative;
+	overflow:hidden;
+	background: #fff;
+}
+.nav ul li:nth-last-child(1){
+	border-bottom:1px solid #C6C6C6;
+}
+.nav ul li div{
+	font-size:20px;
+	text-align:center;
+	display:block;
+	height: 45px;
+	line-height:45px;
+	position: relative;
+	 z-index:1;
+	 cursor: pointer;
+	}
+.nav ul li:hover{
+	transition:all 1s ease;
+}
+.nav ul li span{
+	width:280px;
+	height:45px;
+	display:block;
+	background:#27a993;
+	position: absolute;
+	left:280px;top:0;
+	border-bottom:2px solid #C6C6C6;
+	}
+.nav ul li:hover span{
+	position:absolute;
+	left:0;
+	transition:all 0.6s ease;
+	}
+.left{
+	padding-left: 24px;
+	padding-top: 20px;
+	float: left;
+}
+.icon-daohang{
+	width: 40px;
+	height: 40px;
+	cursor: pointer;
+	font-size: 30px
+}
+.icon-sousuo{
+	width: 24px;
+	height: 24px;
+	font-size: 24px;
+	float: left;
+	padding-left: 30px;
+	color:#ccc;
+	cursor: pointer;
+}
+.search{
+	border-right: 1px solid #ccc;
+	width: 200px;
+	height: 45px;
+	line-height: 45px;
+	padding: 5px 0;
+	background: #fff;
+}
+.search input{
+	padding-left: 10px;
+	padding-top: 13px;
+	float: left;
+	border: 0;
+	outline: none;
+	height: 20px;
+	font-size: 16px;
+	width: 100px;
+}
+#content{
+	/*position: relative;*/
+	
+}
+/*内容样式*/
+.section{
+	background: #fff;
+	width: 1160px;
+	border: 1px solid #C6C6C6;
+	margin:0px auto;
+	transform: translate(0,100px);
+	border-radius: 3px;
+	padding:50px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	display: none;
+}
+.section h1{
+	text-align: center;
+}
+/*尾部样式*/
