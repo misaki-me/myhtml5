@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+/*头部样式*/
+
+/*内容样式*/
+	body{background:#333;}
+	.ball{width:500px;height:500px;margin:100px auto;}
+	.ball .ball-cube{width:500px;height:500px;transform-style:preserve-3d;transform:rotate(-20deg) rotateX(-20deg) rotateY(0deg);animation:ball 20s linear infinite;}
+	@keyframes ball{
+		from{transform:rotate(-20deg) rotateX(-20deg) rotateY(0deg);}
+		to{transform:rotate(-20deg) rotateX(-20deg) rotateY(360deg);}
+	}
+	.ball .ball-cube div{width:500px;height:500px;border:1px solid #ccc;border-radius:50%;position:absolute;left:0;top:0;}
+	.ball-cube div:nth-child(1){transform:rotateY(0deg);}
+	.ball-cube div:nth-child(2){transform:rotateY(20deg);}
+	.ball-cube div:nth-child(3){transform:rotateY(40deg);}
+	.ball-cube div:nth-child(4){transform:rotateY(60deg);}
+	.ball-cube div:nth-child(5){transform:rotateY(80deg);}
+	.ball-cube div:nth-child(6){transform:rotateY(100deg);}
+	.ball-cube div:nth-child(7){transform:rotateY(120deg);}
+	.ball-cube div:nth-child(8){transform:rotateY(140deg);}
+	.ball-cube div:nth-child(9){transform:rotateY(160deg);}
+	.ball-cube div:nth-child(10){transform:rotateX(90deg) translateZ(200px) scale(0.6);}
+	.ball-cube div:nth-child(11){transform:rotateX(90deg) translateZ(150px) scale(0.8);}
+	.ball-cube div:nth-child(12){transform:rotateX(90deg) translateZ(100px) scale(0.92);}
+	.ball-cube div:nth-child(13){transform:rotateX(90deg) translateZ(50px) scale(0.98);}
+	.ball-cube div:nth-child(14){transform:rotateX(90deg) translateZ(0px);}
+	.ball-cube div:nth-child(15){transform:rotateX(90deg) translateZ(-50px) scale(0.98);}
+	.ball-cube div:nth-child(16){transform:rotateX(90deg) translateZ(-100px) scale(0.92);}
+	.ball-cube div:nth-child(17){transform:rotateX(90deg) translateZ(-150px) scale(0.8);}
+	.ball-cube div:nth-child(18){transform:rotateX(90deg) translateZ(-200px) scale(0.6);}
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<!--头部区域-->
+
+<!--内容区域-->
+<div class="ball">
+	<div class="ball-cube">
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>	
+</div>
+<!--尾部区域-->
+
+</body>
+<script>
+
+</script>
+</html>
