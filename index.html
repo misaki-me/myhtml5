@@ -21,6 +21,7 @@
 	<script type="text/javascript" class="move">
 		move(50);
 	</script>
+	<canvas id="can" width="2560" height="1080"></canvas>
 	<div id="wrap">
 		<ul id="main"></ul>
 		<ul id="styleBtn">
@@ -42,11 +43,9 @@
 <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
 <script type="text/javascript" src="js/data.js"></script>
 <script type="text/javascript">
-	if (screen.width>screen.height) {
-		//pc端
+	if (screen.width>screen.height) {//pc端
 		document.write('<script type="text/javascript" src="js/index.js"><\/script>');
-	}else{
-		//移动端
+	}else{//移动端
 		document.write('<script type="text/javascript" src="js/m.index.js"><\/script>');
 	}
 </script>
