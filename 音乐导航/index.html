@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		#nav{
+			width: 100%;
+			height: 56px;
+			background:url(images/topbg1.jpg) no-repeat top center;
+			margin-top: 100px;
+		}
+		#nav ul{
+			width: 700px;
+			height: 56px;
+			margin: 0 auto;
+		}
+		#nav ul li{
+			list-style: none;
+			float: left;
+			width: 100px;
+			height: 56px;
+			font-size: 16px;
+			color:#fff;
+			font-family: '微软雅黑';
+			text-align: center;
+			line-height: 56px;
+			cursor:pointer;
+			position: relative;
+		}
+		#nav ul li a{
+			color:#fff;
+			text-decoration: none;
+			width: 100%;
+			height: 56px;
+			display: block;
+			z-index: 4;
+		}
+		#nav ul li span{
+			background: rgba(0,0,0,.2);
+			width: 100%;
+			display: block;
+			position: absolute;
+			top: 0;
+			left: 0;
+			z-index: 3;
+		}
+	</style>
+</head>
+<body>
+	<div id="nav">
+		<ul>
+			<li dataSrc='do'>
+				<a href="#">音乐库</a>
+				<span></span>
+			</li>
+			<li dataSrc='re'>
+				<a href="#">歌手库</a>
+				<span></span>
+			</li>
+			<li dataSrc='mi'>
+				<a href="#">图库</a>
+				<span></span>
+			</li>
+			<li dataSrc='fa'>
+				<a href="#">歌词</a>
+				<span></span>
+			</li>
+			<li dataSrc='sol'>
+				<a href="#">直播</a>
+				<span></span>
+			</li>
+			<li dataSrc='la'>
+				<a href="#">网页播放器</a>
+				<span></span>
+			</li>
+			<li dataSrc='si'>
+				<a href="#">下载KTV</a>
+				<span></span>
+			</li>
+		</ul>
+	</div>
+	<div style="display: none;">
+		<video src="audio/do.mp3" id="music"></video>
+	</div>
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		$('#nav ul li').hover(function(){
+			$(this).find('span').animate({
+				height:'56px'
+			},200);
+			var src=$(this).attr('dataSrc');
+			$('#music').get(0).src='audio/'+src+'.mp3';
+			document.querySelector('#music').get(0).play();
+		},function(){
+			$(this).find('span').animate({
+				height:'0px'
+			},200)
+		})
+
+	</script>
+</body>
+</html>
