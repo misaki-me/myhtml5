@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+ <head>
+<meta charset="UTF-8">
+<meta name="Generator" content="EditPlus®">
+<meta name="Author" content="">
+<meta name="Keywords" content="">
+<meta name="Description" content="">
+<title>Document</title>
+<style>
+/*全局样式*/
+*{margin:0;padding:0;}
+ul li{list-style:none;}
+a img{border:none;}
+a{text-decoration:none;}
+clear{clear:both;}
+	body{background:black;}
+/*头部样式*/
+
+/*内容样式*/
+	#box{width:300px;height:300px;margin:100px auto;position:relative;}
+	#ball,#ball2{position:absolute;top:0;left:0;width:15px;height:15px;background: #000;}
+/*尾部样式*/
+
+</style>
+</head>
+<body>
+<div id="box">
+	<div id="ball"></div>	
+	<div id="ball2"></div>
+</div>
+</body>
+<script>
+window.onload=function(){
+	var ballDom=document.getElementById('ball');
+	var ballDom2=document.getElementById('ball2');
+	var angle=0;
+	var speed=changeAngle(3);
+	var arr=[];
+	var arr2=[];
+	function draw(){
+		angle+=speed;
+		var cleft=150+Math.cos(angle)*150;//1 0 -1 0
+		var ctop=150+Math.sin(angle)*150;//0 1 0 -1
+		var cleft2=150+Math.sin(angle)*150;//1 0 -1 0
+		var ctop2=150+Math.cos(angle)*150;//0 1 0 -1
+		ballDom.style.left=cleft+'px';
+		ballDom.style.top=ctop+'px';
+		ballDom.style.background=getRgb16();
+		
+		ballDom2.style.left=cleft2+'px';
+		ballDom2.style.top=ctop2+'px';
+		ballDom2.style.background=getRgb16();
+		weiba(arr2,ballDom2,30);
+		weiba(arr,ballDom,30);
+	}
+	function weiba(arr,dom,num){
+		var ndiv=document.createElement('div');
+		ndiv.style.width='4px';
+		ndiv.style.height='4px';
+		ndiv.style.background=getRgb16();
+		ndiv.style.position='absolute';
+		ndiv.style.left=dom.offsetLeft+'px';
+		ndiv.style.top=dom.offsetTop+'px';
+		document.getElementById('box').appendChild(ndiv);
+		arr.push(ndiv);
+		if(arr.length>num){
+			var divd=arr.shift();
+			document.getElementById('box').removeChild(divd);
+		}
+	}
+	setInterval(function(){
+		draw();
+	},30);
+	function changeAngle(jiaodu){
+		return jiaodu*Math.PI/180;
+	}
+	function getRgb16(){
+		var r=tRandom(256).toString(16);
+		var g=tRandom(256).toString(16);
+		var b=tRandom(256).toString(16);
+		if(r.length<2)r=r+''+r;
+		if(g.length<2)g=g+''+g;
+		if(b.length<2)b=b+''+b;
+		return '#'+r+''+g+''+b;
+	}
+	function tRandom(start){
+		return Math.floor(Math.random()*start);
+	}
+};
+</script>
+</html>
