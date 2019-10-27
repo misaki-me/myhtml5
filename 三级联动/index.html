@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		h1{
+			color:red;
+			text-align: center;
+			margin:50px 0;
+		}
+		body{
+			text-align: center;
+			background: #EDEDED;
+		}
+		select{
+			margin:0 auto;
+			border: 1px solid orange;
+		}
+	</style>
+</head>
+<body>
+	<h1>全国城市三级联动</h1>
+	<select name="" id="sheng">
+		<option value="0">省</option>
+	</select>
+	<select name="" id="shi">
+		<option value="0">市</option>
+	</select>
+	<select name="" id="xian">
+		<option value="0">县</option>
+	</select>
+	<script type="text/javascript" src="js/jquery-1.12.1.min.js"></script>
+	<script type="text/javascript" src="js/areaData.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			var Sheng=areaData.sheng;
+			var sheng=$('#sheng');
+			var shi=$('#shi');
+			var xian=$('#xian');
+			var sindex=0;
+			for (var i = 0; i < Sheng.length; i++) {
+				var option=$('<option value='+(i+1)+'>'+Sheng[i]+'</option>');
+				sheng.append(option);
+			}
+			sheng.change(function(){
+				// 辨别你选中的是第几个
+				sindex=this.selectedIndex-1;
+				if (sindex<0) {
+
+				}else{
+					var Shi=areaData.shi['a_'+sindex];
+					shi.html('<option value="0">市</option>');
+					xian.html('<option value="0">县</option>');
+					for (var i = 0; i < Shi.length; i++) {
+						var option=$('<option value='+ (i+1) +'>'+ Shi[i] +'</option>');
+						shi.append(option);
+					}
+				}
+			});
+			shi.change(function(){
+				// 辨别你选中的是第几个
+				var index=this.selectedIndex-1;
+				if (index<0) {
+
+				}else{
+					var Xian=areaData.xian['a_'+sindex+'_'+index];
+					xian.html('<option value="0">县</option>');
+					for (var i = 0; i < Xian.length; i++) {
+						var option=$('<option value='+ (i+1) +'>'+ Xian[i] +'</option>');
+						xian.append(option);
+					}
+				}
+			});
+		})
+	</script>
+</body>
+</html>
