@@ -73,9 +73,6 @@
 	#styleBtn{
 		width: 70%;
 		height: 40px;
-		/*position: absolute;
-		top:12%;
-		left:15%;*/
 		margin:7% auto;
 		transform: scale(1.5);
 		opacity: 0;
