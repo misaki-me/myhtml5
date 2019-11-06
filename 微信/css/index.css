@@ -6,7 +6,7 @@ a{text-decoration:none;}
 .clear{clear:both;}
 /*头部样式*/
 body{
-	background:url(images/wx.jpg) repeat-x;
+	background:url(../images/wx.jpg) repeat-x;
 }
 .logo img{
 	float:left;
@@ -31,16 +31,16 @@ body{
 	padding-left:15px;
 }
 .nav ul li:nth-child(1) a{
-	background:url(images/to.png) no-repeat;
+	background:url(../images/to.png) no-repeat;
 }
 .nav ul li:nth-child(1) a span{
-	background:url(images/to.png) no-repeat right center;
+	background:url(../images/to.png) no-repeat right center;
 }
 .nav li a:hover{
-	background:url(images/ao.png);
+	background:url(../images/ao.png);
 }
 .nav li a:hover span{
-	background:url(images/ao.png) no-repeat right center;
+	background:url(../images/ao.png) no-repeat right center;
 }
 .nav li a span{
 	display:block;
