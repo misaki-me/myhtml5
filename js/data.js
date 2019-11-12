@@ -50,7 +50,7 @@ window.data=[
 		{title:'日历',date:"2019.10.24",src:'日历插件/index.html',images:'',details:'日历插件'},
 		{title:'选购',date:"2019.10.24",src:'商品选购页面/index.html',images:'',details:'商品选购页面'},
 		{title:'音乐',date:"2019.10.24",src:'音乐导航栏/index.html',images:'',details:'音乐导航栏'},
-		{title:'屑',date:"2019.10.15",src:'吸顶盒/index.html',images:'',details:'吸顶盒'},
+		{title:'表白',date:"2019.11.12",src:'表白/index.html',images:'',details:'表白'},
 		{title:'屑',date:"2019.10.15",src:'吸顶盒/index.html',images:'',details:'吸顶盒'},
 		{title:'屑',date:"2019.10.15",src:'吸顶盒/index.html',images:'',details:'吸顶盒'},
 		{title:'屑',date:"2019.10.15",src:'吸顶盒/index.html',images:'',details:'吸顶盒'},
