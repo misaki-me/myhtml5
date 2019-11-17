@@ -10,6 +10,7 @@
 		height: 100%;
 		overflow: hidden;
 		perspective: 800px;
+		background: no-repeat linear-gradient(to bottom, rgba(0,127,127,1) 0%, #000 100%);
 	}
 	#wrap{
 		/*background:#023b3b url(../images/bg.png) center no-repeat;*/
@@ -174,6 +175,7 @@
 		z-index: 999;
 	}
 	#progress p{
+		/*width: 500px;*/
 		height: 40px;
 		background: #ccc;
 		color: #300;
